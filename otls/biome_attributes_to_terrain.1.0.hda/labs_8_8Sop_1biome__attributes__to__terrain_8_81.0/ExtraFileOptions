@@ -1,7 +1,47 @@
 {
+	"OnCreated/Cursor":{
+		"type":"intarray",
+		"value":[9,15]
+	},
+	"OnCreated/IsExpr":{
+		"type":"bool",
+		"value":false
+	},
+	"OnCreated/IsPython":{
+		"type":"bool",
+		"value":true
+	},
+	"OnCreated/IsScript":{
+		"type":"bool",
+		"value":true
+	},
+	"OnCreated/Source":{
+		"type":"string",
+		"value":""
+	},
+	"OnInputChanged/Cursor":{
+		"type":"intarray",
+		"value":[15,38]
+	},
+	"OnInputChanged/IsExpr":{
+		"type":"bool",
+		"value":false
+	},
+	"OnInputChanged/IsPython":{
+		"type":"bool",
+		"value":true
+	},
+	"OnInputChanged/IsScript":{
+		"type":"bool",
+		"value":true
+	},
+	"OnInputChanged/Source":{
+		"type":"string",
+		"value":""
+	},
 	"PythonModule/Cursor":{
 		"type":"intarray",
-		"value":[7,1]
+		"value":[18,1]
 	},
 	"PythonModule/IsExpr":{
 		"type":"bool",

@@ -1,7 +1,7 @@
 {
 	"OnCreated/Cursor":{
 		"type":"intarray",
-		"value":[69,12]
+		"value":[3,16]
 	},
 	"OnCreated/IsExpr":{
 		"type":"bool",
@@ -21,7 +21,7 @@
 	},
 	"PythonModule/Cursor":{
 		"type":"intarray",
-		"value":[57,28]
+		"value":[268,13]
 	},
 	"PythonModule/IsExpr":{
 		"type":"bool",

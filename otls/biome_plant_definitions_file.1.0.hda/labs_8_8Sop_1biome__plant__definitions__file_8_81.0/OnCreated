@@ -16,6 +16,9 @@ def readJson(file_path):
 #check if file exists, if not, write it
 file_path = kwargs['node'].parm('librarypath').eval()
 
+if not os.path.exists(os.path.dirname(file_path)):
+        os.makedirs(os.path.dirname(file_path))
+
 if not os.path.exists(file_path):
     writeJson('', file_path)
 else: 

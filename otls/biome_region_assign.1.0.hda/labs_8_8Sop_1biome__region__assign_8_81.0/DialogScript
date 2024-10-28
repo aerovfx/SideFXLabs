@@ -15,6 +15,7 @@
     inputlabel	3	"Terrain Size Reference"
     parmtag { inputisref3 1 }
     inputlabel	4	"Sub-Network Input #4"
+    outputlabel	1	"Biome Regions"
     outputlabel	2	"Biome Regions"
 
     parm {

@@ -1,0 +1,21 @@
+def backToOne():
+    node = kwargs['node']
+    parm = node.parm('defaultswitch')
+    
+    old_toggle = str(node.userData("old_toggle"))
+    node.setUserData('new_toggle', str(parm.eval()))
+    new_toggle = node.userData('new_toggle')
+    
+    if (old_toggle == "None"):
+        #create old data
+        node.setUserData("old_toggle", node.userData("new_toggle"))
+        return
+    
+    if int(new_toggle) < int(old_toggle):
+        node.parm('usedefault').set(1)
+    #create old data
+    node.setUserData("old_toggle", node.userData("new_toggle"))
+    return
+        
+if kwargs["input_index"] == 0:
+    backToOne()

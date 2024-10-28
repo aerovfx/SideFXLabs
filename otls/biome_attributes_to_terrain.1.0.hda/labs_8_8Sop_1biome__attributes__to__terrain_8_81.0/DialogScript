@@ -14,6 +14,7 @@
     inputlabel	3	"Biome Regions"
     inputlabel	4	"No Soil Zones"
     inputlabel	5	"Water Zones"
+    outputlabel	1	"Terrain with Biome Attribute Layers"
 
     parm {
         name    "display"
@@ -155,30 +156,71 @@
         label   "Default Attributes"
 
         parm {
-            name    "biomecolor"
-            label   "Color"
-            type    color
-            size    3
-            default { "1" "1" "1" }
-            range   { 0 1 }
+            name    "defaultswitch"
+            label   "Hide Toggle when no layers"
+            type    integer
+            invisible
+            default { "detail('check_if_layer','_bat_defaultswitch',0)" }
+            range   { 0 10 }
+            parmtag { "export_disable" "1" }
+            parmtag { "script_callback" "" }
             parmtag { "script_callback_language" "python" }
+            parmtag { "units" "" }
         }
         parm {
-            name    "temperature"
-            label   "Temperature"
-            type    float
-            default { "14" }
-            range   { -10 33 }
+            name    "usedefault"
+            label   "Background"
+            type    ordinal
+            default { "1" }
+            disablewhen "{ defaultswitch == 1 }"
+            menu usetokenvalue {
+                "0" "Transparent"
+                "1" "Fill"
+            }
+            parmtag { "script_callback" "" }
             parmtag { "script_callback_language" "python" }
         }
-        parm {
-            name    "precipitation"
-            label   "Precipitation"
-            type    float
-            default { "700" }
-            range   { 10 4300 }
-            parmtag { "script_callback_language" "python" }
+        groupsimple {
+            name    "fd_default"
+            label   "DEFAULTATTRIBUTES"
+            disablewhen "{ usedefault == 0 }"
+            grouptag { "sidefx::look" "blank" }
+
+            parm {
+                name    "biomecolor"
+                label   "Color"
+                type    color
+                size    3
+                default { "1" "1" "1" }
+                range   { 0 1 }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "temperature"
+                label   "Temperature"
+                type    float
+                default { "14" }
+                range   { -10 33 }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "precipitation"
+                label   "Precipitation"
+                type    float
+                default { "700" }
+                range   { 10 4300 }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "soil"
+                label   "Soil"
+                type    toggle
+                default { "1" }
+                range   { 0! 1! }
+                parmtag { "script_callback_language" "python" }
+            }
         }
+
     }
 
     group {

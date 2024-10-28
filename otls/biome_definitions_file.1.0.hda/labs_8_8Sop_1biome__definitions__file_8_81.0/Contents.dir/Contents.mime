@@ -32,29 +32,28 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -47.4557 82.3782
-connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+position -40.4723 62.3228
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-1 "output1"
 }
 inputsNamed3
 {
-0 	Deciduous_Forest 1 1 "input1"
+0 	biome_define1 0 1 "input1"
 }
 inputs
 {
-0 	Deciduous_Forest 0 1
+0 	biome_define1 0 1
 }
 stat
 {
   create -1
   modify -1
-  author Bailey@BaileysPC
+  author youmnas@pubnico
   access 0777
 }
-color UT_Color RGB 0.8 0.8 0.8 
+color UT_Color RGB 0.71 0.518 0.004 
 delscript ""
 exprlanguage hscript
 end
@@ -722,10 +721,10 @@ Content-Disposition: attachment; filename="hdaroot/point_create.inp"
 Content-Type: text/plain
 
 4
-0 -13.53245049823189 154.40238868983698 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
-1 -11.332450523563866 154.40238868983698 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
-2 -9.1324505488958376 154.40238868983698 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
-3 -6.9324505742278113 154.40238868983698 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+0 -13.53245049823189 155.29658868983699 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+1 -11.332450523563866 155.29658868983699 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+2 -9.1324505488958376 155.29658868983699 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+3 -6.9324505742278113 155.29658868983699 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/point_create/IN.init"
@@ -740,7 +739,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -13.4851 152.888
+position -13.4851 153.782
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload on savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -801,7 +800,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -13.4851 149.795
+position -13.4851 150.689
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload on savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -809,11 +808,11 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	Coniferous_Forest 1 1 "input1"
+0 	IN 1 1 "input1"
 }
 inputs
 {
-0 	Coniferous_Forest 0 1
+0 	IN 0 1
 }
 stat
 {
@@ -848,81 +847,12 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/point_create/Coniferous_Forest.init"
-Content-Type: text/plain
-
-type = labs::biome_define::1.0
-matchesdef = 1
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/point_create/Coniferous_Forest.def"
-Content-Type: text/plain
-
-sopflags sopflags = 
-comment ""
-position -13.4851 151.994
-connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
-outputsNamed3
-{
-1 "output1"
-}
-inputsNamed3
-{
-0 	IN 1 1 "input1"
-}
-inputs
-{
-0 	IN 0 1
-}
-stat
-{
-  create -1
-  modify -1
-  author Bailey@BaileysPC
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/point_create/Coniferous_Forest.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-fd_biomesettings	[ 0	locks=0 ]	(	0	)
-biomename	[ 0	locks=0 ]	(	Coniferous_Forest	)
-biomecolor	[ 0	locks=0 ]	(	0	1	0	)
-fd_temperature	[ 0	locks=0 ]	(	0	)
-tempaverage	[ 0	locks=0 ]	(	17	)
-fd_precipitation	[ 0	locks=0 ]	(	0	)
-precaverage	[ 0	locks=0 ]	(	715	)
-fd_tags	[ 0	locks=0 ]	(	0	)
-soil	[ 0	locks=0 ]	(	"on"	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/point_create/Coniferous_Forest.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":""
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/point_create.order"
 Content-Type: text/plain
 
-3
+2
 IN
 output0
-Coniferous_Forest
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/point_create.net"

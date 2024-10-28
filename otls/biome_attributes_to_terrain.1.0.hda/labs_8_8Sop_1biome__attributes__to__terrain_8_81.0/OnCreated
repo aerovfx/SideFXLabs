@@ -1,0 +1,9 @@
+node = kwargs['node']
+seed = 6173*node.sessionId()+4139;
+
+colorr = node.parm("biomecolor"+"r")
+colorg = node.parm("biomecolor"+"g")
+colorb = node.parm("biomecolor"+"b")
+colorr.set(hou.hmath.rand(seed*51))
+colorg.set(hou.hmath.rand(seed*152))
+colorb.set(hou.hmath.rand(seed*60))

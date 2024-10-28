@@ -64,11 +64,14 @@ def readJson(file_path):
 #check if file already exists, if not, write it
 file_path = kwargs['node'].parm('librarypath').eval()
 
+if not os.path.exists(os.path.dirname(file_path)):
+        os.makedirs(os.path.dirname(file_path))
+
 if not os.path.exists(file_path):
     writeJson('', file_path)
     if not os.path.exists(file_path[:len(file_path)-5]+"_default.json") :
         writeJson(txt, file_path[:len(file_path)-5]+"_default.json")
-        print("Created a default biome library "+ file_path[:len(file_path)-5]+"default.json")    
+        print("Created a default biome library "+ file_path[:len(file_path)-5]+"_default.json")    
 else:
     readJson(file_path)
 

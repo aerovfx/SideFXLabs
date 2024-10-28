@@ -263,6 +263,10 @@ def saveToDisk(node):
     geo = node.node('get_geo')
     if len(geo.geometry().points()):     
         # save to file depending on extension
+        
+        if not os.path.exists(os.path.dirname(file_path)):
+            os.makedirs(os.path.dirname(file_path))
+        
         if file_path.endswith('.json'):
             if file_path == ".json":
                 print("Library path is empty")

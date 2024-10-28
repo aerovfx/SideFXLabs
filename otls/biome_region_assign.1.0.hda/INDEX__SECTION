@@ -1,7 +1,7 @@
 Operator:     labs::biome_region_assign::1.0
-Label:        Labs Biome Region Assign (Alpha)
+Label:        Labs Biome Region Assign
 Path:         oplib:/labs::Sop/biome_region_assign::1.0?labs::Sop/biome_region_assign::1.0
-Icon:         C:/SideFX SSD/GitHub/SideFXLabs/help/icons/sidefx_labs_alpha.svg
+Icon:         opdef:/labs::Sop/biome_attributes_to_terrain::1.0?IconSVG
 Table:        Sop
 License:      
 Extra:        guide=GUIDE inputcolors='2 "RGB 0.839 0.839 0.839" "RGB 0.700195 0.700195 0.700195" ' outputcolors='1 "RGB 0.145 0.667 0.557" ' 
@@ -10,5 +10,5 @@ Inputs:       1 to 2
 Subnet:       true
 Python:       false
 Empty:        false
-Modified:     Fri Oct 11 02:42:43 2024
+Modified:     Mon Oct 21 14:22:43 2024
 

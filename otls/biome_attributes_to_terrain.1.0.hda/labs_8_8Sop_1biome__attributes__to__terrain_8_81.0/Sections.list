@@ -9,4 +9,6 @@ Tools.shelf	Tools.shelf
 MessageNodes	MessageNodes
 IconSVG	IconSVG
 PythonModule	PythonModule
+OnCreated	OnCreated
+OnInputChanged	OnInputChanged
 ExtraFileOptions	ExtraFileOptions
