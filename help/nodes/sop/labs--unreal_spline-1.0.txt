@@ -1,0 +1,94 @@
+#type:     node
+#context:  sop
+#internal: labs::unreal_spline::1.0
+#icon:     SOP/labs::unreal_spline::1.0
+#since:    20.0
+
+= Unreal Spline (Beta) =
+
+"""Takes a curve and turns it into an Unreal Spline, it can import and export multiple splines."""
+
+This node exports curve data as a json file which you can use to create spline components inside a blueprint asset or through spawning multiple blueprint actors, each containing one spline component. Afterwards, you can export from Unreal any edits you made to your splines and import them back into Houdini. The json data contains: position, tangent, scale, roll and tags.
+Make sure the SideFX_Labs folder is in your Unreal project Plugins folder so you can use the scripted actions to import and export the splines. Create a blueprint, add one spline component and turn ON "Override Construction Script" on the spline so you can edit in the level. Now you can right click on the blueprint asset, go to scripted asset actions, "Import / Export Spline", specify the spline file path and hit Ok. You have extra options to write the spline data to the blueprint itself rather than spawning it multiple times in the level, and you can export the spline data from the blueprint. You can also select multiple blueprints in the level containing multiple spline components and right click in the outliner, scripted actor actions, export spline actors.
+
+
+@parameters
+
+    == File ==
+
+    Export:
+        #id: export
+    Exports an Unreal spline json file.
+        
+    Import:
+        #id: import_spline
+    Imports an Unreal spline from a json file.
+        
+    File Path:
+        #id: file_export_spline
+    The file path to export spline.
+        
+    Tag Primitive Numbers:
+        #id: prim_tags
+    Per primitive array string that can hold multiple tags, by default the tag will be the spline primitive number.
+        
+    Visualize Spline:
+        #id: visualize_geo
+    Visualize the spline using different modes, however, this does not affect the data output.
+        
+    === Visualize ===
+
+    Mode:
+        #id: mode
+        
+        arrow:
+            
+        box:
+            
+        sweep:
+            
+        spline:
+            
+    Handles:
+        #id: handles
+        
+    Scale:
+        #id: s
+        
+    Resample:
+        #id: resample
+        
+    Unreal Engine Content Plugin and Guides:
+        #id: openunrealshaderpath
+    Find the SideFX_Labs folder, copy and paste it into your unreal project plugins folder with the correct Unreal version so you can use the scripted actions to import and export your splines.
+        
+    == Scale And Rotation ==
+
+    Global Scale:
+        #id: global_scale
+    Changes the scale for all points.
+        
+    Ramp Scale:
+        #id: ramp_scale
+    Changes the scale using a ramp that is mapped for each spline.
+        
+    Roll:
+        #id: roll
+    Rotates the spline points around the axis that goes along the curve direction.
+        
+    Partial Twist:
+        #id: incroll
+    Twists the spline points around the axis that goes along the curve direction.
+        
+    Full Twists:
+        #id: fulltwists
+    Fully twists the spline points around the axis that goes along the curve direction.
+        
+    Orient Up:
+        #id: orient_up
+    Ensures the spline orientation always faces up, unless specified along the ramp otherwise.
+
+
+@related
+- [item | https://dev.epicgames.com/community/learning/tutorials/oLLe/unreal-engine-spline-examples#projectfiles ]
+

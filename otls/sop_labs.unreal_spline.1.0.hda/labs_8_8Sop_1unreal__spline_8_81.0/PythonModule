@@ -1,0 +1,89 @@
+# Export Bezier Spline from Houdini HDA script
+def export(kwargs):
+    import json
+    import os
+
+    node = hou.pwd()
+    geo = node.node('out_export').geometry()
+    fname = node.parm('file_export_spline').evalAsString()
+    python_node = node.node('curve_from_json')
+
+    if fname == '':
+        print ("export path is undefined.")
+        return
+
+    directory = os.path.dirname(fname)
+    if not os.path.exists(directory):
+        try:
+            os.makedirs(os.path.dirname(fname))
+        except Exception as e:
+            raise hou.NodeError("Unable to create directory at: %s" % (fname))
+
+    splines = dict()
+    order = 4 # Cubic
+
+    for curve_idx, curve in enumerate(geo.prims()):
+        spline_data = dict()
+        spline_data['position'] = list()
+        spline_data['tangent'] = list()
+        spline_data['scale'] = list()
+        #spline_data['orient'] = list()
+        spline_data['roll'] = list()
+        spline_data['tags'] = list()
+
+        if curve.attribValue("tags"):
+            tags = curve.attribValue("tags")
+            for tag in tags:
+                spline_data['tags'].append(str(tag))
+
+        num_segments = (curve.numVertices() - 1) // (order - 1)
+        for seg_idx in range(num_segments):
+            offset = order - 1
+            p0 = hou.Vector3(curve.vertex(seg_idx * offset + 0).point().attribValue('P'))
+            p1 = hou.Vector3(curve.vertex(seg_idx * offset + 1).point().attribValue('P'))
+            t0 = 3 * (p1 - p0)
+            p0 = (p0[0]*100.0, p0[2]*100.0, p0[1]*100.0)
+            p1 = (p1[0]*100.0, p1[2]*100.0, p1[1]*100.0)
+            t0 = (t0[0]*100.0, t0[2]*100.0, t0[1]*100.0)
+            s = curve.vertex(seg_idx * offset + 0).point().attribValue('scale')
+            s = (s[0], s[2], s[1])
+            #rot = curve.vertex(seg_idx * offset + 0).point().attribValue('orient')
+            #rot = (rot[0], rot[2], rot[1], -rot[3])
+            rot = curve.vertex(seg_idx * offset + 0).point().attribValue('roll')
+            spline_data['position'].append(list(p0))
+            spline_data['tangent'].append(list(t0))
+            spline_data['scale'].append(list(s))
+            #spline_data['angle'].append(list(angle))
+            #spline_data['orient'].append(list(rot))
+            spline_data['roll'].append(rot)
+
+        # Append the last tangent and point
+        p2 = hou.Vector3(curve.vertex(seg_idx * offset + 2).point().attribValue('P'))
+        p3 = hou.Vector3(curve.vertex(seg_idx * offset + 3).point().attribValue('P'))
+        s = curve.vertex(seg_idx * offset + 3).point().attribValue('scale')
+        s = (s[0], s[2], s[1])
+        #rot = curve.vertex(seg_idx * offset + 3).point().attribValue('orient')
+        rot = curve.vertex(seg_idx * offset + 3).point().attribValue('roll')
+        #rot = (rot[0], rot[2], rot[1], -rot[3])
+        t1 = 3 * (p3 - p2)
+        p2 = (p2[0]*100.0, p2[2]*100.0, p2[1]*100.0)
+        p3 = (p3[0]*100.0, p3[2]*100.0, p3[1]*100.0)
+        t1 = (t1[0]*100.0, t1[2]*100.0, t1[1]*100.0)
+        spline_data['position'].append(list(p3))
+        spline_data['tangent'].append(list(t1))
+        spline_data['scale'].append(list(s))
+        #spline_data['orient'].append(list(rot))
+        spline_data['roll'].append(rot)
+
+        # Add spline to the dictionary
+        splines[f'spline_{curve_idx}'] = [spline_data]
+
+        
+    # Write the splines dictionary to a json file
+    with open(fname, 'w') as spline_file:
+        json.dump(splines, spline_file, indent=4)
+
+    print ("Unreal Spline File export is complete.")
+    python_node.cook(force=True)
+
+    return
