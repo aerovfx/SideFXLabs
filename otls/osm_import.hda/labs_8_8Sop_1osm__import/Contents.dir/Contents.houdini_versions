@@ -1,14 +1,13 @@
 {
-	"values":["0.2","19.0.720"
+	"values":["20.5.370"
 	],
 	"indexes":{
-		"hdaroot/flip_polys_that_are_facing_down/reverse1.userdata":1,
-		"hdaroot/flip_polys_that_are_facing_down.userdata":1,
-		"hdaroot/flip_polys_that_are_facing_down/normal1.userdata":1,
-		"hdaroot/flip_polys_that_are_facing_down/normal2.userdata":1,
-		"hdaroot/flip_polys_that_are_facing_down/merge2.userdata":1,
-		"hdaroot/read_in_map_data.userdata":1,
-		"hdaroot.userdata":0,
-		"hdaroot/output1.userdata":1
+		"hdaroot/flip_polys_that_are_facing_down/normal2.userdata":0,
+		"hdaroot/flip_polys_that_are_facing_down/normal1.userdata":0,
+		"hdaroot/flip_polys_that_are_facing_down/reverse1.userdata":0,
+		"hdaroot/flip_polys_that_are_facing_down/merge2.userdata":0,
+		"hdaroot/output1.userdata":0,
+		"hdaroot/flip_polys_that_are_facing_down.userdata":0,
+		"hdaroot/read_in_map_data.userdata":0
 	}
 }
