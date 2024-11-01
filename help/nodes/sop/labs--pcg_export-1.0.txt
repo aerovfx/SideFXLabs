@@ -32,7 +32,7 @@ WARNING:
         
     Mesh:
         #id: file_mesh
-	The file path for the Mesh info CSV file.
+	The file path for the mesh info CSV file.
         
     Enable Material Export:
         #id: enablemat
@@ -40,17 +40,17 @@ WARNING:
         
     Material:
         #id: file_mat
-	The file path for the Material info CSV file.
+	The file path for the material info CSV file.
         
     == Input Attribute Names ==
 
     Mesh ID:
         #id: mesh
-	The attribute name which will be used in Unreal PCG (Static Mesh Spawner) to Spawn Meshes.
+	The attribute name which will be used in Unreal PCG (Static Mesh Spawner) to spawn meshes.
         
     Set Rotation By:
         #id: rotmode
-	Pick the Rotation mode whether you are using Orient or Normal and Up.
+	Set the rotation either from the orientation, or the normal and up attributes.
         
         __Orient Attribute__:
             
@@ -58,23 +58,23 @@ WARNING:
             
     Orient:
         #id: orient
-	The attribute name which will be used in Unreal PCG (Static Mesh Spawner) to Rotate Meshes.
+	The attribute name which will be used in Unreal PCG (Static Mesh Spawner) to rotate meshes.
         
     Normal:
         #id: n
-	The attribute name which will be used as a Normal which will be converted to Orient to be used in Engine.
+	The name for the normal attribute which will be converted to orient in Unreal Engine.
         
     Up:
         #id: up
-	The attribute name which will be used as Up which will be converted to Orient to be used in Engine.
+	The attribute name for the up attribute which will be converted to orient in Unreal Engine..
         
     Scale:
         #id: scale
-	The attribute name which will be used in Unreal PCG (Static Mesh Spawner) to Scale Meshes.
+	The attribute name which will be used in Unreal PCG (Static Mesh Spawner) to scale meshes.
         
     Uniform Scale:
         #id: pscale
-	The attribute name which will be used in Unreal PCG (Static Mesh Spawner) to Scale Meshes uniformly, however, pscale will be multiplied by scale, and only scale will be exported.
+	The attribute name which will be used in Unreal PCG (Static Mesh Spawner) to scale meshes uniformly, however, pscale will be multiplied by scale, and only scale will be exported.
         
     === Materials ===
 
@@ -122,5 +122,5 @@ WARNING:
         
     Unreal Engine Content Plugin and Guides:
         #id: openunrealshaderpath
-	The Unreal Blueprint files required for to import the CSV files into PCG.
+	The Unreal Blueprint files required to import the CSV files into PCG.
 
