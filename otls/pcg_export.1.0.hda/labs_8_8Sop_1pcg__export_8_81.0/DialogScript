@@ -76,7 +76,7 @@
 
             parm {
                 name    "mesh"
-                label   "Mesh ID"
+                label   "Unreal Mesh ID"
                 type    string
                 default { "mesh" }
                 parmtag { "script_callback_language" "python" }
@@ -132,12 +132,6 @@
             }
         }
 
-        parm {
-            name    "sepparm3"
-            label   "Separator"
-            type    separator
-            default { "" }
-        }
         groupcollapsible {
             name    "fd_mat"
             label   "Materials"
@@ -224,32 +218,11 @@
     }
 
     parm {
-        name    "sepparm7"
-        label   "Separator"
-        type    separator
-        default { "" }
-    }
-    parm {
         name    "openunrealshaderpath"
         label   "Unreal Engine Content Plugin and Guides"
         type    button
         default { "0" }
         parmtag { "script_callback" "node = kwargs[\"node\"]; from labsopui import labs_explore; labs_explore.path(kwargs[\"node\"], \"%s/unreal/4.26\" % hou.getenv(\"SIDEFXLABS\"))" }
         parmtag { "script_callback_language" "python" }
-    }
-    parm {
-        name    "sepparm8"
-        label   "Spacer"
-        type    separator
-        default { "" }
-        parmtag { "sidefx::layout_height" "small" }
-        parmtag { "sidefx::look" "blank" }
-    }
-    parm {
-        name    "lb_shaderinfo"
-        label   "lb_shaderinfo"
-        type    label
-        default { "\n" }
-        parmtag { "sidefx::look" "block" }
     }
 }
