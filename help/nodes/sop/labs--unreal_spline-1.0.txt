@@ -90,5 +90,5 @@ Make sure the SideFX_Labs folder is in your Unreal project Plugins folder so you
 
 
 @related
-- [item | https://dev.epicgames.com/community/learning/tutorials/oLLe/unreal-engine-spline-examples#projectfiles ]
+- [Unreal Spline Blueprint Snippets Examples | https://dev.epicgames.com/community/learning/tutorials/oLLe/unreal-engine-spline-examples#projectfiles ]
 
