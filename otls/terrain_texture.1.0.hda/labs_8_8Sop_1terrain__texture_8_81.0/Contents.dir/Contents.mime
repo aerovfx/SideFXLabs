@@ -32,9 +32,9 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.5 -0.15
+position -2.16229 0.0273982
 connectornextid 0
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
@@ -48,7 +48,7 @@ stat
 {
   create -1
   modify -1
-  author christoss@oxbow
+  author Mo@SideFX_Mo
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -63,7 +63,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"___EXTERNAL___"
+		"value":""
 	}
 }
 
@@ -729,6 +729,8 @@ coshaderdef	[ 0	locks=0 ]	(	""	)
 surfacedef	[ 0	locks=0 ]	(	""	)
 displacementdef	[ 0	locks=0 ]	(	""	)
 atmospheredef	[ 0	locks=0 ]	(	""	)
+lightdef	[ 0	locks=0 ]	(	""	)
+lightfilterdef	[ 0	locks=0 ]	(	""	)
 floatadef	[ 0	locks=0 ]	(	)
 intadef	[ 0	locks=0 ]	(	)
 vector2adef	[ 0	locks=0 ]	(	)
@@ -1084,6 +1086,7 @@ Content-Type: text/plain
             baseparm
             label   "vm_uvobjectenable#"
             nolabel
+            joinnext
             export  none
         }
         parm {
@@ -2566,7 +2569,7 @@ vm_bake_occlusionbias	[ 0	locks=0 ]	(	[ vm_bake_occlusionbias	0.5 ] 	)
 vm_bake_cavitydistance	[ 0	locks=0 ]	(	[ vm_bake_cavitydistance	1 ] 	)
 vm_bake_cavitybias	[ 0	locks=0 ]	(	[ vm_bake_cavitybias	0.5 ] 	)
 vm_bake_curvatureocc	[ 0	locks=0 ]	(	[ vm_bake_curvatureocc	0 ] 	)
-vm_bake_curvaturesdist	[ 0	locks=0 ]	(	[ vm_bake_curvaturesdist	0.10000000000000001 ] 	)
+vm_bake_curvaturesdist	[ 0	locks=0 ]	(	[ vm_bake_curvaturesdist	0.1 ] 	)
 vm_bake_curvaturescale	[ 0	locks=0 ]	(	[ vm_bake_curvaturescale	1 ] 	)
 vm_bake_curvaturebias	[ 0	locks=0 ]	(	[ vm_bake_curvaturebias	0.5 ] 	)
 sampling2	[ 0	locks=0 ]	(	0	)
@@ -3526,7 +3529,7 @@ vm_matte	[ 0	locks=0 ]	(	"off"	)
 vm_rayshade	[ 0	locks=0 ]	(	"off"	)
 geo_velocityblur	[ 0	locks=0 ]	(	"off"	)
 vm_shadingquality	[ 0	locks=0 ]	(	1	)
-vm_flatness	[ 0	locks=0 ]	(	0.050000000000000003	)
+vm_flatness	[ 0	locks=0 ]	(	0.05	)
 vm_raypredice	[ 0	locks=0 ]	(	0	)
 vm_curvesurface	[ 0	locks=0 ]	(	"off"	)
 vm_rmbackface	[ 0	locks=0 ]	(	"off"	)
@@ -4521,7 +4524,7 @@ vm_matte	[ 0	locks=0 ]	(	"off"	)
 vm_rayshade	[ 0	locks=0 ]	(	"off"	)
 geo_velocityblur	[ 0	locks=0 ]	(	"off"	)
 vm_shadingquality	[ 0	locks=0 ]	(	1	)
-vm_flatness	[ 0	locks=0 ]	(	0.050000000000000003	)
+vm_flatness	[ 0	locks=0 ]	(	0.05	)
 vm_raypredice	[ 0	locks=0 ]	(	0	)
 vm_curvesurface	[ 0	locks=0 ]	(	"off"	)
 vm_rmbackface	[ 0	locks=0 ]	(	"off"	)
@@ -4685,7 +4688,7 @@ vrange	[ 0	locks=0 ]	(	0	1	)
 angle	[ 0	locks=0 ]	(	0	)
 fixseams	[ 0	locks=0 ]	(	"on"	)
 fixpolar	[ 0	locks=0 ]	(	"on"	)
-polerad	[ 0	locks=0 ]	(	0.0099999997764825821	)
+polerad	[ 0	locks=0 ]	(	0.009999999776482582	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -5555,7 +5558,7 @@ projection	[ 0	locks=0 ]	(	"perspective"	)
 vm_lensshader	[ 0	locks=0 ]	(	""	)
 focal	[ 0	locks=0 ]	(	50	)
 focalunits	[ 0	locks=0 ]	(	mm	)
-aperture	[ 0	locks=0 ]	(	41.421399999999998	)
+aperture	[ 0	locks=0 ]	(	41.4214	)
 orthowidth	[ 0	locks=0 ]	(	2	)
 near	[ 0	locks=0 ]	(	0.001	)
 far	[ 0	locks=0 ]	(	10000	)
@@ -5571,7 +5574,7 @@ cropt	[ 0	locks=0 ]	(	1	)
 cropmask	[ 0	locks=0 ]	(	""	)
 shutter	[ 0	locks=0 ]	(	0.5	)
 focus	[ 0	locks=0 ]	(	5	)
-fstop	[ 0	locks=0 ]	(	5.5999999999999996	)
+fstop	[ 0	locks=0 ]	(	5.6	)
 vm_bokeh	[ 0	locks=0 ]	(	radial	)
 vm_bokehfile	[ 0	locks=0 ]	(	default.pic	)
 vm_bokehrotation	[ 0	locks=0 ]	(	0	)
@@ -5645,11 +5648,11 @@ closedall	[ 0	locks=0 ]	(	"off"	)
 addparticlesystem	[ 0	locks=0 ]	(	"off"	)
 particlegroup	[ 0	locks=0 ]	(	""	)
 appendunusedtoparticlesystem	[ 0	locks=0 ]	(	"off"	)
+prim0	[ 0	locks=0 ]	(	""	)
+closed0	[ 0	locks=0 ]	(	"off"	)
 usept0	[ 0	locks=0 ]	(	"on"	)
 pt0	[ 0	locks=0 ]	(	0	0	0	)
 weight0	[ 0	locks=0 ]	(	1	)
-prim0	[ 0	locks=0 ]	(	""	)
-closed0	[ 0	locks=0 ]	(	"off"	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -5829,6 +5832,7 @@ prexform_r	[ 0	locks=0 ]	(	0	0	0	)
 prexform_s	[ 0	locks=0 ]	(	1	1	1	)
 prexform_shear	[ 0	locks=0 ]	(	0	0	0	)
 movecentroid	[ 0	locks=0 ]	(	0	)
+movepivot	[ 0	locks=0 ]	(	0	)
 attribs	[ 0	locks=0 ]	(	*	)
 updatenmls	[ 0	locks=0 ]	(	"off"	)
 updateaffectednmls	[ 0	locks=0 ]	(	"on"	)
@@ -6820,7 +6824,7 @@ Content-Type: text/plain
         parm {
             name    "convertcolorspace"
             baseparm
-            label   "Convert to Image Format's Colorspace"
+            label   "Output Colorspace"
             export  none
         }
         parm {
@@ -7188,6 +7192,30 @@ Content-Type: text/plain
         }
     }
 
+    parm {
+        name    "ocio_colorspace"
+        baseparm
+        label   "Color Space"
+        export  none
+    }
+    parm {
+        name    "ocio_look"
+        baseparm
+        label   "Look"
+        export  none
+    }
+    parm {
+        name    "ocio_display"
+        baseparm
+        label   "Display"
+        export  none
+    }
+    parm {
+        name    "ocio_view"
+        baseparm
+        label   "View"
+        export  none
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/cop2net1/rop_comp.chn"
@@ -7263,6 +7291,10 @@ color	[ 0	locks=0 ]	(	C	)
 alpha	[ 0	locks=0 ]	(	A	)
 scopeplanes	[ 0	locks=0 ]	(	C	)
 convertcolorspace	[ 0	locks=0 ]	(	"off"	)
+ocio_colorspace	[ 0	locks=0 ]	(	automatic	)
+ocio_look	[ 0	locks=0 ]	(	""	)
+ocio_display	[ 0	locks=0 ]	(	default	)
+ocio_view	[ 0	locks=0 ]	(	default	)
 gamma	[ 0	locks=0 ]	(	1	)
 lut	[ 0	locks=0 ]	(	""	)
 framedepend	[ 0	locks=0 ]	(	"off"	)
@@ -7913,6 +7945,7 @@ flipy	[ 0	locks=0 ]	(	"off"	)
 overridedepth	[ 0	locks=0 ]	(	"natural"	)
 linearize	[ 0	locks=0 ]	(	"on"	)
 colorspace	[ 0	locks=0 ]	(	"linear"	)
+ocio_space	[ 0	locks=0 ]	(	automatic	)
 depth	[ 0	locks=0 ]	(	"float32"	)
 depthmenu	[ 0	locks=0 ]	(	0	)
 usebwpoints	[ 0	locks=0 ]	(	"off"	)
@@ -8192,6 +8225,7 @@ flipy	[ 0	locks=0 ]	(	"off"	)
 overridedepth	[ 0	locks=0 ]	(	"natural"	)
 linearize	[ 0	locks=0 ]	(	"on"	)
 colorspace	[ 0	locks=0 ]	(	"linear"	)
+ocio_space	[ 0	locks=0 ]	(	automatic	)
 depth	[ 0	locks=0 ]	(	"float32"	)
 depthmenu	[ 0	locks=0 ]	(	0	)
 usebwpoints	[ 0	locks=0 ]	(	"off"	)
@@ -8393,6 +8427,7 @@ flipy	[ 0	locks=0 ]	(	"off"	)
 overridedepth	[ 0	locks=0 ]	(	"natural"	)
 linearize	[ 0	locks=0 ]	(	"on"	)
 colorspace	[ 0	locks=0 ]	(	"linear"	)
+ocio_space	[ 0	locks=0 ]	(	automatic	)
 depth	[ 0	locks=0 ]	(	"float32"	)
 depthmenu	[ 0	locks=0 ]	(	0	)
 usebwpoints	[ 0	locks=0 ]	(	"off"	)
@@ -8594,6 +8629,7 @@ flipy	[ 0	locks=0 ]	(	"off"	)
 overridedepth	[ 0	locks=0 ]	(	"natural"	)
 linearize	[ 0	locks=0 ]	(	"on"	)
 colorspace	[ 0	locks=0 ]	(	"linear"	)
+ocio_space	[ 0	locks=0 ]	(	automatic	)
 depth	[ 0	locks=0 ]	(	"float32"	)
 depthmenu	[ 0	locks=0 ]	(	0	)
 usebwpoints	[ 0	locks=0 ]	(	"off"	)
@@ -9004,6 +9040,7 @@ flipy	[ 0	locks=0 ]	(	"off"	)
 overridedepth	[ 0	locks=0 ]	(	"natural"	)
 linearize	[ 0	locks=0 ]	(	"on"	)
 colorspace	[ 0	locks=0 ]	(	"linear"	)
+ocio_space	[ 0	locks=0 ]	(	automatic	)
 depth	[ 0	locks=0 ]	(	"float32"	)
 depthmenu	[ 0	locks=0 ]	(	0	)
 usebwpoints	[ 0	locks=0 ]	(	"off"	)
@@ -9659,6 +9696,7 @@ prexform_r	[ 0	locks=0 ]	(	0	0	0	)
 prexform_s	[ 0	locks=0 ]	(	1	1	1	)
 prexform_shear	[ 0	locks=0 ]	(	0	0	0	)
 movecentroid	[ 0	locks=0 ]	(	0	)
+movepivot	[ 0	locks=0 ]	(	0	)
 attribs	[ 0	locks=0 ]	(	*	)
 updatenmls	[ 0	locks=0 ]	(	"off"	)
 updateaffectednmls	[ 0	locks=0 ]	(	"on"	)
@@ -9826,6 +9864,7 @@ prexform_r	[ 0	locks=0 ]	(	0	0	0	)
 prexform_s	[ 0	locks=0 ]	(	1	1	1	)
 prexform_shear	[ 0	locks=0 ]	(	0	0	0	)
 movecentroid	[ 0	locks=0 ]	(	0	)
+movepivot	[ 0	locks=0 ]	(	0	)
 attribs	[ 0	locks=0 ]	(	*	)
 updatenmls	[ 0	locks=0 ]	(	"off"	)
 updateaffectednmls	[ 0	locks=0 ]	(	"on"	)
@@ -9895,11 +9934,19 @@ cookbutton	[ 0	locks=0 ]	(	0	)
 dirtybutton	[ 0	locks=0 ]	(	0	)
 cancelbutton	[ 0	locks=0 ]	(	0	)
 taskgraphsection	[ 0	locks=0 ]	(	0	)
+checkpointformat	[ 0	locks=0 ]	(	"1"	)
+taskgraphfile	[ 0	locks=0 ]	(	$HIP/$HIPNAME.taskgraph.$F.py	)
 savetaskgraph	[ 0	locks=0 ]	(	0	)
 loadtaskgraph	[ 0	locks=0 ]	(	0	)
-taskgraphfile	[ 0	locks=0 ]	(	$HIP/$HIPNAME.taskgraph.$F.py	)
 taskgraphautosave	[ 0	locks=0 ]	(	"off"	)
 taskgraphsaverate	[ 0	locks=0 ]	(	10	)
+checkpointfile	[ 0	locks=0 ]	(	$HIP/$HIPNAME.checkpoint.json	)
+loadcheckpoint	[ 0	locks=0 ]	(	0	)
+checkpointload	[ 0	locks=0 ]	(	"0"	)
+checkpointenabled	[ 0	locks=0 ]	(	"off"	)
+checkpointrate	[ 0	locks=0 ]	(	10	)
+sep2	[ 0	locks=0 ]	(	)
+savegraphattribs	[ 0	locks=0 ]	(	"on"	)
 schedulersection	[ 0	locks=0 ]	(	0	)
 topscheduler	[ 0	locks=0 ]	(	localscheduler	)
 usedefaultlabel	[ 0	locks=0 ]	(	"off"	)
@@ -9908,6 +9955,7 @@ sep1	[ 0	locks=0 ]	(	)
 regenerationtype	[ 0	locks=0 ]	(	"0"	)
 evaluationtime	[ 0	locks=0 ]	(	"0"	)
 customtime	[ 0	locks=0 ]	(	0	)
+savescenefile	[ 0	locks=0 ]	(	"on"	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -9963,14 +10011,18 @@ Content-Type: text/plain
 
 {
 version 0.8
-folder0	[ 0	locks=0 ]	(	0	0	)
+folder0	[ 0	locks=0 ]	(	0	0	0	)
 folder5	[ 0	locks=0 ]	(	0	)
 maxprocsmenu	[ 0	locks=0 ]	(	"-1"	)
 maxprocs	[ 0	locks=0 ]	(	1	)
+pdg_usemaxtasks	[ 0	locks=0 ]	(	"off"	)
+pdg_maxtasks	[ 0	locks=0 ]	(	0	)
 verbose	[ 0	locks=0 ]	(	"off"	)
 pdg_waitforfailures	[ 0	locks=0 ]	(	"off"	)
 folder4	[ 0	locks=0 ]	(	0	)
 pdg_workingdir	[ 0	locks=0 ]	(	$HIP	)
+hythonbin	[ 0	locks=0 ]	(	"0"	)
+hythonbincustomuniversal	[ 0	locks=0 ]	(	""	)
 pdg_workitemdatasource	[ 0	locks=0 ]	(	"0"	)
 pdg_compressworkitemdata	[ 0	locks=0 ]	(	"on"	)
 pdg_validateoutputs	[ 0	locks=0 ]	(	"on"	)
@@ -9979,13 +10031,20 @@ sepparm2	[ 0	locks=0 ]	(	)
 pdg_mapmode	[ 0	locks=0 ]	(	"0"	)
 pdg_usemapzone	[ 0	locks=0 ]	(	"off"	)
 pdg_mapzone	[ 0	locks=0 ]	(	$PDG_PATHMAP_ZONE	)
-sepparm3	[ 0	locks=0 ]	(	)
 folder1	[ 0	locks=0 ]	(	0	)
 tempdirmenu	[ 0	locks=0 ]	(	"1"	)
 tempdirappendpid	[ 0	locks=0 ]	(	"on"	)
 tempdircustom	[ 0	locks=0 ]	(	$HOUDINI_TEMP_DIR/$HIPNAME/pdgtemp	)
+pdg_deletetempdir	[ 0	locks=0 ]	(	"0"	)
 socketcallbacks	[ 0	locks=0 ]	(	1	)
-folder0_2	[ 0	locks=0 ]	(	0	)
+pdg_rpcignoreerrors	[ 0	locks=0 ]	(	"0"	)
+pdg_rpcmaxerrors	[ 0	locks=0 ]	(	5	)
+pdg_rpctimeout	[ 0	locks=0 ]	(	4	)
+pdg_rpcretries	[ 0	locks=0 ]	(	2	)
+pdg_rpcbackoff	[ 0	locks=0 ]	(	2	)
+pdg_rpcbatch	[ 0	locks=0 ]	(	1	)
+pdg_rpcrelease	[ 0	locks=0 ]	(	"on"	)
+folder0_3	[ 0	locks=0 ]	(	0	)
 local_single	[ 0	locks=0 ]	(	"off"	)
 local_is_CPU_number_set	[ 0	locks=0 ]	(	"off"	)
 local_CPUs_to_use	[ 0	locks=0 ]	(	1	)
@@ -9998,6 +10057,10 @@ local_enabletimeout	[ 0	locks=0 ]	(	"off"	)
 local_maxtime	[ 0	locks=0 ]	(	0	)
 local_handletimeout	[ 0	locks=0 ]	(	"0"	)
 sepparm4	[ 0	locks=0 ]	(	)
+local_enablemaxmemory	[ 0	locks=0 ]	(	"off"	)
+local_maxmemory	[ 0	locks=0 ]	(	0	)
+local_handlememory	[ 0	locks=0 ]	(	"0"	)
+sepparm5	[ 0	locks=0 ]	(	)
 local_echandleby	[ 0	locks=0 ]	(	"0"	)
 local_echandleall	[ 0	locks=0 ]	(	"on"	)
 local_eccustomcode	[ 0	locks=0 ]	(	1	)
@@ -10011,6 +10074,7 @@ local_houdinimaxthreads	[ 0	locks=0 ]	(	0	)
 local_requireswindow	[ 0	locks=0 ]	(	"off"	)
 local_skippackages	[ 0	locks=0 ]	(	"on"	)
 local_envunset	[ 0	locks=0 ]	(	""	)
+local_env_file	[ 0	locks=0 ]	(	""	)
 local_envmulti	[ 0	locks=0 ]	(	0	)
 }
 
@@ -10098,8 +10162,9 @@ Content-Type: text/plain
 
 {
 version 0.8
+workitemorder	[ 0	locks=0 ]	(	"groupbyinput"	)
 pdg_workitemgeneration	[ 0	locks=0 ]	(	"2"	)
-wedgecount	[ 0	locks=0 ]	(	[ wedgecount	1 ] 	)
+wedgecount	[ 8	locks=0 ]	(	[ wedgecount	1 ] 	)
 seed	[ 0	locks=0 ]	(	4463	)
 preservenum	[ 0	locks=0 ]	(	"off"	)
 exportenvironment	[ 0	locks=0 ]	(	"off"	)
@@ -10108,6 +10173,15 @@ captureall	[ 0	locks=0 ]	(	0	)
 restoreall	[ 0	locks=0 ]	(	0	)
 sepparm	[ 0	locks=0 ]	(	)
 wedgeattributes	[ 0	locks=0 ]	(	1	)
+createmetadataattributes	[ 0	locks=0 ]	(	0	)
+createwedgecount	[ 0	locks=0 ]	(	"on"	)
+wedgecountattrname	[ 0	locks=0 ]	(	wedgecount	)
+createwedgeindex	[ 0	locks=0 ]	(	"on"	)
+wedgeindexattrname	[ 0	locks=0 ]	(	wedgeindex	)
+createwedgenum	[ 0	locks=0 ]	(	"on"	)
+wedgenumattrname	[ 0	locks=0 ]	(	wedgenum	)
+createwedgetotal	[ 0	locks=0 ]	(	"on"	)
+wedgetotalattrname	[ 0	locks=0 ]	(	wedgetotal	)
 exportchannel1	[ 0	locks=0 ]	(	"off"	)
 channel1	[ 0	locks=0 ]	(	""	)
 channeljump1	[ 0	locks=0 ]	(	0	)
@@ -10119,6 +10193,7 @@ restorenumeric1	[ 0	locks=0 ]	(	0	)
 capturedstring1	[ 0	locks=0 ]	(	""	)
 capturestring1	[ 0	locks=0 ]	(	0	)
 restorestring1	[ 0	locks=0 ]	(	0	)
+runcallbacks1	[ 0	locks=0 ]	(	"off"	)
 sepparm3_1	[ 0	locks=0 ]	(	)
 name1	[ 0	locks=0 ]	(	tilex	)
 type1	[ 0	locks=0 ]	(	"2"	)
@@ -10218,7 +10293,7 @@ Content-Type: text/plain
       righttype = extend
       default = 1
       flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../../iNumTilesx\") }
+      segment { length = 0 value = 1 1 expr = ch(\"../../iNumTilesy\") }
     }
     channel intrange1y {
       lefttype = extend
@@ -10235,8 +10310,9 @@ Content-Type: text/plain
 
 {
 version 0.8
+workitemorder	[ 0	locks=0 ]	(	"groupbyinput"	)
 pdg_workitemgeneration	[ 0	locks=0 ]	(	"2"	)
-wedgecount	[ 0	locks=0 ]	(	[ wedgecount	1 ] 	)
+wedgecount	[ 8	locks=0 ]	(	[ wedgecount	1 ] 	)
 seed	[ 0	locks=0 ]	(	4463	)
 preservenum	[ 0	locks=0 ]	(	"off"	)
 exportenvironment	[ 0	locks=0 ]	(	"off"	)
@@ -10245,6 +10321,15 @@ captureall	[ 0	locks=0 ]	(	0	)
 restoreall	[ 0	locks=0 ]	(	0	)
 sepparm	[ 0	locks=0 ]	(	)
 wedgeattributes	[ 0	locks=0 ]	(	1	)
+createmetadataattributes	[ 0	locks=0 ]	(	0	)
+createwedgecount	[ 0	locks=0 ]	(	"on"	)
+wedgecountattrname	[ 0	locks=0 ]	(	wedgecount	)
+createwedgeindex	[ 0	locks=0 ]	(	"on"	)
+wedgeindexattrname	[ 0	locks=0 ]	(	wedgeindex	)
+createwedgenum	[ 0	locks=0 ]	(	"on"	)
+wedgenumattrname	[ 0	locks=0 ]	(	wedgenum	)
+createwedgetotal	[ 0	locks=0 ]	(	"on"	)
+wedgetotalattrname	[ 0	locks=0 ]	(	wedgetotal	)
 exportchannel1	[ 0	locks=0 ]	(	"off"	)
 channel1	[ 0	locks=0 ]	(	""	)
 channeljump1	[ 0	locks=0 ]	(	0	)
@@ -10256,6 +10341,7 @@ restorenumeric1	[ 0	locks=0 ]	(	0	)
 capturedstring1	[ 0	locks=0 ]	(	""	)
 capturestring1	[ 0	locks=0 ]	(	0	)
 restorestring1	[ 0	locks=0 ]	(	0	)
+runcallbacks1	[ 0	locks=0 ]	(	"off"	)
 sepparm3_1	[ 0	locks=0 ]	(	)
 name1	[ 0	locks=0 ]	(	tiley	)
 type1	[ 0	locks=0 ]	(	"2"	)
@@ -10342,7 +10428,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-folder0	[ 0	locks=0 ]	(	0	)
+fd_settings	[ 0	locks=0 ]	(	0	)
 filename	[ 0	locks=0 ]	(	$HOUDINI_TEMP_DIR/$HIPNAME.TerrainTexture_Temp.exr	)
 attrname	[ 0	locks=0 ]	(	imageplane	)
 inheritupstream	[ 0	locks=0 ]	(	"off"	)
@@ -10373,7 +10459,7 @@ Content-Type: text/plain
 comment ""
 position -5.63114 -3.26618
 connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 1 "output1"
@@ -10421,7 +10507,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"___EXTERNAL___"
+		"value":""
 	}
 }
 
@@ -10486,6 +10572,9 @@ Content-Type: text/plain
 {
 version 0.8
 input	[ 0	locks=0 ]	(	[ input	0 ] 	)
+invalidindex	[ 0	locks=0 ]	(	"1"	)
+invalidate	[ 0	locks=0 ]	(	"on"	)
+keepfailed	[ 0	locks=0 ]	(	"off"	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -10659,10 +10748,20 @@ dirtyonregenerate	[ 0	locks=0 ]	(	"off"	)
 dirtyonincomplete	[ 0	locks=0 ]	(	"off"	)
 sepparm4	[ 0	locks=0 ]	(	)
 requiresgeneratedinputs	[ 0	locks=0 ]	(	"off"	)
+requirescookedinputs	[ 0	locks=0 ]	(	"off"	)
 requiresscenefile	[ 0	locks=0 ]	(	"off"	)
+requiresinputdata	[ 0	locks=0 ]	(	"off"	)
+sepparm6	[ 0	locks=0 ]	(	)
+usesdynamicbatching	[ 0	locks=0 ]	(	"off"	)
+sepparm7	[ 0	locks=0 ]	(	)
+usestatefilter	[ 0	locks=0 ]	(	"off"	)
+statefilter	[ 0	locks=0 ]	(	"0"	)
+clearfailures	[ 0	locks=0 ]	(	"off"	)
 pdgnodedeps	[ 0	locks=0 ]	(	1	)
 topscheduler	[ 0	locks=0 ]	(	""	)
 addjobparms	[ 0	locks=0 ]	(	0	)
+pdg_useschedulewhen	[ 0	locks=0 ]	(	"off"	)
+pdg_schedulewhen	[ 0	locks=0 ]	(	1	)
 sepparm5	[ 0	locks=0 ]	(	)
 pdg_workitemlabel	[ 0	locks=0 ]	(	"0"	)
 pdg_workitemlabelexpr	[ 0	locks=0 ]	(	""	)
@@ -10781,10 +10880,20 @@ dirtyonregenerate	[ 0	locks=0 ]	(	"off"	)
 dirtyonincomplete	[ 0	locks=0 ]	(	"off"	)
 sepparm4	[ 0	locks=0 ]	(	)
 requiresgeneratedinputs	[ 0	locks=0 ]	(	"off"	)
+requirescookedinputs	[ 0	locks=0 ]	(	"off"	)
 requiresscenefile	[ 0	locks=0 ]	(	"off"	)
+requiresinputdata	[ 0	locks=0 ]	(	"off"	)
+sepparm6	[ 0	locks=0 ]	(	)
+usesdynamicbatching	[ 0	locks=0 ]	(	"off"	)
+sepparm7	[ 0	locks=0 ]	(	)
+usestatefilter	[ 0	locks=0 ]	(	"off"	)
+statefilter	[ 0	locks=0 ]	(	"0"	)
+clearfailures	[ 0	locks=0 ]	(	"off"	)
 pdgnodedeps	[ 0	locks=0 ]	(	1	)
 topscheduler	[ 0	locks=0 ]	(	""	)
 addjobparms	[ 0	locks=0 ]	(	0	)
+pdg_useschedulewhen	[ 0	locks=0 ]	(	"off"	)
+pdg_schedulewhen	[ 0	locks=0 ]	(	1	)
 sepparm5	[ 0	locks=0 ]	(	)
 pdg_workitemlabel	[ 0	locks=0 ]	(	"0"	)
 pdg_workitemlabelexpr	[ 0	locks=0 ]	(	""	)
@@ -10857,11 +10966,13 @@ createunmatched	[ 0	locks=0 ]	(	"off"	)
 sepparm2	[ 0	locks=0 ]	(	)
 pattern	[ 0	locks=0 ]	(	*	)
 attributes	[ 0	locks=0 ]	(	1	)
+pdg_partitionmergeoutputs	[ 0	locks=0 ]	(	"4"	)
 pdg_partitionmerge	[ 0	locks=0 ]	(	"off"	)
 pdg_partitionmergeattributes	[ 0	locks=0 ]	(	1	)
 pdg_partitionwhen	[ 0	locks=0 ]	(	"0"	)
 pdg_partitiontargettype	[ 0	locks=0 ]	(	"0"	)
 pdg_partitiontarget	[ 0	locks=0 ]	(	""	)
+pdg_partitionignorefailures	[ 0	locks=0 ]	(	"off"	)
 sepparm	[ 0	locks=0 ]	(	)
 pdg_partitionsplit	[ 0	locks=0 ]	(	"off"	)
 pdg_partitionsplitattrib	[ 0	locks=0 ]	(	""	)
