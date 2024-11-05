@@ -353,14 +353,6 @@
             label   "Settings"
 
             parm {
-                name    "templocation"
-                label   "Temp Obj Location"
-                type    directory
-                default { "$HIP/sidefx_rizom_bridge_${HIPNAME}_${OS}.fbx" }
-                parmtag { "autoscope" "0000000000000000" }
-                parmtag { "script_callback_language" "python" }
-            }
-            parm {
                 name    "rizomloc"
                 label   "Rizom Location"
                 type    file
@@ -368,6 +360,14 @@
                 menureplace {
                     [ "opmenu -l rizom_processor rizomloc" ]
                 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "templocation"
+                label   "Temp Obj Location"
+                type    directory
+                default { "$HIP/sidefx_rizom_bridge_${HIPNAME}_${OS}.fbx" }
                 parmtag { "autoscope" "0000000000000000" }
                 parmtag { "script_callback_language" "python" }
             }

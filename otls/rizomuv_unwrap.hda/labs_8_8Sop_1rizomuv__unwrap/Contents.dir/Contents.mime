@@ -32,17 +32,20 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.5 -3.81213
-connectornextid 0
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+position -2.5 0.711547
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
+1 "output1"
 }
 inputsNamed3
 {
+0 	group4 1 1 "input1"
 }
 inputs
 {
+0 	group4 0 1
 }
 stat
 {
@@ -64,6 +67,10 @@ Content-Type: text/plain
 	"___Version___":{
 		"type":"string",
 		"value":""
+	},
+	"wirestyle":{
+		"type":"string",
+		"value":"rounded"
 	}
 }
 
@@ -568,9 +575,9 @@ script += ', PreIterations=5'
 script += ', StopIfOutOFDomain=false'
 script += ', RoomSpace=0'
 script += ', PinMapName=\"Pin\"'
-script += ', ProcessNonFlats=true'
-script += ', ProcessSelection=true'
-script += ', ProcessAllIfNoneSelected=true'
+# script += ', ProcessNonFlats=true'
+# script += ', ProcessSelection=true'
+# script += ', ProcessAllIfNoneSelected=true'
 script += ', ProcessJustCut=true'
 script += ', BorderIntersections=true'
 script += ', TriangleFlips=true'
@@ -1544,6 +1551,7 @@ srcgrouptype	[ 0	locks=0 ]	(	"points"	)
 destgroup	[ 0	locks=0 ]	(	""	)
 destgrouptype	[ 0	locks=0 ]	(	"points"	)
 matchbyattribute	[ 0	locks=0 ]	(	"off"	)
+matchbyattributemethod	[ 0	locks=0 ]	(	"byvalues"	)
 attributetomatch	[ 0	locks=0 ]	(	piece	)
 attrib	[ 0	locks=0 ]	(	"otherattrib"	)
 attribname	[ 0	locks=0 ]	(	"* ^`chs(\"../outgoingUV\")` ^P"	)
