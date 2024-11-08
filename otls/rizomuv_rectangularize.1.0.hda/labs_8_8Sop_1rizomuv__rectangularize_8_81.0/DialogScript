@@ -1,0 +1,104 @@
+# Dialog script for labs::rizomuv_rectangularize::1.0 automatically generated
+
+{
+    name	labs::rizomuv_rectangularize::1.0
+    script	gamedev::sop_rizomuv_optimize
+    label	"Labs RizomUV Rectangularize"
+
+    help {
+	""
+    }
+
+    inputlabel	1	"Mesh to UV"
+    inputlabel	2	"Sub-Network Input #2"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+
+    parm {
+        name    "cook"
+        label   "Cook"
+        type    button
+        joinnext
+        default { "0" }
+        disablewhen "{ autocook == 1 }"
+        parmtag { "script_callback" "hou.pwd().node(\"rizom_processor\").cook(force=True); hou.pwd().parm(\"file1/reload\").pressButton()" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "autocook"
+        label   "Auto Cook"
+        type    toggle
+        default { "1" }
+        parmtag { "script_callback" "" }
+        parmtag { "script_callback_language" "python" }
+    }
+    groupsimple {
+        name    "fd_uv"
+        label   "UV"
+
+        parm {
+            name    "outgoingUV"
+            label   "UV Attribute"
+            type    string
+            default { "uv" }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "clearuv"
+            label   "Delete Original UVs"
+            type    toggle
+            default { "0" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "groups"
+            label   "Groups"
+            type    string
+            default { "" }
+            menutoggle {
+                [ "opmenu -l rizomuv_processor groups" ]
+            }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+    }
+
+    groupsimple {
+        name    "fd_rectangularize"
+        label   "Rectangularize"
+
+        parm {
+            name    "vertical"
+            label   "Vertical"
+            type    toggle
+            default { "0" }
+        }
+    }
+
+    groupsimple {
+        name    "fd_settings"
+        label   "Settings"
+
+        parm {
+            name    "rizomuvpath"
+            label   "RizomUV Path"
+            type    file
+            default { "" }
+            menureplace {
+                [ "opmenu -l rizomuv_processor rizomuvpath" ]
+            }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "tempmeshpath"
+            label   "Temp Mesh Path"
+            type    directory
+            default { "$HIP/temp/RizomUV/$HIPNAME/$OS.fbx" }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+    }
+
+}

@@ -1,0 +1,22 @@
+#PSI_PRESET
+version 2.0a
+opvalues
+{
+version 0.8
+fd_uv			[ 0	locks=0 ]	(	0	)
+outgoinguv		[ 0	locks=0 ]	(	uv	)
+incominguv		[ 0	locks=0 ]	(	uv	)
+clearuv			[ 0	locks=0 ]	(	"off"	)
+fd_groups		[ 0	locks=0 ]	(	0	)
+grouptype		[ 0	locks=0 ]	(	"0"	)
+groups			[ 0	locks=0 ]	(	""	)
+fd_lua			[ 0	locks=0 ]	(	0	)
+usecustomlua	[ 0	locks=0 ]	(	"on"	)
+luascript		[ 0	locks=0 ]	(	"ZomConstrain({PrimType=\"Edge\", WorkingSet=\"Visible\", Mode=\"EdgeV\"})
+ZomOptimize({PrimType=\"Edge\", WorkingSet=\"Visible&Flat\", Iterations=5, Mix=1, AngleDistanceMix=1, RoomSpace=0.017, MinAngle=1e-05, PinMapName=\"Pin\"})"	)
+fd_settings		[ 0	locks=0 ]	(	0	)
+autoload		[ 0	locks=0 ]	(	"on"	)
+autosave		[ 0	locks=0 ]	(	"on"	)
+autoquit		[ 0	locks=0 ]	(	"on"	)
+sepparm			[ 0	locks=0 ]	(	)
+}

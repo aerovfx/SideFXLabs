@@ -1,0 +1,83 @@
+= Labs RizomUV Processor =
+
+#type:     node
+#context:  sop
+#internal: labs::rizomuv_processor::1.0
+#icon:     SOP/labs::rizomuv_processor
+
+"""Enables the use of RizomUV within Houdini."""
+
+[Image:/images/sidefxlabs_banner.jpg]
+
+The RizomUV Processor allows you to control every aspect of RizomUV from Houdini via custom Lua commands, and layer multiple RizomBridge nodes together performing multiple processes. For example, one could do a basic unwrap in the first node, then add another node, and rectangularize specific polygons, or relax UVs, or straighten specific edges, etc.
+By default, RizomUV performs a simple automatic unwrap. It is important to note, that this automatic process does not always yield acceptable results, and therefore in those cases, edge groups can be passed onto RizomUV to help with the unwrap.
+
+Big thanks to Oliver Hotz @ oliver@heimlich.net
+
+@parameters
+
+    == UV ==
+
+    UV Attribute to Rizom:
+        #id: outgoinguv
+        The UV sets that are send to RizomUV to perform the actions.
+        
+    UV Attribute from Rizom:
+        #id: incominguv
+        The UV sets that RizomUV returns to Houdini after the actions are performed.
+
+    Delete Original UVs:
+        #id: clearuv
+        Removes the present UVs before processing in RizomUV.
+        
+    UDIM Tile Offset (x/y):
+        #id: uvtilesoffset
+        Specifies the offset of the resulting tile in which the UVs are placed.
+
+    == Groups ==
+
+    Group Type:
+        #id: grouptype
+        Enables the use of point, primive, or edge groups from Houdini in the RizomUV process.
+            
+    Groups:
+        #id: groups
+        Selects the groups, with the type defined by the Group Type, that are being used as selection set in RizomUV.
+        
+    == Lua ==
+        
+    Use Custom Lua:
+        #id: usecustomlua
+        Enables the custom Lua script. When this is disabled, a simple auto unwrap script will be performed.
+
+    Custom Lua Commands:
+        #id: luascript
+        The script that contains the Lua commands that are send to RizomUV to perform.
+        
+    == Settings ==
+
+    Auto Load:
+        #id: autoload
+        Automatically load the object into RizomUV.
+        
+    Auto Save:
+        #id: autosave
+        Automatically save the object in RizomUV after the batch commands are executed.
+        
+    Auto Quit:
+        #id: autoquit
+        Automatically quit RizomUV, giving control back to Houdini. When this is disabled the Houdini UI will remain locked, also giving the user the option to debug inside RizomUV.
+
+    RizomUV Path:
+        #id: rizomuvpath
+        The path to the RizomUV executable.
+
+    Temp Mesh Path:
+        #id: tempmeshpath
+        The path to the temporary mesh file.
+        
+@presets
+
+== Creating presets ==
+
+It is recommended to create presets, using the Legacy Presets menu, for frequently used actions and process.

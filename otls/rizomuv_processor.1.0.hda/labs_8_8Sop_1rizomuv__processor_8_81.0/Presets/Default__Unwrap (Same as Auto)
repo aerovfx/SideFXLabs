@@ -1,0 +1,26 @@
+#PSI_PRESET
+version 2.0a
+opvalues
+{
+version 0.8
+fd_uv			[ 0	locks=0 ]	(	0	)
+outgoinguv		[ 0	locks=0 ]	(	uv	)
+incominguv		[ 0	locks=0 ]	(	uv	)
+clearuv			[ 0	locks=0 ]	(	"on"	)
+fd_groups		[ 0	locks=0 ]	(	0	)
+grouptype		[ 0	locks=0 ]	(	"0"	)
+groups			[ 0	locks=0 ]	(	""	)
+fd_lua			[ 0	locks=0 ]	(	0	)
+usecustomlua	[ 0	locks=0 ]	(	"on"	)
+luascript		[ 0	locks=0 ]	(	"ZomSelect({PrimType=\"Edge\", Select=true, ResetBefore=true, ProtectMapName=\"Protect\", FilterIslandVisible=true, Auto={Skeleton={}, Open=true, PipesCutter=true, HandleCutter=true}})
+ZomCut({PrimType=\"Edge\"})
+ZomUnfold({PrimType=\"Edge\", MinAngle=1e-005, Mix=1, Iterations=1, PreIterations=5, StopIfOutOFDomain=false, RoomSpace=0, PinMapName=\"Pin\", ProcessJustCut=true, BorderIntersections=true, TriangleFlips=true})
+ZomIslandGroups({Mode=\"DistributeInTilesEvenly\", MergingPolicy=8322, GroupPath=\"RootGroup\"})
+ZomPack({ProcessTileSelection=false, RecursionDepth=1, RootGroup=\"RootGroup\", Scaling={Mode=2}, Rotate={}, Translate=true, LayoutScalingMode=2})
+"	)
+fd_settings		[ 0	locks=0 ]	(	0	)
+autoload		[ 0	locks=0 ]	(	"on"	)
+autosave		[ 0	locks=0 ]	(	"on"	)
+autoquit		[ 0	locks=0 ]	(	"on"	)
+sepparm			[ 0	locks=0 ]	(	)
+}

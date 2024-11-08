@@ -1,0 +1,53 @@
+= Labs RizomUV Rectangularize =
+
+#type:     node
+#context:  sop
+#internal: labs::rizomuv_rectangularize::1.0
+#icon:     SOP/labs::rizomuv_rectangularize
+
+"""Enables the use of RizomUV and performs a UV rectangularize inside Houdini"""
+
+[Image:/images/sidefxlabs_banner.jpg]
+
+The RizomUV Rectangularize allows you to perform a UV rectangularize inside Houdini by running RizomUV on the background.
+
+
+@parameters
+
+    Cook:
+        #id: cook
+        Starts the cooking process for this step.
+        
+    Auto Cook:
+        #id: autocook
+        This toggle controls if the node should automatically recook if any dependencies have changed.
+
+    == UV ==
+
+    UV Attribute:
+        #id: outgoinguv
+        The UV sets that are send to RizomUV to perform the actions.
+    
+    Delete Original UVs
+        #id: clearuv
+        Removes the present UVs before processing in RizomUV.
+
+    Groups:
+        #id: groups
+        Selects the groups that are being used as selection set in RizomUV.
+
+    == Rectangularize ==
+
+    Vertical:
+        #id: vertical
+        Aligns selected edges or points on the vertical axis. When this is disabled the alignment is on the horizontal axis.
+                
+    == Settings ==
+
+    RizomUV Path:
+        #id: rizomuvpath
+        The path to the RizomUV executable.
+
+    Temp Mesh Path:
+        #id: tempmeshpath
+        The path to the temporary mesh file.

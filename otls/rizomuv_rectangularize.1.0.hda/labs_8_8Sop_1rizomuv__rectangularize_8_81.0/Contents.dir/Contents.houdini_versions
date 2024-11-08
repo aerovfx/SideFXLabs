@@ -1,0 +1,16 @@
+{
+	"values":["20.5.361","1.0"
+	],
+	"indexes":{
+		"hdaroot/null1.userdata":0,
+		"hdaroot/merge1.userdata":0,
+		"hdaroot/rectangularize.userdata":0,
+		"hdaroot/reload_file.userdata":0,
+		"hdaroot/output0.userdata":0,
+		"hdaroot/copy_attributes.userdata":0,
+		"hdaroot/rizomuv_processor.userdata":1,
+		"hdaroot/rename_uv_attribute.userdata":0,
+		"hdaroot/load_temp_file.userdata":0,
+		"hdaroot/auto_cook.userdata":0
+	}
+}

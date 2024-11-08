@@ -1,0 +1,25 @@
+#PSI_PRESET
+version 2.0a
+opvalues
+{
+version 0.8
+fd_uv			[ 0	locks=0 ]	(	0	)
+outgoinguv		[ 0	locks=0 ]	(	uv	)
+incominguv		[ 0	locks=0 ]	(	uv	)
+clearuv			[ 0	locks=0 ]	(	"off"	)
+fd_groups		[ 0	locks=0 ]	(	0	)
+grouptype		[ 0	locks=0 ]	(	"0"	)
+groups			[ 0	locks=0 ]	(	""	)
+fd_lua			[ 0	locks=0 ]	(	0	)
+usecustomlua	[ 0	locks=0 ]	(	"on"	)
+luascript		[ 0	locks=0 ]	(	"--Add the -- to the next line below to rectangularize only prims from groups (if they are specified)
+ZomSelect({PrimType=\"Polygon\", WorkingSet=\"Visible\", Select=true, All=true})
+ZomDeform({PrimType=\"Polygon\", WorkingSet=\"Visible\", Geometrical=\"Verticalize\"})
+ZomIslandGroups({Mode=\"DistributeInTilesEvenly\", WorkingSet=\"Visible\", MergingPolicy=8322, UseTileLocks=true, UseIslandLocks=true})
+ZomPack({ProcessTileSelection=false, RecursionDepth=1, RootGroup=\"RootGroup\", WorkingSet=\"Visible\", Scaling={Mode=0}, Rotate={Mode=0}, Translate=true, LayoutScalingMode=2})"	)
+fd_settings		[ 0	locks=0 ]	(	0	)
+autoload		[ 0	locks=0 ]	(	"on"	)
+autosave		[ 0	locks=0 ]	(	"on"	)
+autoquit		[ 0	locks=0 ]	(	"on"	)
+sepparm			[ 0	locks=0 ]	(	)
+}

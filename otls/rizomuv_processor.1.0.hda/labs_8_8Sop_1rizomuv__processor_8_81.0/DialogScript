@@ -1,0 +1,186 @@
+# Dialog script for labs::rizomuv_processor::1.0 automatically generated
+
+{
+    name	labs::rizomuv_processor::1.0
+    script	labs::rizomuv_processor
+    label	"Labs RizomUV Processor"
+
+    help {
+	""
+    }
+
+    inputlabel	1	"Mesh to UV"
+    inputlabel	2	"Sub-Network Input #2"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+
+    groupsimple {
+        name    "fd_uv"
+        label   "UV"
+
+        parm {
+            name    "outgoinguv"
+            label   "UV Attribute to Rizom"
+            type    string
+            default { "uv" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "incominguv"
+            label   "UV Attribute from Rizom"
+            type    string
+            default { "uv" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "clearuv"
+            label   "Delete Original UVs"
+            type    toggle
+            default { "1" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "uvtilesoffset"
+            label   "UDIM Tile Offset (x/y)"
+            type    integer
+            size    2
+            default { "0" "0" }
+            range   { 0 10 }
+            parmtag { "script_callback_language" "python" }
+        }
+    }
+
+    groupsimple {
+        name    "fd_groups"
+        label   "Groups"
+
+        parm {
+            name    "grouptype"
+            label   "Group Type"
+            type    ordinal
+            default { "3" }
+            menu {
+                "0" "Edge"
+                "1" "Point"
+                "2" "Primitive"
+            }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "groups"
+            label   "Groups"
+            type    string
+            default { "" }
+            menutoggle {
+                [ "result = []" ]
+                [ "" ]
+                [ "try:" ]
+                [ "    geo = hou.pwd().inputs()[0].geometry()" ]
+                [ "    grouptype = hou.pwd().parm(\"grouptype\").eval()" ]
+                [ "    hou.pwd().setParms({\"groups\": \"\"})" ]
+                [ "    if grouptype == 0:" ]
+                [ "        for attr in geo.edgeGroups():" ]
+                [ "            result.append(attr.name())" ]
+                [ "            result.append(attr.name())" ]
+                [ "    if grouptype == 1:" ]
+                [ "        for attr in geo.pointGroups():" ]
+                [ "            result.append(attr.name())" ]
+                [ "            result.append(attr.name())" ]
+                [ "    if grouptype == 2:" ]
+                [ "        for attr in geo.primGroups():" ]
+                [ "            result.append(attr.name())" ]
+                [ "            result.append(attr.name())" ]
+                [ "except:" ]
+                [ "    pass" ]
+                [ "    " ]
+                [ "if len(result) == 0:" ]
+                [ "    return [\"\", \"\"]" ]
+                [ "    " ]
+                [ "return result" ]
+                language python
+            }
+            parmtag { "script_callback_language" "python" }
+        }
+    }
+
+    parm {
+        name    "usenewname"
+        label   "useIncomingUV"
+        type    toggle
+        invisible
+        default { "off" }
+        parmtag { "script_callback_language" "python" }
+    }
+    groupsimple {
+        name    "fd_lua"
+        label   "Lua"
+
+        parm {
+            name    "usecustomlua"
+            label   "Use Custom Lua"
+            type    toggle
+            default { "0" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "luascript"
+            label   "Custom Lua Commands"
+            type    string
+            default { "" }
+            disablewhen "{ usecustomlua == 0 }"
+            parmtag { "editor" "1" }
+            parmtag { "editorlines" "10-100" }
+            parmtag { "script_callback_language" "python" }
+        }
+    }
+
+    groupsimple {
+        name    "fd_settings"
+        label   "Settings"
+
+        parm {
+            name    "autoload"
+            label   "Auto Load"
+            type    toggle
+            default { "1" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "autosave"
+            label   "Auto Save"
+            type    toggle
+            default { "1" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "autoquit"
+            label   "Auto Quit"
+            type    toggle
+            default { "1" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "sepparm"
+            label   "Spacer"
+            type    separator
+            default { "" }
+            parmtag { "sidefx::layout_height" "small" }
+            parmtag { "sidefx::look" "blank" }
+        }
+        parm {
+            name    "rizomuvpath"
+            label   "RizomUV Path"
+            type    file
+            default { "" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "tempmeshpath"
+            label   "Temp Mesh Path"
+            type    directory
+            default { "$HIP/temp/RizomUV/$HIPNAME/$OS.fbx" }
+            parmtag { "script_callback_language" "python" }
+        }
+    }
+
+}

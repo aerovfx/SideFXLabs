@@ -1,0 +1,23 @@
+{
+	"values":["1.0","20.5.361"
+	],
+	"indexes":{
+		"hdaroot/null1.userdata":1,
+		"hdaroot/unfold.userdata":1,
+		"hdaroot/load_temp_file.userdata":1,
+		"hdaroot/merge1.userdata":1,
+		"hdaroot/custom.userdata":1,
+		"hdaroot/copy_attributes.userdata":1,
+		"hdaroot/pelt.userdata":1,
+		"hdaroot/reload_file.userdata":1,
+		"hdaroot/advanced_settings.userdata":1,
+		"hdaroot/box.userdata":1,
+		"hdaroot/sharp_edges.userdata":1,
+		"hdaroot/method.userdata":1,
+		"hdaroot/output0.userdata":1,
+		"hdaroot/auto_cook.userdata":1,
+		"hdaroot/rename_uv_attribute.userdata":1,
+		"hdaroot/mosaic.userdata":1,
+		"hdaroot.userdata":0
+	}
+}

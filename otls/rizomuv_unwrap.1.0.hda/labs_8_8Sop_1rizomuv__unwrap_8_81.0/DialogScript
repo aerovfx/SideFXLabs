@@ -1,0 +1,380 @@
+# Dialog script for labs::rizomuv_unwrap::1.0 automatically generated
+
+{
+    name	labs::rizomuv_unwrap::1.0
+    script	gamedev::sop_rizomuv_optimize
+    label	"Labs RizomUV Unwrap"
+
+    help {
+	""
+    }
+
+    inputlabel	1	"Mesh to UV"
+    inputlabel	2	"Sub-Network Input #2"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+
+    parm {
+        name    "cook"
+        label   "Cook"
+        type    button
+        joinnext
+        default { "0" }
+        disablewhen "{ autocook == 1 }"
+        parmtag { "script_callback" "hou.pwd().node(\"rizom_processor\").cook(force=True); hou.pwd().parm(\"file1/reload\").pressButton()" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "autocook"
+        label   "Auto Cook"
+        type    toggle
+        default { "1" }
+        parmtag { "script_callback" "" }
+        parmtag { "script_callback_language" "python" }
+    }
+    groupsimple {
+        name    "fd_uv"
+        label   "UV"
+
+        parm {
+            name    "outgoinguv"
+            label   "UV Attribute"
+            type    string
+            default { "uv" }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "uvtilesoffset"
+            label   "UDIM Tile Offset (x/y)"
+            type    integer
+            size    2
+            default { "0" "0" }
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+    }
+
+    groupsimple {
+        name    "fd_unwrap"
+        label   "Unwrap"
+
+        parm {
+            name    "method"
+            label   "Method"
+            type    ordinal
+            default { "0" }
+            menu {
+                "0" "Pelt"
+                "1" "Mosaic"
+                "2" "Sharp Edges"
+                "3" "Box"
+            }
+        }
+        groupsimple {
+            name    "fd_pelt"
+            label   "Pelt"
+            hidewhen "{ method != 0 }"
+            grouptag { "sidefx::look" "blank" }
+
+            parm {
+                name    "enableleaf"
+                label   "Select Leafs"
+                type    toggle
+                default { "0" }
+                hidewhen "{ method != 0 }"
+            }
+            parm {
+                name    "enablebranch"
+                label   "Select Branches"
+                type    toggle
+                default { "0" }
+            }
+            parm {
+                name    "enabletrunk"
+                label   "Select Trunks"
+                type    toggle
+                default { "0" }
+            }
+        }
+
+        groupsimple {
+            name    "fd_Mosaic"
+            label   "Mosaic"
+            hidewhen "{ method != 1 }"
+            grouptag { "sidefx::look" "blank" }
+
+            parm {
+                name    "force"
+                label   "Force"
+                type    float
+                default { "0.25" }
+                disablewhen "{ enableislandcount == 1 }"
+                range   { 0 0.99 }
+            }
+            parm {
+                name    "enableislandcount"
+                label   "Enable Island Count"
+                type    toggle
+                nolabel
+                joinnext
+                default { "0" }
+            }
+            parm {
+                name    "islandcount"
+                label   "Island Count"
+                type    integer
+                default { "5" }
+                disablewhen "{ enableislandcount == 0 }"
+                range   { 1 100 }
+            }
+        }
+
+        groupsimple {
+            name    "fd_sharpedges"
+            label   "Sharp Edges"
+            hidewhen "{ method != 2 }"
+            grouptag { "sidefx::look" "blank" }
+
+            parm {
+                name    "anglelimit"
+                label   "Angle Limit"
+                type    float
+                default { "70" }
+                range   { 0 180 }
+            }
+        }
+
+        groupsimple {
+            name    "fd_box"
+            label   "Box"
+            hidewhen "{ method != 3 }"
+            grouptag { "sidefx::look" "blank" }
+
+            parm {
+                name    "xposypos"
+                label   "X+Y+"
+                type    toggle
+                joinnext
+                default { "1" }
+            }
+            parm {
+                name    "xposzpos"
+                label   "X+Z+"
+                type    toggle
+                joinnext
+                default { "1" }
+            }
+            parm {
+                name    "xposyneg"
+                label   "X+Y-"
+                type    toggle
+                joinnext
+                default { "1" }
+            }
+            parm {
+                name    "xposzneg"
+                label   "X+Z-"
+                type    toggle
+                joinnext
+                default { "1" }
+            }
+            parm {
+                name    "yposzpos"
+                label   "Y+Z+"
+                type    toggle
+                joinnext
+                default { "1" }
+            }
+            parm {
+                name    "ynegzpos"
+                label   "Y-Z+"
+                type    toggle
+                default { "1" }
+            }
+            parm {
+                name    "ynegzneg"
+                label   "Y-Z-"
+                type    toggle
+                joinnext
+                default { "1" }
+            }
+            parm {
+                name    "yposzneg"
+                label   "Y+Z-"
+                type    toggle
+                joinnext
+                default { "1" }
+            }
+            parm {
+                name    "xnegypos"
+                label   "X-Y+"
+                type    toggle
+                joinnext
+                default { "1" }
+            }
+            parm {
+                name    "xnegzpos"
+                label   "X-Z+"
+                type    toggle
+                joinnext
+                default { "1" }
+            }
+            parm {
+                name    "xnegyneg"
+                label   "X-Y-"
+                type    toggle
+                joinnext
+                default { "1" }
+            }
+            parm {
+                name    "xnegzneg"
+                label   "X-Z-"
+                type    toggle
+                default { "1" }
+            }
+        }
+
+        parm {
+            name    "sepparm"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        parm {
+            name    "enablestretchcontrol"
+            label   "Prevent Overlaps"
+            type    toggle
+            default { "0" }
+        }
+        parm {
+            name    "stretchcontrol"
+            label   "Limit Scretches"
+            type    float
+            default { "0.25" }
+            disablewhen "{ enablestretchcontrol == 0 }"
+            range   { 0 0.99 }
+        }
+    }
+
+    groupsimple {
+        name    "fd_advanced"
+        label   "Advanced Options"
+
+        parm {
+            name    "cuthandles"
+            label   "Cut Handles"
+            type    toggle
+            default { "1" }
+        }
+        parm {
+            name    "linkgaps"
+            label   "Link Gaps"
+            type    toggle
+            default { "0" }
+        }
+        parm {
+            name    "sepparm7"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        parm {
+            name    "denoise"
+            label   "Enable Denoise"
+            type    toggle
+            default { "0" }
+        }
+        parm {
+            name    "mix"
+            label   "Mix"
+            type    float
+            default { "0.5" }
+            disablewhen "{ denoise != 1 }"
+            range   { 0 1 }
+        }
+        parm {
+            name    "sepparm8"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        parm {
+            name    "enablereweld"
+            label   "Enable Reweld"
+            type    toggle
+            default { "0" }
+        }
+        parm {
+            name    "reweldthreshold"
+            label   "Threshold"
+            type    float
+            default { "0.01" }
+            disablewhen "{ enablereweld == 0 }"
+            range   { 0.001 10 }
+        }
+        parm {
+            name    "reweldmaxpoly"
+            label   "Max Poly"
+            type    integer
+            default { "30" }
+            disablewhen "{ enablereweld == 0 }"
+            range   { 1 100 }
+        }
+        parm {
+            name    "reweldmaxlength"
+            label   "Max Length"
+            type    float
+            default { "1" }
+            disablewhen "{ enablereweld == 0 }"
+            range   { 0 1 }
+        }
+        parm {
+            name    "sepparm5"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        parm {
+            name    "enablesizelimiter"
+            label   "Enable Limit Length"
+            type    toggle
+            default { "0" }
+        }
+        parm {
+            name    "lengthratio"
+            label   "Length Ratio"
+            type    integer
+            default { "5" }
+            disablewhen "{ enablesizelimiter == 0 }"
+            range   { 1 10 }
+        }
+    }
+
+    groupsimple {
+        name    "fd_settings"
+        label   "Settings"
+
+        parm {
+            name    "rizomuvpath"
+            label   "RizomUV Path"
+            type    file
+            default { "" }
+            menureplace {
+                [ "opmenu -l rizomuv_processor rizomuvpath" ]
+            }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "tempmeshpath"
+            label   "Temp Mesh Path"
+            type    directory
+            default { "$HIP/temp/RizomUV/$HIPNAME/$OS.fbx" }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+    }
+
+}

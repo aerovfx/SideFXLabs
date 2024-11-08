@@ -1,0 +1,73 @@
+= Labs RizomUV Optimize =
+
+#type:     node
+#context:  sop
+#internal: labs::rizomuv_optimize::1.0
+#icon:     SOP/labs::rizomuv_optimize
+
+"""Enables the use of RizomUV and performs a UV optimize inside Houdini"""
+
+[Image:/images/sidefxlabs_banner.jpg]
+
+The RizomUV Optimize allows you to perform a UV optimize inside Houdini by running RizomUV on the background.
+
+
+@parameters
+
+    Cook:
+        #id: cook
+        Starts the cooking process for this step.
+        
+    Auto Cook:
+        #id: autocook
+        This toggle controls if the node should automatically recook if any dependencies have changed.
+        
+    == UV ==
+
+    UV Attribute:
+        #id: outgoinguv
+        The UV sets that are send to RizomUV to perform the actions.
+
+    Delete Original UVs:
+        #id: clearuv
+        Removes the present UVs before processing in RizomUV.
+
+    UDIM Tile Offset (x/y):
+        #id: uvtilesoffset
+        Specifies the offset of the resulting tile in which the UVs are placed.
+        
+    == Optimize ==
+
+    Iterations:
+        #id: iterations
+        The number of iterations for the optimize algorithm.
+        
+    Power:
+        #id: optimizationforce
+        The optimization strength that compliments the number of iterations.
+
+    Angles/Lengths:
+        #id: angledistancemix
+        The mix between conservation of angles and distances. A value of 0 will result in angle conservation, while a value of 1 will result in a distances conservation.
+                
+    Prevent Flips:
+        #id: preventflips
+        Avoids the creation of triangle flips. This can significantly increase the unwrapping or optimizing calculation time.
+        
+    Prevent Overlaps:
+        #id: preventoverlaps
+        Avoids the creation of self border intersections. This can increase the unwrapping or optimizing calculation time.
+    
+    Fill Gaps:
+        #id: fillgaps
+        Fills the gaps in the mesh by adding invisible and temporary polygons to the model. When an unwrap or optimize is performed, it prevents the hole from collapsing on various types of unwraps. Recommended to use on eyes, mouths, nostrils, clothing, or hard edge openings like the gap on top of a tank or non-square windows.
+            
+    == Settings ==
+
+    RizomUV Path:
+        #id: rizomuvpath
+        The path to the RizomUV executable.
+
+    Temp Mesh Path:
+        #id: tempmeshpath
+        The path to the temporary mesh file.

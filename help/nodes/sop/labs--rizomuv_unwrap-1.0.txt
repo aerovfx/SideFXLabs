@@ -1,0 +1,187 @@
+= Labs RizomUV Unwrap =
+
+#type:     node
+#context:  sop
+#internal: labs::rizomuv_unwrap::1.0
+#icon:     SOP/labs::rizomuv_unwrap
+
+"""Enables the use of RizomUV and performs a UV unwrap inside Houdini"""
+
+[Image:/images/sidefxlabs_banner.jpg]
+
+The RizomUV Unwrap allows you to perform a UV unwrap inside Houdini by running RizomUV on the background. There are different uvwrap methods to choose from, as well as different smoothing and optimization options.
+
+
+@parameters
+
+    Cook:
+        #id: cook
+        Starts the cooking process for this step.
+        
+    Auto Cook:
+        #id: autocook
+        This toggle controls if the node should automatically recook if any dependencies have changed.
+        
+    == UV ==
+
+    UV Attribute:
+        #id: outgoinguv
+        The UV sets that are send to RizomUV to perform the actions.
+        
+    UDIM Tile Offset (x/y):
+        #id: uvtilesoffset
+        Specifies the offset of the resulting tile in which the UVs are placed.
+        
+    == Unwrap ==
+
+    Method:
+        #id: method
+        The method contains advanced algorithms that automatically selects edges of the visible island sets to cut.
+        
+        Pelt:
+        Selects edges using the Single-Cut algorithm. Extremities of the visible islands will be linked and the hierarchy sections will also be selected if Select Leafs, Select Branches, or Select Trunks are enabled.
+            
+        Mosaic:
+        Selects edges using the Mosaic algorithm. Planar surfaces of the model will be extracted so that the mesh will be segmented into smaller parts.
+            
+        Sharp Edges:
+        Selects edges using the Sharp Edges algorithm. Each edge that has their two connected polygon normals and make an angle superior to a threshold will be selected.
+            
+        Box:
+        Selects edges using the Box algorithm. Each island is projected on 6 orthogonal planes and form several polygon groups. All polygon groups borders are then selected.
+            
+    Select Leafs:
+        #id: enableleaf
+        Single-cut segmentation will select the trunk's sections.
+        
+    Select Branches:
+        #id: enablebranch
+        Single-cut segmentation will select the branch's sections.
+        
+    Select Trunks:
+        #id: enabletrunk
+        Single-cut segmentation will select the leaf's sections.
+        
+    Force:
+        #id: force
+        High values will segment more so the islands will be unfolded with less distortion. Low values will segment less but the cut will generate more distortion.
+                
+    Enable Island Count:
+        #id: enableislandcount
+        Mosaic segmentation will not automatically determine the island count for each island to segment, but rather use the specific value.
+        
+    Island Count:
+        #id: islandcount
+        The number of parts in which each island will be segmented into.
+        
+    Angle Limit:
+        #id: anglelimit
+        Edges that have their polygon normals forming an angle larger than this value will be selected.
+        
+    X+Y+:
+        #id: xposypos
+        Auto Select Box will select the edge intersecting virtual box faces X+ and Y+.
+        
+    X+Z+:
+        #id: xposzpos
+        Auto Select Box will select the edge intersecting virtual box faces X+ and Z+.
+        
+    X+Y-:
+        #id: xposyneg
+        Auto Select Box will select the edge intersecting virtual box faces X+ and Y-.
+        
+    X+Z-:
+        #id: xposzneg
+        Auto Select Box will select the edge intersecting virtual box faces X+ and Z-.
+        
+    Y+Z+:
+        #id: yposzpos
+        Auto Select Box will select the edge intersecting virtual box faces Y+ and Z+.
+        
+    Y-Z+:
+        #id: ynegzpos
+        Auto Select Box will select the edge intersecting virtual box faces Y- and Z+.
+        
+    Y-Z-:
+        #id: ynegzneg
+        Auto Select Box will select the edge intersecting virtual box faces Y- and Z-.
+        
+    Y+Z-:
+        #id: yposzneg
+        Auto Select Box will select the edge intersecting virtual box faces Y+ and Z-.
+        
+    X-Y+:
+        #id: xnegypos
+        Auto Select Box will select the edge intersecting virtual box faces X- and Y+.
+        
+    X-Z+:
+        #id: xnegzpos
+        Auto Select Box will select the edge intersecting virtual box faces X- and Z+.
+        
+    X-Y-:
+        #id: xnegyneg
+        Auto Select Box will select the edge intersecting virtual box faces X- and Y-.
+        
+    X-Z-:
+        #id: xnegzneg
+        Auto Select Box will select the edge intersecting virtual box faces X- and Z-.
+
+    Prevent Overlaps:
+        #id: enablestretchcontrol
+        Checks the stretching and adds enough cuts to ensure there are no flips or overlaps once the mesh will be unfolded.
+        
+    Limit Stretches:
+        #id: stretchcontrol
+        High values will give less stretching and angle distortion but will select more edges.
+        
+    == Advanced Options ==
+
+    Cut Handles:
+        #id: cuthandles
+        Selects the handles in the post-process.
+        
+    Link Gaps:
+        #id: linkgaps
+        Selects links between gaps in the post-process.
+        
+    Enable Denoise:
+        #id: denoise
+        Small details will tend to be ignored.
+        
+    Mix:
+        #id: mix
+        A value close to 1 will ignore the small details of the mesh. Too much denoise can make some local stretching appear, even if the stretch limiter is enabled.
+        
+    Enable Reweld:
+        #id: enablereweld
+        Welds edges without creating overlaps. When this option is enabled the stretch limit and angle limit may not be respected and might create additional distortion.
+        
+    Threshold:
+        #id: reweldthreshold
+        The maximum relative distance between two edges that allows them to be welded. The distance is relative to the average edge length.
+        
+    Max Poly:
+        #id: reweldmaxpoly
+        Authorizes welding of islands if their polycount is below this value.
+        
+    Max Length:
+        #id: reweldmaxlength
+        Authorizes welding of islands if their UV space maximum bounding box dimension is below this value.
+        
+    Enable Limit Length:
+        #id: enablesizelimiter
+        Cuts a UV island in two when its' maximum bounding box length over the average of the maximum bounding box length of all islands exceeds the Length Ratio.
+        
+    Length Ratio:
+        #id: lengthratio
+        The maximum allowed ratio of the bounding box length over the average of the maximum bounding box length of all islands. Low values create more cuts, while high values create less cuts.
+        
+    === Settings ===
+        
+    RizomUV Path:
+        #id: rizomuvpath
+        The path to the RizomUV executable.
+
+    Temp Mesh Path:
+        #id: tempmeshpath
+        The path to the temporary mesh file.

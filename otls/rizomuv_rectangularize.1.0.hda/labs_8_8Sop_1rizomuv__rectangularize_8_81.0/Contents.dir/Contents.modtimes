@@ -1,0 +1,14 @@
+{
+	"hdaroot/merge1.def":1730994574,
+	"hdaroot/copy_attributes.def":1730994885,
+	"hdaroot/delete_attributes.def":1730994567,
+	"hdaroot/output0.def":1730994579,
+	"hdaroot/load_temp_file.def":1731075408,
+	"hdaroot/reload_file.def":1730994553,
+	"hdaroot/rectangularize.def":1730994885,
+	"hdaroot/auto_cook.def":1730994554,
+	"hdaroot.def":1731075422,
+	"hdaroot/rizomuv_processor.def":1731092552,
+	"hdaroot/null1.def":1730994555,
+	"hdaroot/rename_uv_attribute.def":1730994569
+}

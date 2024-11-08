@@ -1,0 +1,16 @@
+{
+	"values":["1.0","20.5.361"
+	],
+	"indexes":{
+		"hdaroot/null1.userdata":1,
+		"hdaroot/IN.userdata":1,
+		"hdaroot.userdata":0,
+		"hdaroot/save_temp_file.userdata":1,
+		"hdaroot/output0.userdata":1,
+		"hdaroot/merge2.userdata":1,
+		"hdaroot/rename_uv.userdata":1,
+		"hdaroot/uvtransform1.userdata":1,
+		"hdaroot/rizom_start.userdata":1,
+		"hdaroot/load_temp_file.userdata":1
+	}
+}
