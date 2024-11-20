@@ -1,7 +1,8 @@
 {
-	"values":["20.5.332"
+	"values":["20.5.370"
 	],
 	"indexes":{
+		"hdaroot/POINTS_.userdata":0,
 		"hdaroot/cull_by_max_points.userdata":0,
 		"hdaroot/specified_biome.userdata":0,
 		"hdaroot/plant_inventory.userdata":0,
@@ -17,7 +18,6 @@
 		"hdaroot/ZOO_PLANT_TYPES.userdata":0,
 		"hdaroot/output1.userdata":0,
 		"hdaroot/get_volume_mask.userdata":0,
-		"hdaroot/POINTS.userdata":0,
 		"hdaroot/randomize_color.userdata":0,
 		"hdaroot/sphere3.userdata":0,
 		"hdaroot/output_age_attribute.userdata":0,
@@ -48,6 +48,7 @@
 		"hdaroot/IN_SOIL_MASK_GEO1.userdata":0,
 		"hdaroot/heightfield_maskinvert1.userdata":0,
 		"hdaroot/foreach_end3.userdata":0,
+		"hdaroot/get_expanded_meshpaths.userdata":0,
 		"hdaroot/DENSITY.userdata":0,
 		"hdaroot/compile_begin4.userdata":0,
 		"hdaroot/HEIGHTFIELD.userdata":0,
