@@ -32,7 +32,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -40.4723 64.6526
+position 1.38725 -0.888562
 connectornextid 0
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -112,11 +112,58 @@ Content-Type: text/plain
 	autofit := 0;
 	color := "UT_Color RGB 0.584 0.776 1 ";
 	comment := Visualizing;
-	height := 16.823789430803682;
+	height := 15.785810559812635;
 	minimized := 0;
-	width := 10.776500017881391;
-	x_position := 13.49897895749599;
-	y_position := -16.688862442813644;
+	width := 10.858678981337844;
+	x_position := 13.416799994039536;
+	y_position := -19.930400005960465;
+}
+{
+  create -1
+  modify -1
+  author youmnas@pubnico
+  access 0777
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/__netbox2.netboxinit"
+Content-Type: text/plain
+
+2
+2
+{
+	autofit := 0;
+	color := "UT_Color RGB 0.996 0.682 0.682 ";
+	comment := "add new attributes here";
+	height := 1.9473999877929664;
+	minimized := 0;
+	width := 4.10509999339059;
+	x_position := 12.162899999838322;
+	y_position := 12.941199999189378;
+}
+{
+  create -1
+  modify -1
+  author youmnas@pubnico
+  access 0777
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/__netbox4.netboxinit"
+Content-Type: text/plain
+
+2
+2
+{
+	autofit := 0;
+	color := "UT_Color RGB 0.996 0.682 0.682 ";
+	comment := "add new attributes here";
+	height := 0.7777999877929673;
+	minimized := 0;
+	owner := __netbox1;
+	width := 3.2622477239578513;
+	x_position := -6.647990000161678;
+	y_position := 20.45799999918938;
 }
 {
   create -1
@@ -2376,6 +2423,12 @@ color	[ 8	locks=0 ]	(	[ colorx	0 ] 	[ colory	0 ] 	[ colorz	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/avg_attributes_from_regions1.netbox"
+Content-Type: text/plain
+
+__netbox2
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/avg_attributes_from_regions1.userdata"
 Content-Type: text/plain
 
@@ -2668,7 +2721,7 @@ pivot	[ 0	locks=0 ]	(	"centroid"	)
 viewportlod	[ 0	locks=0 ]	(	"full"	)
 addpath	[ 0	locks=0 ]	(	"on"	)
 enable1	[ 0	locks=0 ]	(	"on"	)
-objpath1	[ 0	locks=0 ]	(	../TERRAIN_RES	)
+objpath1	[ 0	locks=0 ]	(	../TERRAIN_W_MASK	)
 group1	[ 0	locks=0 ]	(	""	)
 expand1	[ 0	locks=0 ]	(	"off"	)
 }
@@ -2760,72 +2813,6 @@ Content-Type: text/plain
 	"___Version___":{
 		"type":"string",
 		"value":"___EXTERNAL___"
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/have_a_same_resolution_each_time.init"
-Content-Type: text/plain
-
-type = heightfield_resample
-matchesdef = 1
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/have_a_same_resolution_each_time.def"
-Content-Type: text/plain
-
-sopflags sopflags = 
-comment ""
-position -6.5 23.3481
-connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload on savedata off compress on colordefault on exposed on
-outputsNamed3
-{
-1 "output1"
-}
-inputsNamed3
-{
-0 	TERRAIN_W_MASK 1 1 "input1"
-}
-inputs
-{
-0 	TERRAIN_W_MASK 0 1
-}
-stat
-{
-  create -1
-  modify -1
-  author youmnas@pubnico
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/have_a_same_resolution_each_time.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-fixedresample	[ 0	locks=0 ]	(	"on"	)
-resscale	[ 0	locks=0 ]	(	1	)
-divisionmode	[ 0	locks=0 ]	(	"size"	)
-gridspacing	[ 0	locks=0 ]	(	5	)
-gridsamples	[ 0	locks=0 ]	(	256	)
-filter	[ 0	locks=0 ]	(	gauss	)
-filterscale	[ 0	locks=0 ]	(	0	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/have_a_same_resolution_each_time.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":""
 	}
 }
 
@@ -6586,6 +6573,12 @@ soil	[ 8	locks=0 ]	(	[ soil	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/set_defaults.netbox"
+Content-Type: text/plain
+
+__netbox2
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/set_defaults.userdata"
 Content-Type: text/plain
 
@@ -6974,67 +6967,6 @@ Content-Type: text/plain
 	"___Version___":{
 		"type":"string",
 		"value":""
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/TERRAIN_RES.init"
-Content-Type: text/plain
-
-type = null
-matchesdef = 1
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/TERRAIN_RES.def"
-Content-Type: text/plain
-
-sopflags sopflags = 
-comment ""
-position -6.5 22.2454
-connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
-outputsNamed3
-{
-1 "output1"
-}
-inputsNamed3
-{
-0 	have_a_same_resolution_each_time 1 1 "input1"
-}
-inputs
-{
-0 	have_a_same_resolution_each_time 0 1
-}
-stat
-{
-  create -1
-  modify -1
-  author Bailey@BaileysPC
-  access 0777
-}
-color UT_Color RGB 0.6 0.7 0.77 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/TERRAIN_RES.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-copyinput	[ 0	locks=0 ]	(	"on"	)
-cacheinput	[ 0	locks=0 ]	(	"off"	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/TERRAIN_RES.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":"___EXTERNAL___"
 	}
 }
 
@@ -7935,12 +7867,12 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	TERRAIN_RES 1 1 "input1"
+0 	TERRAIN_W_MASK 1 1 "input1"
 2 	default_info 0 1 "input2"
 }
 inputs
 {
-0 	TERRAIN_RES 0 1
+0 	TERRAIN_W_MASK 0 1
 1 	default_info 0 1
 }
 stat
@@ -8192,7 +8124,7 @@ soil	[ 8	locks=0 ]	(	[ soil	0 ] 	)
 Content-Disposition: attachment; filename="hdaroot/set_defaults_values.netbox"
 Content-Type: text/plain
 
-__netbox1
+__netbox4
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/set_defaults_values.userdata"
@@ -11462,7 +11394,7 @@ Content-Type: text/plain
 Content-Disposition: attachment; filename="hdaroot.order"
 Content-Type: text/plain
 
-115
+113
 output0
 IN_BIOME_REGIONS
 TERRAIN_W_MASK
@@ -11492,7 +11424,6 @@ om_default_biome
 om_default_biome2
 om_default_biome3
 om_biome_definition
-have_a_same_resolution_each_time
 clear_mask
 reorder_mask
 object_merge1
@@ -11542,7 +11473,6 @@ heightfield_flatten_to_avg_height2
 copy_back_height2
 copy_height_to_avg_height2
 inverse_mask
-TERRAIN_RES
 heightfield_xform1
 heightfield_xform2
 s_if_bigterrain

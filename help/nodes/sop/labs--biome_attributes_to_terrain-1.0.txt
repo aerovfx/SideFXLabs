@@ -2,7 +2,7 @@
 
 """Assign the base biome attributes onto the terrain """
 
-This nodes takes the default attributes and/or the dictionary attribute `biome_definition` of the second input and transfers them to the terrain depending on the biome regions of the third input.
+This node takes the default attributes and/or the dictionary attribute `biome_definition` of the second input and transfers them to the terrain depending on the biome regions of the third input. It also fills the areas with no biome regions with a background, created from default biome parameter.
 
 @parameters
 
@@ -39,6 +39,15 @@ Max:
 == Parameters ==
 
 == Default Attributes ==
+
+Background:
+    #id: usedefault
+
+    This node checks if the `output layers` already exist on input and create new ones when needed. When all the layers are already present, this gives you the possibility to change the background mode to transparent, not using the biome default parameters. 
+
+    Transparent: Keep empty regions as is, without filling nor overriding the information
+
+    Fill: Fill empty regions with default attribute
 
 Color:
     #id: biomecolor
