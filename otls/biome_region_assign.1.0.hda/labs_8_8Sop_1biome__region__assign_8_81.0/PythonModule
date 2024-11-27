@@ -3,6 +3,12 @@ def forceUpdate(kwargs):
     kwargs['node'].node('OUT_REGION_CENTERS').cook(force=True)
 
     return
+    
+def forceUpdateHeightfield(kwargs):
+
+    kwargs['node'].node('OUT_HF_REGIONS').cook(force=True)
+
+    return
 
 
 def biomeMenu(kwargs):
@@ -58,6 +64,26 @@ def buildRegionMultiparmFromImage(kwargs):
             node.parmTuple('img_bcolor' + index_str).set(geo.prim(i).attribValue('Cd'))
 
     forceUpdate(kwargs)
+
+    return
+    
+def buildRegionMultiparmFromhHeightfields(kwargs):
+
+    node = kwargs['node']
+    region_centers_sop = node.node('number_of_biomes_defined')
+    region_centers_sop.cook(force=False)
+    geo = region_centers_sop.geometry()
+
+    if geo:
+        region_count = geo.intrinsicValue('pointcount')
+        node.parm('hf_img_regions').set(region_count)
+        for i in range(region_count):
+            index_str = str(i + 1)
+            node.parm('hf_bname' + index_str).revertToDefaults()
+            node.parm('hf_bhierarchy' + index_str).revertToDefaults()
+            #node.parmTuple('hf_bcolor' + index_str).set(geo.prim(i).attribValue('Cd'))
+
+    forceUpdateHeightfield(kwargs)
 
     return
 
