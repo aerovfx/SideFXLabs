@@ -8,6 +8,7 @@
   <toolshelf name="edu_toolset" label="SideFX EDU">
     <memberTool name="edu::update_toolset"/>
     <memberTool name="edu::sticky_notes"/>
+    <memberTool name="add_bg_image"/>
     <memberTool name="edu::number_items"/>
     <memberTool name="labs::parameter_diff"/>
     <memberTool name="labs::sticker_placer"/>
@@ -119,5 +120,16 @@ archive_top.setPosition(scheduler.position() + hou.Vector2(0, -1))]]></script>
   <tool name="edu::update_toolset" label="Update Toolset" icon="hicon:/SVGIcons.index?IMAGE_auto_update.svg">
     <script scriptType="python"><![CDATA[import sidefxedu
 sidefxedu.SideFXEDUUpdater(updater_dialog=True)]]></script>
+  </tool>
+
+  <tool name="add_bg_image" label="Add BG Image" icon="hicon:/SVGIcons.index?BUTTONS_add_image.svg">
+    <script scriptType="python"><![CDATA[from importlib import reload 
+
+import edu_utils
+reload(edu_utils)
+
+edu_utils.addBackgroundImage()
+
+]]></script>
   </tool>
 </shelfDocument>
