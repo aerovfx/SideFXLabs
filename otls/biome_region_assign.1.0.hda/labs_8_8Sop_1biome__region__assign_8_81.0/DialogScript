@@ -61,7 +61,7 @@
             menu {
                 "0" "Image"
                 "1" "Mesh (To Be Supported Soon)"
-                "2" "HeightField (To Be Supported Soon)"
+                "2" "HeightField Layers"
             }
             parmtag { "script_callback_language" "python" }
         }
@@ -74,7 +74,7 @@
             menu {
                 "0" "PSD File (To Be Supported Soon)"
                 "1" "Curves"
-                "2" "HeightField Layers (To Be Supported Soon)"
+                "2" "HeightField Layers"
             }
             parmtag { "script_callback_language" "python" }
         }
@@ -290,6 +290,14 @@
                 }
             }
 
+            parm {
+                name    "sepparm4"
+                label   "Spacer"
+                type    separator
+                default { "" }
+                parmtag { "sidefx::layout_height" "small" }
+                parmtag { "sidefx::look" "blank" }
+            }
             groupsimple {
                 name    "fd_img_assign"
                 label   "Region Assignment"
@@ -362,6 +370,93 @@
                     }
                 }
 
+            }
+
+        }
+
+        groupsimple {
+            name    "fd_hf_assign"
+            label   "Region Assignment"
+            hidewhen "{ src_depth == 0 src_single != 2 } { src_depth == 1 src_multi != 2 }"
+            grouptag { "sidefx::switcher" "fd_img_assign" }
+
+            parm {
+                name    "sepparm5"
+                label   "Spacer"
+                type    separator
+                default { "" }
+                hidewhen "{ src_depth == 0 src_single != 2 } { src_depth == 1 src_multi != 2 }"
+                parmtag { "sidefx::layout_height" "small" }
+                parmtag { "sidefx::look" "blank" }
+            }
+            parm {
+                name    "hf_generatecolors"
+                label   "Recreate Region List"
+                type    button
+                default { "0" }
+                hidewhen "{ src_depth == 0 src_single != 2 } { src_depth == 1 src_multi != 2 }"
+                parmtag { "script_callback" "hou.phm().buildRegionMultiparmFromhHeightfields(kwargs)" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "sepparm6"
+                label   "Separator"
+                type    separator
+                default { "" }
+                hidewhen "{ src_depth == 0 src_single != 2 } { src_depth == 1 src_multi != 2 }"
+            }
+            multiparm {
+                name    "hf_img_regions"
+                label    "Number of Regions"
+                hidewhen "{ src_depth == 0 src_single != 2 } { src_depth == 1 src_multi != 2 }"
+                parmtag { "multistartoffset" "1" }
+                parmtag { "script_callback" "hou.phm().forceUpdateHeightfield(kwargs)" }
+
+                parm {
+                    name    "hflayername#"
+                    label   "Layer"
+                    type    string
+                    default { "" }
+                    hidewhen "{ src_depth == 0 src_single != 2 } { src_depth == 1 src_multi != 2 }"
+                    menureplace {
+                        [ "import terraintoolutils" ]
+                        [ "" ]
+                        [ "return terraintoolutils.buildNameMenu(kwargs['node'].node(\"INPUT_TERRAIN_SIZE_REF\"))" ]
+                        language python
+                    }
+                    parmtag { "script_callback" "hou.phm().forceUpdateHeightfield(kwargs)" }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "hf_bname#"
+                    label   "Biome Name"
+                    type    string
+                    default { "" }
+                    hidewhen "{ src_depth == 0 src_single != 2 } { src_depth == 1 src_multi != 2 }"
+                    menu {
+                        [ "hou.phm().biomeMenuSafe(kwargs)" ]
+                        language python
+                    }
+                    parmtag { "script_callback" "hou.phm().forceUpdateHeightfield(kwargs)" }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "hf_bhierarchy#"
+                    label   "Biome Hierarchy"
+                    type    integer
+                    default { "0" }
+                    hidewhen "{ src_depth == 0 src_single != 2 } { src_depth == 1 src_multi != 2 }"
+                    range   { 0! 20 }
+                    parmtag { "script_callback" "hou.phm().forceUpdateHeightfield(kwargs)" }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "sepparm03_#_2"
+                    label   "Separator"
+                    type    separator
+                    default { "" }
+                    hidewhen "{ src_depth == 0 src_single != 2 } { src_depth == 1 src_multi != 2 }"
+                }
             }
 
         }
