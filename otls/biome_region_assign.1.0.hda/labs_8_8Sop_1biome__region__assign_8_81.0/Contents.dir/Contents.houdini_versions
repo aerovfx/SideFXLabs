@@ -1,5 +1,5 @@
 {
-	"values":["20.5.332","1","4","2"
+	"values":["20.5.370","1","4","2"
 	],
 	"indexes":{
 		"hdaroot/convert_regions_to_curves_subutil4/fast_group_unshared6/switch_edge_group.userdata":0,
@@ -13,6 +13,7 @@
 		"hdaroot/cluster_to_prim.userdata":0,
 		"hdaroot/compile_end2.userdata":0,
 		"hdaroot/convert_regions_to_curves_subutil4/compile_begin6.userdata":0,
+		"hdaroot/promote_brga_stable_idx_to_point_attr.userdata":0,
 		"hdaroot/connectivity1.userdata":0,
 		"hdaroot/foreach_end8.userdata":0,
 		"hdaroot/sample_grid_auto.userdata":0,
