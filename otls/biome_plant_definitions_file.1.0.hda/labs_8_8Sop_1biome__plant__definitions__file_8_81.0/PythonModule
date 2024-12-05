@@ -139,7 +139,7 @@ def recreateNodesfromGeo(node):
         input_node = node
         
         # get points from geo node
-        points = node.node("file_bgeo")
+        points = node.node("OUT_bgeo")
         points = points.geometry().points()
         attribs = [pt.attribValue("plant_definition") for pt in points]
         

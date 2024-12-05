@@ -32,18 +32,20 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -54.5312 79.892
-connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+position -60.0292 76.8696
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
 {
 0 "output1"
 }
 inputsNamed3
 {
+1 	Birch 0 1 "input1"
 }
 inputs
 {
+0 	Birch 0 1
 }
 stat
 {
@@ -52,7 +54,7 @@ stat
   author Bailey@BaileysPC
   access 0777
 }
-color UT_Color RGB 0.8 0.8 0.8 
+color UT_Color RGB 0.839 0.839 0.839 
 delscript ""
 exprlanguage hscript
 end
@@ -94,7 +96,7 @@ sopflags sopflags =
 comment ""
 position -1.8872 -10.1451
 connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload on savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload on savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 1 "output1"
@@ -577,9 +579,9 @@ vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 folder_generatedparms_snippet	[ 0	locks=0 ]	(	0	)
-plantcolorr	[ 8	locks=0 ]	(	[ plantcolorr	0 ] 	)
-plantcolorg	[ 8	locks=0 ]	(	[ plantcolorg	0 ] 	)
-plantcolorb	[ 8	locks=0 ]	(	[ plantcolorb	0 ] 	)
+plantcolorr	[ 0	locks=0 ]	(	[ plantcolorr	0 ] 	)
+plantcolorg	[ 0	locks=0 ]	(	[ plantcolorg	0 ] 	)
+plantcolorb	[ 0	locks=0 ]	(	[ plantcolorb	0 ] 	)
 plantname	[ 0	locks=0 ]	(	`chs(\"../plantname\")`	)
 }
 
@@ -818,7 +820,7 @@ sopflags sopflags =
 comment ""
 position -1.0902 -7.70946
 connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 1 "output1"
@@ -856,7 +858,7 @@ class	[ 0	locks=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
 snippet	[ 0	locks=0 ]	(	"int numvariations;
-
+dict abs;
 if(isvalidindex(d@plant_definition, \"variants\"))
 {
     numvariations = d@plant_definition[\"variants\"];
@@ -866,6 +868,9 @@ for (int i = 1; i <= numvariations; i++)
 {
     d@plant_definition[\"filemeshvariant\"+itoa(i)] = chsraw(\"../filemeshvariant\"+itoa(i));  
     d@plant_definition[\"filemeshdeadvariant\"+itoa(i)] = chsraw(\"../filemeshdeadvariant\"+itoa(i));
+    abs = set(\"absfilemeshvariant\"+itoa(i), chs(\"../filemeshvariant\"+itoa(i)), \"absfilemeshdeadvariant\"+itoa(i), chs(\"../filemeshdeadvariant\"+itoa(i)));
+    insert(d@plant_definition,abs);
+    
 }
 
 "	)

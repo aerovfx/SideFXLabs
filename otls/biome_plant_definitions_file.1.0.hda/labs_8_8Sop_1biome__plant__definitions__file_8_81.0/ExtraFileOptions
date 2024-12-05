@@ -21,7 +21,7 @@
 	},
 	"PythonModule/Cursor":{
 		"type":"intarray",
-		"value":[313,13]
+		"value":[142,37]
 	},
 	"PythonModule/IsExpr":{
 		"type":"bool",
