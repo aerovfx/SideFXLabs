@@ -32,26 +32,26 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 3.5 0.85
+position -0.5 -0.0194399
 connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 1 "output1"
 }
 inputsNamed3
 {
-0 	group6 1 1 "input1"
+0 	box1 0 1 "input1"
 }
 inputs
 {
-0 	group6 0 1
+0 	box1 0 1
 }
 stat
 {
   create -1
   modify -1
-  author christoss@cayuga.local.sidefx.com
+  author christoss@cayuga.local
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -782,7 +782,7 @@ Content-Type: text/plain
 {
 version 0.8
 filemode	[ 0	locks=0 ]	(	"read"	)
-file	[ 0	locks=0 ]	(	`chs(\"../tempmeshpath\")`	)
+file	[ 0	locks=0 ]	(	`chs(\"../rizomuv_processor/tempmeshpath\")`	)
 reload	[ 0	locks=0 ]	(	0	)
 objpattern	[ 0	locks=0 ]	(	*	)
 geodatapath	[ 0	locks=0 ]	(	""	)
@@ -956,7 +956,7 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	rizomuv_processor 1 1 "input1"
+0 	rizomuv_processor 0 1 "input1"
 }
 inputs
 {
@@ -1124,7 +1124,6 @@ srcgrouptype	[ 0	locks=0 ]	(	"points"	)
 destgroup	[ 0	locks=0 ]	(	""	)
 destgrouptype	[ 0	locks=0 ]	(	"points"	)
 matchbyattribute	[ 0	locks=0 ]	(	"off"	)
-matchbyattributemethod	[ 0	locks=0 ]	(	"byvalues"	)
 attributetomatch	[ 0	locks=0 ]	(	piece	)
 attrib	[ 0	locks=0 ]	(	"otherattrib"	)
 attribname	[ 0	locks=0 ]	(	"* ^`chs(\"../outgoinguv\")` ^P"	)
@@ -1462,7 +1461,7 @@ Content-Type: text/plain
 Content-Disposition: attachment; filename="hdaroot/rizomuv_processor.init"
 Content-Type: text/plain
 
-type = labs::rizomuv_processor::1
+type = labs::rizomuv_processor::1.0
 matchesdef = 1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1476,11 +1475,11 @@ connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-1 "output1"
+0 "output1"
 }
 inputsNamed3
 {
-0 	unfold 1 1 "input1"
+1 	unfold 1 1 "input1"
 }
 inputs
 {
@@ -1490,7 +1489,7 @@ stat
 {
   create -1
   modify -1
-  author christoss@cayuga.local.sidefx.com
+  author christoss@cayuga.local
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -1502,19 +1501,150 @@ end
 Content-Disposition: attachment; filename="hdaroot/rizomuv_processor.spareparmdef"
 Content-Type: text/plain
 
+    group {
+        name    "standardfolder"
+        label   "Standard"
+
+        groupsimple {
+            name    "fd_uv2"
+            label   "UV"
+            grouptag { "sidefx::switcher" "fd_uv" }
+
+        }
+
+        groupsimple {
+            name    "fd_groups2"
+            label   "Groups"
+            grouptag { "sidefx::switcher" "fd_groups" }
+
+        }
+
+        parm {
+            name    "usenewname"
+            baseparm
+            label   "useIncomingUV"
+            invisible
+            export  none
+        }
+        groupsimple {
+            name    "fd_lua2"
+            label   "Lua"
+            grouptag { "sidefx::switcher" "fd_lua" }
+
+        }
+
+        groupsimple {
+            name    "fd_settings2"
+            label   "Settings"
+            grouptag { "sidefx::switcher" "fd_settings" }
+
+            parm {
+                name    "sepparm"
+                baseparm
+                label   "Spacer"
+                export  none
+            }
+        }
+
+    }
+
+    group {
+        name    "standardfolder_1"
+        label   "Spare"
+
+        parm {
+            name    "uvtilesoffset1"
+            label   "uvtilesoffset1"
+            type    float
+            default { "0" }
+            range   { 0 10 }
+        }
+        parm {
+            name    "uvtilesoffset2"
+            label   "uvtilesoffset2"
+            type    float
+            default { "0" }
+            range   { 0 10 }
+        }
+    }
+
     parm {
-        name    "uvtilesoffset1"
-        label   "uvtilesoffset1"
-        type    float
-        default { "0" }
-        range   { 0 10 }
+        name    "outgoinguv"
+        baseparm
+        label   "UV Attribute to Rizom"
+        export  none
     }
     parm {
-        name    "uvtilesoffset2"
-        label   "uvtilesoffset2"
-        type    float
-        default { "0" }
-        range   { 0 10 }
+        name    "incominguv"
+        baseparm
+        label   "UV Attribute from Rizom"
+        export  none
+    }
+    parm {
+        name    "clearuv"
+        baseparm
+        label   "Delete Original UVs"
+        export  none
+    }
+    parm {
+        name    "uvtilesoffset"
+        baseparm
+        label   "UDIM Tile Offset (x/y)"
+        export  none
+    }
+    parm {
+        name    "grouptype"
+        baseparm
+        label   "Group Type"
+        export  none
+    }
+    parm {
+        name    "groups"
+        baseparm
+        label   "Groups"
+        export  none
+    }
+    parm {
+        name    "usecustomlua"
+        baseparm
+        label   "Use Custom Lua"
+        export  none
+    }
+    parm {
+        name    "luascript"
+        baseparm
+        label   "Custom Lua Commands"
+        export  none
+    }
+    parm {
+        name    "autoload"
+        baseparm
+        label   "Auto Load"
+        export  none
+    }
+    parm {
+        name    "autosave"
+        baseparm
+        label   "Auto Save"
+        export  none
+    }
+    parm {
+        name    "autoquit"
+        baseparm
+        label   "Auto Quit"
+        export  none
+    }
+    parm {
+        name    "rizomuvpath"
+        baseparm
+        label   "RizomUV Path"
+        export  none
+    }
+    parm {
+        name    "tempmeshpath"
+        baseparm
+        label   "Temp Mesh Path"
+        export  none
     }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1542,8 +1672,32 @@ Content-Type: text/plain
 
 {
 version 0.8
-uvtilesoffset1	[ 0	locks=0 ]	(	[ uvtilesoffset1	0 ] 	)
-uvtilesoffset2	[ 0	locks=0 ]	(	[ uvtilesoffset2	0 ] 	)
+fd_uv	[ 0	locks=0	autoscope=0 ]	(	0	)
+outgoinguv	[ 0	locks=0	autoscope=0 ]	(	uv	)
+incominguv	[ 0	locks=0	autoscope=0 ]	(	uv	)
+clearuv	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+uvtilesoffset	[ 0	locks=0	autoscope=0 ]	(	[ uvtilesoffset1	0 ] 	[ uvtilesoffset2	0 ] 	)
+fd_groups	[ 0	locks=0	autoscope=0 ]	(	0	)
+grouptype	[ 0	locks=0	autoscope=0 ]	(	3	)
+groups	[ 0	locks=0	autoscope=0 ]	(	""	)
+usenewname	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fd_lua	[ 0	locks=0	autoscope=0 ]	(	0	)
+usecustomlua	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+luascript	[ 0	locks=0	autoscope=0 ]	(	""	)
+fd_settings	[ 0	locks=0	autoscope=0 ]	(	0	)
+autoload	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+autosave	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+autoquit	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+sepparm	[ 0	locks=0 ]	(	)
+rizomuvpath	[ 0	locks=0	autoscope=0 ]	(	`chs(\"../rizomuvpath\")`	)
+tempmeshpath	[ 0	locks=0	autoscope=0 ]	(	`chs(\"../tempmeshpath\")`	)
+standardfolder	[ 0	locks=0	autoscope=0 ]	(	0	0	)
+fd_uv2	[ 0	locks=0	autoscope=0 ]	(	0	)
+fd_groups2	[ 0	locks=0	autoscope=0 ]	(	0	)
+fd_lua2	[ 0	locks=0	autoscope=0 ]	(	0	)
+fd_settings2	[ 0	locks=0	autoscope=0 ]	(	0	)
+uvtilesoffset1	[ 0	locks=0	autoscope=0 ]	(	[ uvtilesoffset1	0 ] 	)
+uvtilesoffset2	[ 0	locks=0	autoscope=0 ]	(	[ uvtilesoffset2	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1553,7 +1707,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":""
+		"value":"___EXTERNAL___"
 	},
 	"wirestyle":{
 		"type":"string",

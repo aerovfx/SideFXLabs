@@ -21,7 +21,7 @@
         joinnext
         default { "0" }
         disablewhen "{ autocook == 1 }"
-        parmtag { "script_callback" "hou.pwd().node(\"rizom_processor\").cook(force=True); hou.pwd().parm(\"file1/reload\").pressButton()" }
+        parmtag { "script_callback" "hou.pwd().node(\"rizomuv_processor\").cook(force=True); hou.pwd().parm(\"load_temp_file/reload\").pressButton()" }
         parmtag { "script_callback_language" "python" }
     }
     parm {
