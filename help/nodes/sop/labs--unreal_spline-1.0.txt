@@ -1,14 +1,14 @@
 #type:     node
 #context:  sop
 #internal: labs::unreal_spline::1.0
-#icon:     SOP/labs::unreal_spline::1.0
-#since:    20.0
+#icon:     /labs_icons/sidefxlabs_default.svg
+#since:    20.5
 
 = Unreal Spline (Beta) =
 
 """Takes a curve and turns it into an Unreal Spline, it can import and export multiple splines."""
 
-This node exports curve data as a json file which you can use to create spline components inside a blueprint asset or through spawning multiple blueprint actors, each containing one spline component. Afterwards, you can export from Unreal any edits you made to your splines and import them back into Houdini. The json data contains: position, tangent, scale, roll and tags.
+This node exports curve data as a JSON file which you can use to create spline components inside a blueprint asset or through spawning multiple blueprint actors, each containing one spline component. Afterwards, you can export from Unreal any edits you made to your splines and import them back into Houdini. The JSON data contains: position, tangent, scale, roll and tags.
 Make sure the SideFX_Labs folder is in your Unreal project Plugins folder so you can use the scripted actions to import and export the splines. Create a blueprint, add one spline component and turn ON "Override Construction Script" on the spline so you can edit in the level. Now you can right click on the blueprint asset, go to scripted asset actions, "Import / Export Spline", specify the spline file path and hit Ok. You have extra options to write the spline data to the blueprint itself rather than spawning it multiple times in the level, and you can export the spline data from the blueprint. You can also select multiple blueprints in the level containing multiple spline components and right click in the outliner, scripted actor actions, export spline actors.
 
 
@@ -18,11 +18,11 @@ Make sure the SideFX_Labs folder is in your Unreal project Plugins folder so you
 
     Export:
         #id: export
-    Exports an Unreal spline json file.
+    Exports an Unreal spline JSON file.
         
     Import:
         #id: import_spline
-    Imports an Unreal spline from a json file.
+    Imports an Unreal spline from a JSON file.
         
     File Path:
         #id: file_export_spline
@@ -41,13 +41,13 @@ Make sure the SideFX_Labs folder is in your Unreal project Plugins folder so you
     Mode:
         #id: mode
         
-        arrow:
+        Arrow:
             
-        box:
+        Box:
             
-        sweep:
+        Sweep:
             
-        spline:
+        Spline:
             
     Handles:
         #id: handles

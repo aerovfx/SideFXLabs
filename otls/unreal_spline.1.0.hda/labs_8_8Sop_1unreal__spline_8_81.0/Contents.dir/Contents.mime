@@ -32,17 +32,19 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 20.575 -4.87883
-connectornextid 0
+position -5.52871 -0.340539
+connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
 inputsNamed3
 {
+0 	curve1 0 1 "input1"
 }
 inputs
 {
+0 	curve1 0 1
 }
 stat
 {
@@ -79,7 +81,7 @@ Content-Type: text/plain
 	comment := "Convert to Spline";
 	height := 12.34088960569056;
 	minimized := 0;
-	width := 6.037262753756835;
+	width := 6.2317975654025695;
 	x_position := -1.0067162211727865;
 	y_position := -7.825794825872724;
 }
@@ -2917,7 +2919,7 @@ sopflags sopflags =
 comment ""
 position 0.232161 -6.97794
 connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
 {
 1 "output1"
@@ -7788,25 +7790,6 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../orient_up1interp\") }
     }
-    channel orient_up2pos {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../orient_up2pos\") }
-    }
-    channel orient_up2value {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../orient_up2value\") }
-    }
-    channel orient_up2interp {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../orient_up2interp\") }
-    }
     channel ramp_scale1pos {
       lefttype = extend
       righttype = extend
@@ -7826,6 +7809,25 @@ Content-Type: text/plain
       default = 1
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../ramp_scale1interp\") }
+    }
+    channel orient_up2pos {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../orient_up2pos\") }
+    }
+    channel orient_up2value {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../orient_up2value\") }
+    }
+    channel orient_up2interp {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../orient_up2interp\") }
     }
     channel ramp_scale2pos {
       lefttype = extend
@@ -7907,17 +7909,17 @@ orient_up	[ 0	locks=0 ]	(	[ orient_up	2 ] 	)
 orient_up1pos	[ 0	locks=0 ]	(	[ orient_up1pos	0 ] 	)
 orient_up1value	[ 0	locks=0 ]	(	[ orient_up1value	0 ] 	)
 orient_up1interp	[ 0	locks=0 ]	(	[ orient_up1interp	1 ] 	)
-orient_up2pos	[ 0	locks=0 ]	(	[ orient_up2pos	0 ] 	)
-orient_up2value	[ 0	locks=0 ]	(	[ orient_up2value	0 ] 	)
-orient_up2interp	[ 0	locks=0 ]	(	[ orient_up2interp	1 ] 	)
 ramp_scale	[ 0	locks=0 ]	(	[ ramp_scale	2 ] 	)
 ramp_scale1pos	[ 0	locks=0 ]	(	[ ramp_scale1pos	0 ] 	)
 ramp_scale1value	[ 0	locks=0 ]	(	[ ramp_scale1value	0 ] 	)
 ramp_scale1interp	[ 0	locks=0 ]	(	[ ramp_scale1interp	1 ] 	)
+global_scale	[ 0	locks=0 ]	(	[ global_scale	0 ] 	)
+orient_up2pos	[ 0	locks=0 ]	(	[ orient_up2pos	0 ] 	)
+orient_up2value	[ 0	locks=0 ]	(	[ orient_up2value	0 ] 	)
+orient_up2interp	[ 0	locks=0 ]	(	[ orient_up2interp	1 ] 	)
 ramp_scale2pos	[ 0	locks=0 ]	(	[ ramp_scale2pos	0 ] 	)
 ramp_scale2value	[ 0	locks=0 ]	(	[ ramp_scale2value	0 ] 	)
 ramp_scale2interp	[ 0	locks=0 ]	(	[ ramp_scale2interp	1 ] 	)
-global_scale	[ 0	locks=0 ]	(	[ global_scale	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -8028,7 +8030,7 @@ sopflags sopflags =
 comment ""
 position 0.810964 -25.4531
 connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault off exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
 {
 1 "output1"
@@ -12306,25 +12308,6 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../orient_and_scale/orient_up1interp\") }
     }
-    channel orient_up2pos {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../orient_and_scale/orient_up2pos\") }
-    }
-    channel orient_up2value {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../orient_and_scale/orient_up2value\") }
-    }
-    channel orient_up2interp {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../orient_and_scale/orient_up2interp\") }
-    }
     channel ramp_scale1pos {
       lefttype = extend
       righttype = extend
@@ -12343,6 +12326,25 @@ Content-Type: text/plain
       default = 1
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../orient_and_scale/ramp_scale1interp\") }
+    }
+    channel orient_up2pos {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../orient_and_scale/orient_up2pos\") }
+    }
+    channel orient_up2value {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../orient_and_scale/orient_up2value\") }
+    }
+    channel orient_up2interp {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../orient_and_scale/orient_up2interp\") }
     }
     channel ramp_scale2pos {
       lefttype = extend
@@ -12538,17 +12540,17 @@ orient_up	[ 0	locks=0 ]	(	[ orient_up	2 ] 	)
 orient_up1pos	[ 0	locks=0 ]	(	[ orient_up1pos	0 ] 	)
 orient_up1value	[ 0	locks=0 ]	(	[ orient_up1value	0 ] 	)
 orient_up1interp	[ 0	locks=0 ]	(	[ orient_up1interp	1 ] 	)
-orient_up2pos	[ 0	locks=0 ]	(	[ orient_up2pos	0 ] 	)
-orient_up2value	[ 0	locks=0 ]	(	[ orient_up2value	0 ] 	)
-orient_up2interp	[ 0	locks=0 ]	(	[ orient_up2interp	1 ] 	)
 ramp_scale	[ 0	locks=0 ]	(	[ ramp_scale	2 ] 	)
 ramp_scale1pos	[ 0	locks=0 ]	(	[ ramp_scale1pos	0 ] 	)
 ramp_scale1value	[ 0	locks=0 ]	(	[ ramp_scale1value	0 ] 	)
 ramp_scale1interp	[ 0	locks=0 ]	(	[ ramp_scale1interp	1 ] 	)
+global_scale	[ 0	locks=0 ]	(	[ global_scale	0 ] 	)
+orient_up2pos	[ 0	locks=0 ]	(	[ orient_up2pos	0 ] 	)
+orient_up2value	[ 0	locks=0 ]	(	[ orient_up2value	0 ] 	)
+orient_up2interp	[ 0	locks=0 ]	(	[ orient_up2interp	1 ] 	)
 ramp_scale2pos	[ 0	locks=0 ]	(	[ ramp_scale2pos	0 ] 	)
 ramp_scale2value	[ 0	locks=0 ]	(	[ ramp_scale2value	0 ] 	)
 ramp_scale2interp	[ 0	locks=0 ]	(	[ ramp_scale2interp	1 ] 	)
-global_scale	[ 0	locks=0 ]	(	[ global_scale	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY

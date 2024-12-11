@@ -1,7 +1,7 @@
 Operator:     labs::unreal_spline::1.0
-Label:        Unreal Spline
+Label:        Labs Unreal Spline (Beta)
 Path:         oplib:/labs::Sop/unreal_spline::1.0?labs::Sop/unreal_spline::1.0
-Icon:         SOP_subnet
+Icon:         sidefxlabs_default.svg
 Table:        Sop
 License:      
 Extra:        inputcolors='1 "RGB 0.700195 0.700195 0.700195" ' outputcolors='1 "RGB 0.700195 0.700195 0.700195" ' 
@@ -10,5 +10,5 @@ Inputs:       0 to 1
 Subnet:       true
 Python:       false
 Empty:        false
-Modified:     Fri Nov  1 16:26:25 2024
+Modified:     Wed Dec 11 16:22:35 2024
 

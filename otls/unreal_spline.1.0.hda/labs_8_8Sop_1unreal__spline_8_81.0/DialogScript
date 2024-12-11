@@ -3,17 +3,17 @@
 {
     name	labs::unreal_spline::1.0
     script	labs::export_unreal_spline::1.0
-    label	"Unreal Spline"
+    label	"Labs Unreal Spline (Beta)"
 
     help {
 	""
     }
 
-    inputlabel	1	Curve
+    inputlabel	1	"Bezier Curve"
     inputlabel	2	"Sub-Network Input #2"
     inputlabel	3	"Sub-Network Input #3"
     inputlabel	4	"Sub-Network Input #4"
-    outputlabel	1	Spline
+    outputlabel	1	"Unreal Spline"
     outputlabel	2	Spline
 
     groupsimple {
@@ -85,10 +85,10 @@
                 default { "0" }
                 disablewhen "{ visualize_geo == 0 }"
                 menu {
-                    "a" "arrow"
-                    "b" "box"
-                    "c" "sweep"
-                    "d" "spline"
+                    "a" "Arrow"
+                    "b" "Box"
+                    "c" "Sweep"
+                    "d" "Spline"
                 }
                 range   { 0! 10 }
                 parmtag { "autoscope" "0000000000000000" }
