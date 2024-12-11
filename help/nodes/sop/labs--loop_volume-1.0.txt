@@ -1,7 +1,7 @@
 #type:     node
 #context:  sop
 #internal: labs::loop_volume::1.0
-#icon:     SOP/labs::loop_volume::1.0
+#icon:     /labs_icons/sidefxlabs_default.svg
 #since:    20.0
 
 = Labs Loop Volume =
