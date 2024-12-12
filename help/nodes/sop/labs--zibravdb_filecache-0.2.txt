@@ -1,0 +1,140 @@
+#type:     node
+#context:  sop
+#internal: labs::zibravdb_filecache::0.2
+#icon:     /labs_icons/zibravdb.svg
+#since:    20.5
+
+= Labs ZibraVDB File Cache (Alpha) =
+
+"""Compresses an OpenVDB sequence to disk into a single ZibraVDB file, and decompresses ZibraVDB file from disk to an OpenVDB sequence."""
+
+This node combines the functionality of the ZibraVDB Compress node and the ZibraVDB Decompress node to let you compress VDB sequences into `.zibravdb` files and then read those compressed files from disk.
+
+TIP:
+    Currently, ZibraVDB does not compress VDB sequences containing vector fields/channels, such as Color (`Cd.*`), velocity (`vel.*`), emission (`scatter`), etc. You can bypass this limitation by spliting and renaming your vector fields to float fields. Up to 8 float fields/channels can be compressed at once.
+
+    Vector VDB compression will be supported in the future.
+
+== About ZibraVDB ==
+
+[ZibraVDB|https://effects.zibra.ai/zibra-vdb-compression] is a VDB compression and real-time playback technology developed by [Zibra AI|https://effects.zibra.ai/]. It can achieve approximately 30~100 times cache size reduction with minimal quality loss, with even higher compression rates planned for future updates. The proprietary output file format, .zibravdb, captures an entire VDB sequence in a single file, which can be loaded back into an application (such as Houdini or Unreal Engine), decompressed on the GPU in real time, and played back in the viewport at speeds multiple times faster than native solutions.
+
+What ZibraVDB brings is a memory-efficient, high-performance volumetric data pipeline that seamlessly integrates into artists' existing, familiar workflows. It significantly reduces storage costs, improves volumetric data I/O speed, and ultimately makes it easier and more feasible to share working projects and distribute final products with high-quality volumetric effects.
+
+[ZibraVDB for Houdini|https://github.com/ZibraAI/ZibraVDBForHoudini] is an open-source plugin contributed by Zibra AI to SideFX Labs. This plugin allows ZibraVDB’s compression, decompression, and fast playback capabilities to integrate smoothly into Houdini’s native volumetric workflows.
+
+The compressed output can also be used directly with [ZibraVDB for UE|https://zibra.notion.site/ZibraVDB-for-UE-d7123b782e8f4073b1b652aac5143364], enabling artists to create beautiful, high-fidelity volumetric effects in Houdini, and render them efficiently as 3D ray-marched volumes in real-time environments for virtual productions or video games.
+
+== Getting Ready ==
+
+=== Activating License ===
+
+To start using ZibraVDB for Houdini you need to get license key and activate it.
+# You can get license key using [ZibraVDB for Houdini Alpha form|https://effects.zibra.ai/zibravdbhoudini].
+# Open houdini.env file in Houdini's Documents folder `C:\Users\<Username>\Documents\houdiniXX.X\houdini.env`.
+# Create `zibravdb_license_key.txt` file and paste your license key in it. The file can be located anywhere.
+# Add string `ZIBRAVDB_LICENSE_KEY = "path\to\zibravdb_license_key.txt"` to the end of the file.
+Now the plugin should be activated.
+
+=== Downloading ZibraVDB Core Library ===
+
+When first using any ZibraVDB node you need to download core library. This needs to be done only once.
+# Press __Download Library__ button on this or any other ZibraVDB node.
+# Accept [Terms of Service|https://effects.zibra.ai/vdb-terms-of-services-trial].
+# A pop-up window will appear confirming successful download.
+
+
+@parameters
+
+    Load from Disk:
+        #id: loadfromdisk
+        When this is on, the node reads its output from the compressed `.zibravdb` file, rather than output its input. When you click __Save to Disk__ or __Save to Disk in Background__ (on the Caching tab) to compress VDB sequence to `.zibravdb` file, the node automatically turns this checkbox on.
+
+    :include /nodes/sop/labs--zibravdb_decompress-0.2#refresh:
+    
+    File:
+        #id: file
+        Path to the `.zibravdb` file VDB sequence will be compessed to. The node automatically creates missing directories in the path.
+
+    == Caching ==
+
+    ~~~ Cache ~~~
+
+    :include /nodes/sop/labs--rop_zibravdb_compress-0.2#execute:
+    
+    :include /nodes/sop/labs--rop_zibravdb_compress-0.2#executebackground:
+    
+    ~~~ Sequence ~~~
+
+    :include /nodes/sop/labs--rop_zibravdb_compress-0.2#trange:
+
+    :include /nodes/sop/labs--rop_zibravdb_compress-0.2#f:
+ 
+    == Save Filters ==
+
+    Delete Attributes:
+        #id: deleteattributes
+        A space separated list of attributes to delete from the VDB before compressing it. The names will match at primitive and detail level.
+    
+    Delete Groups:
+        #id: deletegroups
+        A space separated list of groups to delete from the VDB before compressing it.
+    
+    Number of Casts:
+        #id: numcasts
+        If you know you don’t need full precision for certain attributes in the input, this multi-parm lets you convert the attributes to lower-precision types before saving the geometry. Set the number or click the plus or minus buttons to set the number of conversions to do.
+    
+    Class:
+        #id: class#
+        In a “cast” multiparm instance, the level (vertex, point, primitive, or detail) of the attribute(s) you want to convert to lower precision to save space.
+    
+    Attributes:
+        #id: attribs#
+        In a “cast” multiparm instance, a space-separated list of attributes at the given level (set by the Class parameter above) you want to convert to lower precision to save space.
+    
+    Precision:
+        #id: precision#
+        In a “cast” multiparm instance, the precision to convert the matching attributes down to, to save space.
+    
+    == Compression Settings ==
+
+    :include /nodes/sop/labs--rop_zibravdb_compress-0.2#quality:
+
+    :include /nodes/sop/labs--rop_zibravdb_compress-0.2#useperchsettings:
+    
+    :include /nodes/sop/labs--rop_zibravdb_compress-0.2#perch_settings:
+
+    :include /nodes/sop/labs--rop_zibravdb_compress-0.2#perchname#:
+
+    :include /nodes/sop/labs--rop_zibravdb_compress-0.2#perchquality#:
+
+    == Advanced ==
+
+    ~~~ Save ~~~
+
+    Render with Take:
+        #id: take
+        Uses the settings in a particular take while rendering. Choose Current to use the current take when rendering.
+
+    ~~~ Scripts ~~~
+
+    Pre-Render Script:
+        #id: prerender
+        Run this script before any rendering.
+
+    Pre-Frame Script:
+        #id: preframe
+        Run this script before each frame.
+
+    Post-Frame Script:
+        #id: postframe
+        Run this script after each frame.
+
+    Post-Render Script:
+        #id: postrender
+        Run this script after all rendering.
+
+    
+    :include /nodes/sop/labs--rop_zibravdb_compress-0.2#downloadlibrary:
+    
+    :include /nodes/sop/labs--rop_zibravdb_compress-0.2#corelibpath:

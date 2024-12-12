@@ -1,0 +1,16 @@
+{
+	"values":["0.2","20.5.444"
+	],
+	"indexes":{
+		"hdaroot/IN.userdata":1,
+		"hdaroot/zibravdb_decompress1.userdata":1,
+		"hdaroot.userdata":0,
+		"hdaroot/switchif1.userdata":1,
+		"hdaroot/convertvdb1.userdata":1,
+		"hdaroot/groupdelete1.userdata":1,
+		"hdaroot/attribcast1.userdata":1,
+		"hdaroot/output0.userdata":1,
+		"hdaroot/OUT_CACHE.userdata":1,
+		"hdaroot/rop_zibravdb_compress1.userdata":1
+	}
+}
