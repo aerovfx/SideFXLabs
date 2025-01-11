@@ -1,0 +1,25 @@
+{
+	"values":["0.4","20.5.445"
+	],
+	"indexes":{
+		"hdaroot/null1.userdata":1,
+		"hdaroot/switchif_custom_mesh.userdata":1,
+		"hdaroot/null_custom_mesh.userdata":1,
+		"hdaroot/merge1.userdata":1,
+		"hdaroot/file2.userdata":1,
+		"hdaroot/null5.userdata":1,
+		"hdaroot/11_Texturing.userdata":1,
+		"hdaroot/python8.userdata":1,
+		"hdaroot/OUT.userdata":1,
+		"hdaroot/divide1.userdata":1,
+		"hdaroot/output0.userdata":1,
+		"hdaroot/obj_importer1/mesh_materials.userdata":0,
+		"hdaroot/null4.userdata":1,
+		"hdaroot/null6.userdata":1,
+		"hdaroot/file1.userdata":1,
+		"hdaroot/switchif_custom_mesh2.userdata":1,
+		"hdaroot/merge2.userdata":1,
+		"hdaroot/switch1.userdata":1,
+		"hdaroot/null2.userdata":1
+	}
+}

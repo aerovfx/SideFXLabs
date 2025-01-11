@@ -1,0 +1,14 @@
+Operator:     labs::av_texturing::6.0
+Label:        Labs AV Texturing
+Path:         oplib:/labs::Sop/av_texturing::6.0?labs::Sop/av_texturing::6.0
+Icon:         opdef:/labs::Sop/av_texturing::6.0?IconImage
+Table:        Sop
+License:      
+Extra:        inputcolors='2 "RGB 0.700195 0.700195 0.700195" "RGB 0.700195 0.700195 0.700195" ' outputcolors='1 "RGB 0.700195 0.700195 0.700195" ' 
+User:         
+Inputs:       1 to 2
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Fri Jan 10 21:22:40 2025
+
