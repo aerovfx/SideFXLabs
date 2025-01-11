@@ -1,0 +1,15 @@
+Operator:     labs::av_structure_from_motion::6.0
+Label:        Labs AV Structure from Motion
+Path:         oplib:/labs::Sop/av_structure_from_motion::6.0?labs::Sop/av_structure_from_motion::6.0
+Icon:         opdef:/labs::Sop/av_structure_from_motion::6.0?IconImage
+Table:        Sop
+License:      
+Extra:        inputcolors='1 "RGB 0.700195 0.700195 0.700195" ' outputcolors='2 "RGB 0.700195 0.700195 0.700195" "RGB 0.700195 0.700195 0.700195" ' visibleoutputs=2 
+User:         
+Inputs:       1 to 1
+Outputs:      2
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Fri Jan 10 21:21:27 2025
+
