@@ -11,6 +11,8 @@ def evaluateparmtoargument(node, parm):
 
 def process(cmd, cache, folder, node):
 
+    #print(os.path.abspath(os.path.join(cmd[0], "../..")))
+
     HDA = node.parent()
 
     log = HDA.parm("bExportLog").evalAsInt() == 1
@@ -33,6 +35,8 @@ def process(cmd, cache, folder, node):
                     StartupInfo.dwFlags |= subprocess.STARTF_USESHOWWINDOW
 
                 clean_env = os.environ.copy()
+                #Get the AV Root path from command statement
+                clean_env['ALICEVISION_ROOT'] = os.path.abspath(os.path.join(cmd[0], "../.."))
 
                 if HDA.parm("enablecustomenv").evalAsInt() == 1:
                     customenv = json.loads(HDA.parm("customenv").eval())
