@@ -1,0 +1,14 @@
+Operator:     labs::av_analyze_images::6.0
+Label:        Labs AV Analyze Images
+Path:         oplib:/labs::Sop/av_analyze_images::6.0?labs::Sop/av_analyze_images::6.0
+Icon:         opdef:/labs::Sop/av_analyze_images::6.0?IconImage
+Table:        Sop
+License:      
+Extra:        inputcolors='1 "RGB 0.700195 0.700195 0.700195" ' outputcolors='1 "RGB 0.700195 0.700195 0.700195" ' 
+User:         
+Inputs:       1 to 1
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Fri Jan 10 21:21:05 2025
+
