@@ -32,29 +32,29 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -32.6271 92.8046
+position -45.7123 78.1998
 connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-0 "output1"
+1 "output1"
 }
 inputsNamed3
 {
-1 	Shrub2 1 1 "input1"
+0 	Shrub 0 1 "input1"
 }
 inputs
 {
-0 	Shrub2 0 1
+0 	Shrub 0 1
 }
 stat
 {
   create -1
   modify -1
-  author youmnas@pubnico
+  author Bailey@BaileysPC
   access 0777
 }
-color UT_Color RGB 1 0.529 0.624 
+color UT_Color RGB 0.8 0.8 0.8 
 delscript ""
 exprlanguage hscript
 end
@@ -67,6 +67,10 @@ Content-Type: text/plain
 	"___Version___":{
 		"type":"string",
 		"value":""
+	},
+	"wirestyle":{
+		"type":"string",
+		"value":"rounded"
 	}
 }
 
@@ -785,10 +789,10 @@ Content-Disposition: attachment; filename="hdaroot/point_create.inp"
 Content-Type: text/plain
 
 4
-0 -13.53245049823189 190.17038868983747 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
-1 -11.332450523563866 190.17038868983747 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
-2 -9.1324505488958376 190.17038868983747 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
-3 -6.9324505742278113 190.17038868983747 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+0 -13.53245049823189 194.64138868983753 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+1 -11.332450523563866 194.64138868983753 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+2 -9.1324505488958376 194.64138868983753 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+3 -6.9324505742278113 194.64138868983753 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/point_create/IN.init"
@@ -803,7 +807,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -13.5019 189
+position -13.5019 193.471
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload on savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -864,7 +868,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -13.5019 184.621
+position -13.5019 189.092
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload on savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -872,11 +876,11 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	IN 1 1 "input1"
+0 	Shrub 1 1 "input1"
 }
 inputs
 {
-0 	IN 0 1
+0 	Shrub 0 1
 }
 stat
 {
@@ -911,12 +915,634 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/point_create/Saguaro.init"
+Content-Type: text/plain
+
+type = labs::biome_plant_define::1.0
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/point_create/Saguaro.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -13.5019 192.577
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	IN 1 1 "input1"
+}
+inputs
+{
+0 	IN 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author Bailey@BaileysPC
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/point_create/Saguaro.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+fd_speciessetup	[ 0	locks=0 ]	(	0	)
+fd_speciessettings	[ 0	locks=0 ]	(	0	0	)
+fd_speciesid	[ 0	locks=0 ]	(	0	)
+plantname	[ 0	locks=0 ]	(	Saguaro	)
+plantcolor	[ 0	locks=0 ]	(	0	0.5	0	)
+fd_temperature	[ 0	locks=0 ]	(	0	)
+templower	[ 0	locks=0 ]	(	18	)
+temppref	[ 0	locks=0 ]	(	28	)
+tempupper	[ 0	locks=0 ]	(	38	)
+fd_precipitation	[ 0	locks=0 ]	(	0	)
+preclower	[ 0	locks=0 ]	(	76	)
+precpref	[ 0	locks=0 ]	(	400	)
+precupper	[ 0	locks=0 ]	(	900	)
+fd_spacing	[ 0	locks=0 ]	(	0	)
+type	[ 0	locks=0 ]	(	0	)
+radius	[ 0	locks=0 ]	(	0.68	)
+trunkradius	[ 0	locks=0 ]	(	0.24	)
+densitymax	[ 0	locks=0 ]	(	0.02	)
+fd_advanced	[ 0	locks=0 ]	(	0	)
+randscale	[ 0	locks=0 ]	(	"on"	)
+hardiness	[ 0	locks=0 ]	(	0	)
+normterrain	[ 0	locks=0 ]	(	0	)
+enginepaths	[ 0	locks=0 ]	(	"off"	)
+variants	[ 0	locks=0 ]	(	3	)
+reftype1	[ 0	locks=0 ]	(	"0"	)
+meshvariant1	[ 0	locks=0 ]	(	""	)
+meshdeadvariant1	[ 0	locks=0 ]	(	""	)
+filemeshvariant1	[ 0	locks=0 ]	(	$HIP/assets/mesh/SM_Saguro_Cactus_Growth_1.fbx	)
+filemeshdeadvariant1	[ 0	locks=0 ]	(	""	)
+weight1	[ 0	locks=0 ]	(	1	)
+agemin1	[ 0	locks=0 ]	(	0	)
+agemax1	[ 0	locks=0 ]	(	0.33	)
+scalemin1	[ 0	locks=0 ]	(	1.5	)
+scalemax1	[ 0	locks=0 ]	(	2.5	)
+deadratio1	[ 0	locks=0 ]	(	0	)
+fd_unrealengine1	[ 0	locks=0 ]	(	0	)
+unrealassetpath1	[ 0	locks=0 ]	(	""	)
+unrealassetdeadpath1	[ 0	locks=0 ]	(	""	)
+reftype2	[ 0	locks=0 ]	(	"0"	)
+meshvariant2	[ 0	locks=0 ]	(	""	)
+meshdeadvariant2	[ 0	locks=0 ]	(	""	)
+filemeshvariant2	[ 0	locks=0 ]	(	$HIP/assets/mesh/SM_Saguro_Cactus_Growth_2.fbx	)
+filemeshdeadvariant2	[ 0	locks=0 ]	(	""	)
+weight2	[ 0	locks=0 ]	(	1	)
+agemin2	[ 0	locks=0 ]	(	0.33	)
+agemax2	[ 0	locks=0 ]	(	0.66	)
+scalemin2	[ 0	locks=0 ]	(	1.5	)
+scalemax2	[ 0	locks=0 ]	(	2.5	)
+deadratio2	[ 0	locks=0 ]	(	0	)
+fd_unrealengine2	[ 0	locks=0 ]	(	0	)
+unrealassetpath2	[ 0	locks=0 ]	(	""	)
+unrealassetdeadpath2	[ 0	locks=0 ]	(	""	)
+reftype3	[ 0	locks=0 ]	(	"0"	)
+meshvariant3	[ 0	locks=0 ]	(	""	)
+meshdeadvariant3	[ 0	locks=0 ]	(	""	)
+filemeshvariant3	[ 0	locks=0 ]	(	$HIP/assets/mesh/SM_Saguro_Cactus_Growth_3.fbx	)
+filemeshdeadvariant3	[ 0	locks=0 ]	(	""	)
+weight3	[ 0	locks=0 ]	(	1	)
+agemin3	[ 0	locks=0 ]	(	0.66	)
+agemax3	[ 0	locks=0 ]	(	1	)
+scalemin3	[ 0	locks=0 ]	(	1.5	)
+scalemax3	[ 0	locks=0 ]	(	2.5	)
+deadratio3	[ 0	locks=0 ]	(	0	)
+fd_unrealengine3	[ 0	locks=0 ]	(	0	)
+unrealassetpath3	[ 0	locks=0 ]	(	""	)
+unrealassetdeadpath3	[ 0	locks=0 ]	(	""	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/point_create/Saguaro.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	},
+	"wirestyle":{
+		"type":"string",
+		"value":"rounded"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/point_create/Pricklypear.init"
+Content-Type: text/plain
+
+type = labs::biome_plant_define::1.0
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/point_create/Pricklypear.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -13.5019 191.683
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	Saguaro 1 1 "input1"
+}
+inputs
+{
+0 	Saguaro 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author Bailey@BaileysPC
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/point_create/Pricklypear.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+fd_speciessetup	[ 0	locks=0 ]	(	0	)
+fd_speciessettings	[ 0	locks=0 ]	(	0	0	)
+fd_speciesid	[ 0	locks=0 ]	(	0	)
+plantname	[ 0	locks=0 ]	(	Pricklypear	)
+plantcolor	[ 0	locks=0 ]	(	0.5	0	0.5	)
+fd_temperature	[ 0	locks=0 ]	(	0	)
+templower	[ 0	locks=0 ]	(	18	)
+temppref	[ 0	locks=0 ]	(	28	)
+tempupper	[ 0	locks=0 ]	(	38	)
+fd_precipitation	[ 0	locks=0 ]	(	0	)
+preclower	[ 0	locks=0 ]	(	76	)
+precpref	[ 0	locks=0 ]	(	400	)
+precupper	[ 0	locks=0 ]	(	900	)
+fd_spacing	[ 0	locks=0 ]	(	0	)
+type	[ 0	locks=0 ]	(	0	)
+radius	[ 0	locks=0 ]	(	1.48	)
+trunkradius	[ 0	locks=0 ]	(	1	)
+densitymax	[ 0	locks=0 ]	(	0.02	)
+fd_advanced	[ 0	locks=0 ]	(	0	)
+randscale	[ 0	locks=0 ]	(	"on"	)
+hardiness	[ 0	locks=0 ]	(	0	)
+normterrain	[ 0	locks=0 ]	(	0	)
+enginepaths	[ 0	locks=0 ]	(	"off"	)
+variants	[ 0	locks=0 ]	(	3	)
+reftype1	[ 0	locks=0 ]	(	"0"	)
+meshvariant1	[ 0	locks=0 ]	(	""	)
+meshdeadvariant1	[ 0	locks=0 ]	(	""	)
+filemeshvariant1	[ 0	locks=0 ]	(	$HIP/assets/mesh/SM_Prickly_Pear_Growth_1.fbx	)
+filemeshdeadvariant1	[ 0	locks=0 ]	(	""	)
+weight1	[ 0	locks=0 ]	(	1	)
+agemin1	[ 0	locks=0 ]	(	0	)
+agemax1	[ 0	locks=0 ]	(	0.33	)
+scalemin1	[ 0	locks=0 ]	(	1.5	)
+scalemax1	[ 0	locks=0 ]	(	2.5	)
+deadratio1	[ 0	locks=0 ]	(	0	)
+fd_unrealengine1	[ 0	locks=0 ]	(	0	)
+unrealassetpath1	[ 0	locks=0 ]	(	""	)
+unrealassetdeadpath1	[ 0	locks=0 ]	(	""	)
+reftype2	[ 0	locks=0 ]	(	"0"	)
+meshvariant2	[ 0	locks=0 ]	(	""	)
+meshdeadvariant2	[ 0	locks=0 ]	(	""	)
+filemeshvariant2	[ 0	locks=0 ]	(	$HIP/assets/mesh/SM_Prickly_Pear_Growth_2.fbx	)
+filemeshdeadvariant2	[ 0	locks=0 ]	(	""	)
+weight2	[ 0	locks=0 ]	(	1	)
+agemin2	[ 0	locks=0 ]	(	0.33	)
+agemax2	[ 0	locks=0 ]	(	1	)
+scalemin2	[ 0	locks=0 ]	(	1.5	)
+scalemax2	[ 0	locks=0 ]	(	2.5	)
+deadratio2	[ 0	locks=0 ]	(	0	)
+fd_unrealengine2	[ 0	locks=0 ]	(	0	)
+unrealassetpath2	[ 0	locks=0 ]	(	""	)
+unrealassetdeadpath2	[ 0	locks=0 ]	(	""	)
+reftype3	[ 0	locks=0 ]	(	"0"	)
+meshvariant3	[ 0	locks=0 ]	(	""	)
+meshdeadvariant3	[ 0	locks=0 ]	(	""	)
+filemeshvariant3	[ 0	locks=0 ]	(	$HIP/assets/mesh/SM_Prickly_Pear_Growth_3.fbx	)
+filemeshdeadvariant3	[ 0	locks=0 ]	(	""	)
+weight3	[ 0	locks=0 ]	(	1	)
+agemin3	[ 0	locks=0 ]	(	0.33	)
+agemax3	[ 0	locks=0 ]	(	1	)
+scalemin3	[ 0	locks=0 ]	(	1.5	)
+scalemax3	[ 0	locks=0 ]	(	2.5	)
+deadratio3	[ 0	locks=0 ]	(	0	)
+fd_unrealengine3	[ 0	locks=0 ]	(	0	)
+unrealassetpath3	[ 0	locks=0 ]	(	""	)
+unrealassetdeadpath3	[ 0	locks=0 ]	(	""	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/point_create/Pricklypear.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	},
+	"wirestyle":{
+		"type":"string",
+		"value":"rounded"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/point_create/Pine.init"
+Content-Type: text/plain
+
+type = labs::biome_plant_define::1.0
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/point_create/Pine.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -13.5019 190.788
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	Pricklypear 1 1 "input1"
+}
+inputs
+{
+0 	Pricklypear 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author Bailey@BaileysPC
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/point_create/Pine.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+fd_speciessetup	[ 0	locks=0 ]	(	0	)
+fd_speciessettings	[ 0	locks=0 ]	(	0	0	)
+fd_speciesid	[ 0	locks=0 ]	(	0	)
+plantname	[ 0	locks=0 ]	(	Pine	)
+plantcolor	[ 0	locks=0 ]	(	0	0.0989999994635582	0	)
+fd_temperature	[ 0	locks=0 ]	(	0	)
+templower	[ 0	locks=0 ]	(	10	)
+temppref	[ 0	locks=0 ]	(	14	)
+tempupper	[ 0	locks=0 ]	(	20	)
+fd_precipitation	[ 0	locks=0 ]	(	0	)
+preclower	[ 0	locks=0 ]	(	500	)
+precpref	[ 0	locks=0 ]	(	700	)
+precupper	[ 0	locks=0 ]	(	900	)
+fd_spacing	[ 0	locks=0 ]	(	0	)
+type	[ 0	locks=0 ]	(	0	)
+radius	[ 0	locks=0 ]	(	2	)
+trunkradius	[ 0	locks=0 ]	(	1	)
+densitymax	[ 0	locks=0 ]	(	0.2	)
+fd_advanced	[ 0	locks=0 ]	(	0	)
+randscale	[ 0	locks=0 ]	(	"on"	)
+hardiness	[ 0	locks=0 ]	(	0	)
+normterrain	[ 0	locks=0 ]	(	0	)
+enginepaths	[ 0	locks=0 ]	(	"off"	)
+variants	[ 0	locks=0 ]	(	3	)
+reftype1	[ 0	locks=0 ]	(	"0"	)
+meshvariant1	[ 0	locks=0 ]	(	""	)
+meshdeadvariant1	[ 0	locks=0 ]	(	""	)
+filemeshvariant1	[ 0	locks=0 ]	(	$HIP/assets/mesh/SM_Coniferous_Tree_Growth_1.fbx	)
+filemeshdeadvariant1	[ 0	locks=0 ]	(	$HIP/assets/mesh/SM_Coniferous_Tree_Dead_1.fbx	)
+weight1	[ 0	locks=0 ]	(	1	)
+agemin1	[ 0	locks=0 ]	(	0	)
+agemax1	[ 0	locks=0 ]	(	0.33	)
+scalemin1	[ 0	locks=0 ]	(	1	)
+scalemax1	[ 0	locks=0 ]	(	1.5	)
+deadratio1	[ 0	locks=0 ]	(	0.3	)
+fd_unrealengine1	[ 0	locks=0 ]	(	0	)
+unrealassetpath1	[ 0	locks=0 ]	(	""	)
+unrealassetdeadpath1	[ 0	locks=0 ]	(	""	)
+reftype2	[ 0	locks=0 ]	(	"0"	)
+meshvariant2	[ 0	locks=0 ]	(	""	)
+meshdeadvariant2	[ 0	locks=0 ]	(	""	)
+filemeshvariant2	[ 0	locks=0 ]	(	$HIP/assets/mesh/SM_Coniferous_Tree_Growth_2.fbx	)
+filemeshdeadvariant2	[ 0	locks=0 ]	(	$HIP/assets/mesh/SM_Coniferous_Tree_Dead_2.fbx	)
+weight2	[ 0	locks=0 ]	(	1	)
+agemin2	[ 0	locks=0 ]	(	0.33	)
+agemax2	[ 0	locks=0 ]	(	0.66	)
+scalemin2	[ 0	locks=0 ]	(	1	)
+scalemax2	[ 0	locks=0 ]	(	1.5	)
+deadratio2	[ 0	locks=0 ]	(	0.3	)
+fd_unrealengine2	[ 0	locks=0 ]	(	0	)
+unrealassetpath2	[ 0	locks=0 ]	(	""	)
+unrealassetdeadpath2	[ 0	locks=0 ]	(	""	)
+reftype3	[ 0	locks=0 ]	(	"0"	)
+meshvariant3	[ 0	locks=0 ]	(	""	)
+meshdeadvariant3	[ 0	locks=0 ]	(	""	)
+filemeshvariant3	[ 0	locks=0 ]	(	$HIP/assets/mesh/SM_Coniferous_Tree_Growth_3.fbx	)
+filemeshdeadvariant3	[ 0	locks=0 ]	(	$HIP/assets/mesh/SM_Coniferous_Tree_Dead_3.fbx	)
+weight3	[ 0	locks=0 ]	(	1	)
+agemin3	[ 0	locks=0 ]	(	0.66	)
+agemax3	[ 0	locks=0 ]	(	1	)
+scalemin3	[ 0	locks=0 ]	(	1	)
+scalemax3	[ 0	locks=0 ]	(	1.5	)
+deadratio3	[ 0	locks=0 ]	(	0.3	)
+fd_unrealengine3	[ 0	locks=0 ]	(	0	)
+unrealassetpath3	[ 0	locks=0 ]	(	""	)
+unrealassetdeadpath3	[ 0	locks=0 ]	(	""	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/point_create/Pine.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	},
+	"wirestyle":{
+		"type":"string",
+		"value":"rounded"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/point_create/Birch.init"
+Content-Type: text/plain
+
+type = labs::biome_plant_define::1.0
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/point_create/Birch.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -13.5019 189.894
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	Pine 1 1 "input1"
+}
+inputs
+{
+0 	Pine 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author Bailey@BaileysPC
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/point_create/Birch.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+fd_speciessetup	[ 0	locks=0 ]	(	0	)
+fd_speciessettings	[ 0	locks=0 ]	(	0	0	)
+fd_speciesid	[ 0	locks=0 ]	(	0	)
+plantname	[ 0	locks=0 ]	(	Birch	)
+plantcolor	[ 0	locks=0 ]	(	1	0.5	0	)
+fd_temperature	[ 0	locks=0 ]	(	0	)
+templower	[ 0	locks=0 ]	(	15	)
+temppref	[ 0	locks=0 ]	(	17	)
+tempupper	[ 0	locks=0 ]	(	23	)
+fd_precipitation	[ 0	locks=0 ]	(	0	)
+preclower	[ 0	locks=0 ]	(	500	)
+precpref	[ 0	locks=0 ]	(	700	)
+precupper	[ 0	locks=0 ]	(	900	)
+fd_spacing	[ 0	locks=0 ]	(	0	)
+type	[ 0	locks=0 ]	(	0	)
+radius	[ 0	locks=0 ]	(	4.9	)
+trunkradius	[ 0	locks=0 ]	(	0.5	)
+densitymax	[ 0	locks=0 ]	(	0.2	)
+fd_advanced	[ 0	locks=0 ]	(	0	)
+randscale	[ 0	locks=0 ]	(	"on"	)
+hardiness	[ 0	locks=0 ]	(	0	)
+normterrain	[ 0	locks=0 ]	(	0	)
+enginepaths	[ 0	locks=0 ]	(	"off"	)
+variants	[ 0	locks=0 ]	(	3	)
+reftype1	[ 0	locks=0 ]	(	"0"	)
+meshvariant1	[ 0	locks=0 ]	(	""	)
+meshdeadvariant1	[ 0	locks=0 ]	(	""	)
+filemeshvariant1	[ 0	locks=0 ]	(	$HIP/assets/mesh/SM_Deciduous_Tree_Growth_1.fbx	)
+filemeshdeadvariant1	[ 0	locks=0 ]	(	$HIP/assets/mesh/SM_Deciduous_Tree_Dead_1.fbx	)
+weight1	[ 0	locks=0 ]	(	1	)
+agemin1	[ 0	locks=0 ]	(	0	)
+agemax1	[ 0	locks=0 ]	(	0.33	)
+scalemin1	[ 0	locks=0 ]	(	1	)
+scalemax1	[ 0	locks=0 ]	(	1.5	)
+deadratio1	[ 0	locks=0 ]	(	0.3	)
+fd_unrealengine1	[ 0	locks=0 ]	(	0	)
+unrealassetpath1	[ 0	locks=0 ]	(	""	)
+unrealassetdeadpath1	[ 0	locks=0 ]	(	""	)
+reftype2	[ 0	locks=0 ]	(	"0"	)
+meshvariant2	[ 0	locks=0 ]	(	""	)
+meshdeadvariant2	[ 0	locks=0 ]	(	""	)
+filemeshvariant2	[ 0	locks=0 ]	(	$HIP/assets/mesh/SM_Deciduous_Tree_Growth_2.fbx	)
+filemeshdeadvariant2	[ 0	locks=0 ]	(	$HIP/assets/mesh/SM_Deciduous_Tree_Dead_2.fbx	)
+weight2	[ 0	locks=0 ]	(	1	)
+agemin2	[ 0	locks=0 ]	(	0.33	)
+agemax2	[ 0	locks=0 ]	(	0.66	)
+scalemin2	[ 0	locks=0 ]	(	1	)
+scalemax2	[ 0	locks=0 ]	(	1.5	)
+deadratio2	[ 0	locks=0 ]	(	0.3	)
+fd_unrealengine2	[ 0	locks=0 ]	(	0	)
+unrealassetpath2	[ 0	locks=0 ]	(	""	)
+unrealassetdeadpath2	[ 0	locks=0 ]	(	""	)
+reftype3	[ 0	locks=0 ]	(	"0"	)
+meshvariant3	[ 0	locks=0 ]	(	""	)
+meshdeadvariant3	[ 0	locks=0 ]	(	""	)
+filemeshvariant3	[ 0	locks=0 ]	(	$HIP/assets/mesh/SM_Deciduous_Tree_Growth_3.fbx	)
+filemeshdeadvariant3	[ 0	locks=0 ]	(	$HIP/assets/mesh/SM_Deciduous_Tree_Dead_3.fbx	)
+weight3	[ 0	locks=0 ]	(	1	)
+agemin3	[ 0	locks=0 ]	(	0.66	)
+agemax3	[ 0	locks=0 ]	(	1	)
+scalemin3	[ 0	locks=0 ]	(	1	)
+scalemax3	[ 0	locks=0 ]	(	1.5	)
+deadratio3	[ 0	locks=0 ]	(	0.3	)
+fd_unrealengine3	[ 0	locks=0 ]	(	0	)
+unrealassetpath3	[ 0	locks=0 ]	(	""	)
+unrealassetdeadpath3	[ 0	locks=0 ]	(	""	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/point_create/Birch.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	},
+	"wirestyle":{
+		"type":"string",
+		"value":"rounded"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/point_create/Shrub.init"
+Content-Type: text/plain
+
+type = labs::biome_plant_define::1.0
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/point_create/Shrub.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -11.8075 188.198
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	Birch 1 1 "input1"
+}
+inputs
+{
+0 	Birch 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author Bailey@BaileysPC
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/point_create/Shrub.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+fd_speciessetup	[ 0	locks=0 ]	(	0	)
+fd_speciessettings	[ 0	locks=0 ]	(	0	0	)
+fd_speciesid	[ 0	locks=0 ]	(	0	)
+plantname	[ 0	locks=0 ]	(	Shrub	)
+plantcolor	[ 0	locks=0 ]	(	0	1	1	)
+fd_temperature	[ 0	locks=0 ]	(	0	)
+templower	[ 0	locks=0 ]	(	7	)
+temppref	[ 0	locks=0 ]	(	11	)
+tempupper	[ 0	locks=0 ]	(	17	)
+fd_precipitation	[ 0	locks=0 ]	(	0	)
+preclower	[ 0	locks=0 ]	(	500	)
+precpref	[ 0	locks=0 ]	(	700	)
+precupper	[ 0	locks=0 ]	(	900	)
+fd_spacing	[ 0	locks=0 ]	(	0	)
+type	[ 0	locks=0 ]	(	1	)
+radius	[ 0	locks=0 ]	(	1	)
+trunkradius	[ 0	locks=0 ]	(	1	)
+densitymax	[ 0	locks=0 ]	(	0.1	)
+fd_advanced	[ 0	locks=0 ]	(	0	)
+randscale	[ 0	locks=0 ]	(	"on"	)
+hardiness	[ 0	locks=0 ]	(	0	)
+normterrain	[ 0	locks=0 ]	(	0.882	)
+enginepaths	[ 0	locks=0 ]	(	"off"	)
+variants	[ 0	locks=0 ]	(	1	)
+reftype1	[ 0	locks=0 ]	(	"0"	)
+meshvariant1	[ 0	locks=0 ]	(	""	)
+meshdeadvariant1	[ 0	locks=0 ]	(	""	)
+filemeshvariant1	[ 0	locks=0 ]	(	$HIP/assets/mesh/SM_Alpine_Forest_Shrub_Growth_1.fbx	)
+filemeshdeadvariant1	[ 0	locks=0 ]	(	$HIP/assets/mesh/SM_Alpine_Forest_Shrub_Dead_1.fbx	)
+weight1	[ 0	locks=0 ]	(	1	)
+agemin1	[ 0	locks=0 ]	(	0	)
+agemax1	[ 0	locks=0 ]	(	1	)
+scalemin1	[ 0	locks=0 ]	(	1	)
+scalemax1	[ 0	locks=0 ]	(	1.5	)
+deadratio1	[ 0	locks=0 ]	(	0.3	)
+fd_unrealengine1	[ 0	locks=0 ]	(	0	)
+unrealassetpath1	[ 0	locks=0 ]	(	""	)
+unrealassetdeadpath1	[ 0	locks=0 ]	(	""	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/point_create/Shrub.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	},
+	"wirestyle":{
+		"type":"string",
+		"value":"rounded"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/point_create.order"
 Content-Type: text/plain
 
-2
+7
 IN
 output0
+Saguaro
+Pricklypear
+Pine
+Birch
+Shrub
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/point_create.net"

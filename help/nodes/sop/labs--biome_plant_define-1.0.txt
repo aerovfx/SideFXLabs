@@ -60,9 +60,13 @@ Type:
     #id: type
     Select the plant's type. If a plant's type is __Shrub__, it will be permitted to spawn beneath nearby plants with a plant type of __Tree__. In this case, the nearby __Tree__ spacing __Radii__ are ignored by __Shrubs__.
 
-Radius:
+Bounds Radius:
     #id: radius
     Minimum radius needed for this plant to grow.
+
+Trunk Radius:
+    #id: radius
+    Shrubs may not spawn within this radius.
 
 Density:
     #id: densitymax

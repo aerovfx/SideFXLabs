@@ -189,7 +189,7 @@
             label   "Age Jitter"
             type    float
             default { "0.2" }
-            range   { 0! 1! }
+            range   { 1e-05! 1! }
             parmtag { "autoscope" "0000000000000000" }
             parmtag { "script_callback_language" "python" }
         }
@@ -200,6 +200,34 @@
             default { "0" }
             range   { 0 10 }
             parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "treeoverlapallowance"
+            label   "Tree Overlap Allowance"
+            type    float
+            default { "0" }
+            range   { 0 5 }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "shruboverlapallowance"
+            label   "Shrub Overlap Allowance"
+            type    float
+            default { "0" }
+            range   { 0 5 }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "keepplantsby"
+            label   "Keep Plants by"
+            type    ordinal
+            default { "0" }
+            menu usetokenvalue {
+                "0" "Greatest Age"
+                "1" "Greatest Viability"
+                "2" "Random"
+            }
+            parmtag { "script_callback_language" "python" }
         }
         groupsimple {
             name    "culling"
@@ -464,7 +492,7 @@
                 name    "meshpathname"
                 label   "Mesh Path"
                 type    string
-                default { "meshpath" }
+                default { "instancepath" }
                 parmtag { "script_callback_language" "python" }
             }
             parm {
@@ -650,6 +678,15 @@
                 type    toggle
                 default { "1" }
                 parmtag { "script_callback" "kwargs[\"node\"].setOutputForViewFlag(-1 if kwargs[\"node\"].parm('vizterrain').eval() != 0 or kwargs[\"node\"].parm('vizpoints').eval() != 0 else 0)" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "vizradii"
+                label   "Visualize Spacing Radii"
+                type    toggle
+                default { "0" }
+                disablewhen "{ vizpoints == 0 }"
+                hidewhen "{ vizpoints == 0 }"
                 parmtag { "script_callback_language" "python" }
             }
             parm {

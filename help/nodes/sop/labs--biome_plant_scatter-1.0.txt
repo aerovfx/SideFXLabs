@@ -68,6 +68,18 @@ This node scatters plant species points defined by multiple _Labs Biome Plant De
     Random Seed:
         #id: seed
         The random number seed used to scatter points. 
+    Tree Overlap Allowance:
+        #id: treeoverlapallowance
+        The distance in meters that trees are allowed to overlap each other. If the overlap distance of two tree bounds radii is greater than this value, they are considered intersecting and one of the trees is removed from the scatter. 
+    Shrub Overlap Allowance:
+        #id: shruboverlapallowance
+        The distance in meters that shrubs are allowed to overlap each other. If the overlap distance of two shrub bounds radii is greater than this value, they are considered intersecting and one of the shrubs is removed from the scatter. 
+    Keep Plants by:
+        #id: keepplantsby
+        Method used to determine which intersecting plant is kept and which is culled.        
+        <p>__Greatest Age__: Method for keeping points with the greatest age.</p>
+	<p>__Greatest Viability__: Method for keeping points with the greatest viability.</p>
+        <p>__Random__: Method for keeping points randomly.</p>
 
     === Culling ===
 

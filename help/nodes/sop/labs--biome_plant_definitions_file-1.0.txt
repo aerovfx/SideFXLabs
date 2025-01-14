@@ -90,9 +90,13 @@ Type:
     #id: type
     Label of the plant's type.
 
-Radius:
+Bounds Radius:
     #id: radius
-    Label of the plant's radius.
+    Label of the plant's bounds radius.
+
+Trunk Radius:
+    #id: trunkradius
+    Label of the plant's trunk radius.
 
 Density:
     #id: densitymax

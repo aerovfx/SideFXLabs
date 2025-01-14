@@ -226,9 +226,17 @@
                 }
                 parm {
                     name    "radius"
-                    label   "Radius"
+                    label   "Bounds Radius"
                     type    string
-                    default { "Radius" }
+                    default { "Bounds Radius" }
+                    range   { 0.0001! 20 }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "trunkradius"
+                    label   "Trunk Radius"
+                    type    string
+                    default { "Trunk Radius" }
                     range   { 0.0001! 20 }
                     parmtag { "script_callback_language" "python" }
                 }
