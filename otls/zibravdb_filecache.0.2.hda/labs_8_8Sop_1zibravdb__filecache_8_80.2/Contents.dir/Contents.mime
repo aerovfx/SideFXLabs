@@ -32,20 +32,19 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.5 -12.15
-connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
+position 9.71445e-17 -9.44683
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
 {
-1 "output1"
 }
 inputsNamed3
 {
-0 	OUT_VDB 1 1 "input1"
+0 	blast1 1 1 "input1"
 }
 inputs
 {
-0 	OUT_VDB 0 1
+0 	blast1 0 1
 }
 stat
 {
@@ -66,7 +65,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"___EXTERNAL___"
+		"value":""
 	},
 	"nodeshape":{
 		"type":"string",
@@ -79,7 +78,7 @@ Content-Disposition: attachment; filename="hdaroot.inp"
 Content-Type: text/plain
 
 1
-0 1.1175870961305234e-08 12.623423529411763 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+0 -0.49999998743435842 12.480513523495816 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/output0.init"
@@ -94,7 +93,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -4.9293e-09 3.88215
+position -0.5 0.85
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload on savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -153,7 +152,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.42425e-08 4.70339
+position -0.5 2.8498
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload on savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -162,12 +161,12 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	OUT_CACHE 1 1 "input1"
+0 	input_error 1 1 "input1"
 1 	zibravdb_decompress1 0 1 "input2"
 }
 inputs
 {
-0 	OUT_CACHE 0 1
+0 	input_error 0 1
 1 	zibravdb_decompress1 0 1
 }
 stat
@@ -246,7 +245,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -6.93889e-18 11.691
+position -0.5 11.5481
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload on savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -307,7 +306,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.00345 10.9431
+position -0.50345 10.8002
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload on savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -377,7 +376,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 6.93889e-18 10.3078
+position -0.5 10.1649
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight on unload on savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -444,7 +443,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.00345 9.67728
+position -0.50345 9.53437
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload on savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -530,7 +529,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -4.9293e-09 8.10012
+position -0.5 7.845
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload on savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -591,7 +590,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.00125003 8.99446
+position -0.50125 8.85155
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload on savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -677,7 +676,7 @@ Content-Disposition: attachment; filename="hdaroot/rop_zibravdb_compress1.def"
 Content-Type: text/plain
 
 comment ""
-position 1.61512 6.67883
+position 1.5 4.85095
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -685,11 +684,11 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	OUT_CACHE 1 1 "input1"
+0 	input_error 1 1 "input1"
 }
 inputs
 {
-0 	OUT_CACHE 0 1
+0 	input_error 0 1
 }
 stat
 {
@@ -736,18 +735,6 @@ Content-Type: text/plain
       defaultString = \"$HIP/vol/$HIPNAME.$OS.zibravdb\"
       flags = 0
       segment { length = 0 expr = chs(\"../file\") }
-    }
-    channel execute {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../execute\") }
-    }
-    channel executebackground {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../executebackground\") }
     }
     channel trange {
       lefttype = extend
@@ -886,8 +873,8 @@ Content-Type: text/plain
 
 {
 version 0.8
-execute	[ 0	locks=0 ]	(	[ execute	0 ] 	)
-executebackground	[ 0	locks=0 ]	(	[ executebackground	0 ] 	)
+execute	[ 0	locks=0 ]	(	0	)
+executebackground	[ 0	locks=0 ]	(	0	)
 renderpreview	[ 0	locks=0 ]	(	0	)
 renderdialog	[ 0	locks=0 ]	(	0	)
 trange	[ 0	locks=0 ]	(	[ trange	0 ] 	)
@@ -936,7 +923,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.61512 6.05239
+position 1.5 3.805
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload on savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -1004,10 +991,370 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/detect_unsupported_vdbs.init"
+Content-Type: text/plain
+
+type = attribwrangle
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/detect_unsupported_vdbs.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -6.503 6.849
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload on savedata off compress on colordefault off exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	OUT_CACHE 1 1 "input1"
+}
+inputs
+{
+0 	OUT_CACHE 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author aomai@DESKTOP-RBQDURK
+  access 0777
+}
+color UT_Color RGB 0 0 0 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/detect_unsupported_vdbs.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+folder0	[ 0	locks=0 ]	(	0	0	)
+group	[ 0	locks=0 ]	(	""	)
+grouptype	[ 0	locks=0 ]	(	"guess"	)
+class	[ 0	locks=0 ]	(	"primitive"	)
+vex_numcount	[ 0	locks=0 ]	(	10	)
+vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
+snippet	[ 0	locks=0 ]	(	"if (primintrinsic(0, \"typename\", @primnum) == \"VDB\")
+{
+    if (primintrinsic(0, \"vdb_value_type\", @primnum) != \"float\")
+        setdetailattrib(0, \"_zfc_unsupported\", @name + \", \", \"append\");
+}"	)
+exportlist	[ 0	locks=0 ]	(	*	)
+vex_strict	[ 0	locks=0 ]	(	"off"	)
+autobind	[ 0	locks=0 ]	(	"on"	)
+bindings	[ 0	locks=0 ]	(	0	)
+groupautobind	[ 0	locks=0 ]	(	"on"	)
+groupbindings	[ 0	locks=0 ]	(	0	)
+vex_cwdpath	[ 0	locks=0 ]	(	.	)
+vex_outputmask	[ 0	locks=0 ]	(	*	)
+vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
+vex_matchattrib	[ 0	locks=0 ]	(	id	)
+vex_inplace	[ 0	locks=0 ]	(	"off"	)
+vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/detect_unsupported_vdbs.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/trim_unsupported_str.init"
+Content-Type: text/plain
+
+type = attribwrangle
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/trim_unsupported_str.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -4.503 5.849
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload on savedata off compress on colordefault off exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	detect_unsupported_vdbs 1 1 "input1"
+}
+inputs
+{
+0 	detect_unsupported_vdbs 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author aomai@DESKTOP-RBQDURK
+  access 0777
+}
+color UT_Color RGB 0 0 0 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/trim_unsupported_str.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+folder0	[ 0	locks=0 ]	(	0	0	)
+group	[ 0	locks=0 ]	(	""	)
+grouptype	[ 0	locks=0 ]	(	"guess"	)
+class	[ 0	locks=0 ]	(	"detail"	)
+vex_numcount	[ 0	locks=0 ]	(	10	)
+vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
+snippet	[ 0	locks=0 ]	(	"s@_zfc_unsupported = s@_zfc_unsupported[:-2];"	)
+exportlist	[ 0	locks=0 ]	(	*	)
+vex_strict	[ 0	locks=0 ]	(	"off"	)
+autobind	[ 0	locks=0 ]	(	"on"	)
+bindings	[ 0	locks=0 ]	(	0	)
+groupautobind	[ 0	locks=0 ]	(	"on"	)
+groupbindings	[ 0	locks=0 ]	(	0	)
+vex_cwdpath	[ 0	locks=0 ]	(	.	)
+vex_outputmask	[ 0	locks=0 ]	(	*	)
+vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
+vex_matchattrib	[ 0	locks=0 ]	(	id	)
+vex_inplace	[ 0	locks=0 ]	(	"off"	)
+vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/trim_unsupported_str.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/input_error.init"
+Content-Type: text/plain
+
+type = error
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/input_error.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -0.5 5.85
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload on savedata off compress on colordefault off exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	OUT_CACHE 1 1 "input1"
+}
+inputs
+{
+0 	OUT_CACHE 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author aomai@DESKTOP-RBQDURK
+  access 0777
+}
+color UT_Color RGB 0.98 0.275 0.275 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/input_error.spareparmdef"
+Content-Type: text/plain
+
+    multiparm {
+        name    "numerror"
+        label    "Number of Errors"
+        baseparm
+        default 1
+
+        parm {
+            name    "errormsg#"
+            baseparm
+            label   "Error Message"
+            export  none
+        }
+        parm {
+            name    "severity#"
+            baseparm
+            label   "Severity"
+            export  none
+        }
+        parm {
+            name    "enable#"
+            baseparm
+            label   "Report This Error"
+            export  none
+        }
+    }
+
+    parm {
+        name    "spare_input0"
+        label   "Spare Input 0"
+        type    oppath
+        default { "" }
+        help    "Refer to this in expressions as -1, such as: npoints(-1)"
+        parmtag { "cook_dependent" "1" }
+        parmtag { "opfilter" "!!SOP!!" }
+        parmtag { "oprelative" "." }
+    }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/input_error.chn"
+Content-Type: text/plain
+
+{
+    channel enable1 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = "hasdetailattrib(-1, \"_zfc_unsupported\")" }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/input_error.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+numerror	[ 0	locks=0 ]	(	1	)
+errormsg1	[ 0	locks=0 ]	(	"Unsupported value type for '`details(-1, \"_zfc_unsupported\")`' prim. Only float grids supported."	)
+severity1	[ 0	locks=0 ]	(	"error"	)
+enable1	[ 8	locks=0 ]	(	[ enable1	0 ] 	)
+spare_input0	[ 0	locks=0 ]	(	../switch_has_unsupported	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/input_error.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch_has_unsupported.init"
+Content-Type: text/plain
+
+type = switchif
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch_has_unsupported.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -6.5 4.8498
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload on savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+2 "output1"
+}
+inputsNamed3
+{
+0 	detect_unsupported_vdbs 1 1 "input1"
+1 	trim_unsupported_str 1 1 "input2"
+}
+inputs
+{
+0 	detect_unsupported_vdbs 0 1
+1 	trim_unsupported_str 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author aomai@DESKTOP-RBQDURK
+  access 0777
+}
+color UT_Color RGB 0.8 1 0.7 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch_has_unsupported.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+mergecondition	[ 0	locks=0 ]	(	"all"	)
+testinput	[ 0	locks=0 ]	(	"first"	)
+tests	[ 0	locks=0 ]	(	1	)
+enable1	[ 0	locks=0 ]	(	"on"	)
+type1	[ 0	locks=0 ]	(	"attrib"	)
+expr1	[ 0	locks=0 ]	(	1	)
+attribtype1	[ 0	locks=0 ]	(	"all"	)
+attribowner1	[ 0	locks=0 ]	(	"detail"	)
+attributes1	[ 0	locks=0 ]	(	_zfc_unsupported	)
+attribvaltype1	[ 0	locks=0 ]	(	"flt"	)
+attribfloatcomp1	[ 0	locks=0 ]	(	"equal"	)
+attribstringcomp1	[ 0	locks=0 ]	(	"equal"	)
+attribval1	[ 0	locks=0 ]	(	0	)
+attribsval1	[ 0	locks=0 ]	(	""	)
+counttype1	[ 0	locks=0 ]	(	"points"	)
+countgroup1	[ 0	locks=0 ]	(	""	)
+countcomp1	[ 0	locks=0 ]	(	"equal"	)
+countval1	[ 0	locks=0 ]	(	0	)
+hasinputtype1	[ 0	locks=0 ]	(	"wired"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch_has_unsupported.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.order"
 Content-Type: text/plain
 
-10
+14
 output0
 switchif1
 IN
@@ -1018,6 +1365,10 @@ OUT_CACHE
 convertvdb1
 rop_zibravdb_compress1
 zibravdb_decompress1
+detect_unsupported_vdbs
+trim_unsupported_str
+input_error
+switch_has_unsupported
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.net"

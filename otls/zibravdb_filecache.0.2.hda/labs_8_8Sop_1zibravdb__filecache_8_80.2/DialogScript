@@ -39,14 +39,6 @@
     }
 
     parm {
-        name    "reload"
-        label   "Reload Cache"
-        type    button
-        invisible
-        default { "0" }
-        parmtag { "script_callback_language" "python" }
-    }
-    parm {
         name    "sepparm"
         label   "Spacer"
         type    separator
@@ -81,7 +73,7 @@
                 joinnext
                 default { "0" }
                 parmtag { "autoscope" "0000000000000000" }
-                parmtag { "script_callback" "hou.pwd().parm(\"loadfromdisk\").set(1)" }
+                parmtag { "script_callback" "hou.phm().render(kwargs)" }
                 parmtag { "script_callback_language" "python" }
                 parmtag { "takecontrol" "always" }
             }
@@ -91,7 +83,7 @@
                 type    button
                 default { "0" }
                 parmtag { "autoscope" "0000000000000000" }
-                parmtag { "script_callback" "hou.pwd().parm(\"loadfromdisk\").set(1)" }
+                parmtag { "script_callback" "hou.phm().backgroundRender(kwargs)" }
                 parmtag { "script_callback_language" "python" }
                 parmtag { "takecontrol" "always" }
             }
