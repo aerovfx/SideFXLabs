@@ -6,42 +6,68 @@
 
 = Labs ZibraVDB Compress (Alpha) =
 
-"""Compresses an OpenVDB sequence and caches it to disk as a single file."""
+"""Compresses a VDB sequence and caches it to disk as a single  `.zibravdb` file."""
 
-This node compresses an OpenVDB sequence to disk into a single `.zibravdb` file. This drastically reduces the memory footprints of cached volumetric data, enables faster viewport playback in Houdini through the [Labs ZibraVDB Decompress SOP|Node:/sop/labs--zibravdb_decompress-0.2] or the [Labs ZibraVDB File Cache SOP|Node:/sop/labs--zibravdb_filecache-0.2].
+
+As a part of the [ZibraVDB for Houdini|https://effects.zibra.ai/zibravdbhoudini] plugin, this node caches a VDB sequence to disk as a single, highly compressed `.zibravdb` file. It supports both animated VDB sequences and static VDB geometries.
+
+The compression often achieves up to 97–99% reduction in VDB file size with minimal quality loss. The compression rate is adjustable for each VDB field, providing independent control over the quality and memory footprint of density, temperature, flame, and other standard or custom fields. Up to 8 float fields can be compressed simultaneously.
 
 TIP:
-    Currently, ZibraVDB does not compress VDB sequences containing vector fields/channels, such as Color (`Cd.*`), velocity (`vel.*`), emission (`scatter`), etc. You can bypass this limitation by spliting and renaming your vector fields to float fields. Up to 8 float fields/channels can be compressed at once.
+    You may also compress SDF VDBs indirectly. Convert SDF VDBs to Fog VDBs before compression and back to SDF VDBs after decompression using the [Convert VDB SOP|Node:/sop/convertvdb].
 
-    Vector VDB compression will be supported in the future.
+NOTE:
+    Vector VDBs currently cannot be compressed. This feature will be supported in the future. In the meantime, you can split vector VDBs to float VDBs using the [VDB Vector Split SOP|Node:/sop/vdbvectorsplit] before compression. After decompression, merge the float VDBs back to vector VDBs using [VDB Vector from Scalar|Node:/sop/vdbvectormerge]. Please note that compressing vectors is not exactly the same as compressing vector components independently, so this current workaround may yield unexpected results.
 
-== About ZibraVDB ==
+:platform:Windows
+    ZibraVDB for Houdini is currently only supported on Windows.
 
-[ZibraVDB|https://effects.zibra.ai/zibra-vdb-compression] is a VDB compression and real-time playback technology developed by [Zibra AI|https://effects.zibra.ai/]. It can achieve approximately 30~100 times cache size reduction with minimal quality loss, with even higher compression rates planned for future updates. The proprietary output file format, .zibravdb, captures an entire VDB sequence in a single file, which can be loaded back into an application (such as Houdini or Unreal Engine), decompressed on the GPU in real time, and played back in the viewport at speeds multiple times faster than native solutions.
 
-What ZibraVDB brings is a memory-efficient, high-performance volumetric data pipeline that seamlessly integrates into artists' existing, familiar workflows. It significantly reduces storage costs, improves volumetric data I/O speed, and ultimately makes it easier and more feasible to share working projects and distribute final products with high-quality volumetric effects.
+== Getting Ready == (gettingready)
 
-[ZibraVDB for Houdini|https://github.com/ZibraAI/ZibraVDBForHoudini] is an open-source plugin contributed by Zibra AI to SideFX Labs. This plugin allows ZibraVDB’s compression, decompression, and fast playback capabilities to integrate smoothly into Houdini’s native volumetric workflows.
+=== Acquire License Key ===
 
-The compressed output can also be used directly with [ZibraVDB for UE|https://zibra.notion.site/ZibraVDB-for-UE-d7123b782e8f4073b1b652aac5143364], enabling artists to create beautiful, high-fidelity volumetric effects in Houdini, and render them efficiently as 3D ray-marched volumes in real-time environments for virtual productions or video games.
+For the plugin to function, Houdini must be able to locate a valid ZibraVDB license on your machine.
+# Please read the [ZibraVDB Terms of Service|https://effects.zibra.ai/vdb-terms-of-services-trial].
+# Visit [ZibraVDB for Houdini Alpha|https://effects.zibra.ai/zibravdbhoudini] to request a trial license.
+# After receiving your license key, create a text file in a directory of your choosing and name it `zibravdb_license_key.txt`. Paste your license key into this text file and save it.
+# Set up a Houdini [environment variable|https://www.sidefx.com/docs/houdini/basics/config_env.html#setting-environment-variables] named `ZIBRAVDB_LICENSE_KEY` and assign it the path to your license key file.
 
-== Getting Ready ==
+TIP:
+    For example, if you saved the license key file to `C:/Users/.../Documents/houdini20.5/zibra/`, then you may add the following line to your `houdini.env` file:
 
-=== Activating License ===
+    `ZIBRAVDB_LICENSE_KEY = C:/Users/.../Documents/houdini20.5/zibra/zibravdb_license_key.txt`
 
-To start using ZibraVDB for Houdini you need to get license key and activate it.
-# You can get license key using [ZibraVDB for Houdini Alpha form|https://effects.zibra.ai/zibravdbhoudini].
-# Open houdini.env file in Houdini's Documents folder `C:\Users\<Username>\Documents\houdiniXX.X\houdini.env`.
-# Create `zibravdb_license_key.txt` file and paste your license key in it. The file can be located anywhere.
-# Add string `ZIBRAVDB_LICENSE_KEY = "path\to\zibravdb_license_key.txt"` to the end of the file.
-Now the plugin should be activated.
+    You may also use the [package mechanism|https://www.sidefx.com/docs/houdini/ref/plugins.html] for setting environment variables. 
 
-=== Downloading ZibraVDB Core Library ===
 
-When first using any ZibraVDB node you need to download core library. This needs to be done only once.
-# Press __Download Library__ button on this or any other ZibraVDB node.
-# Accept [Terms of Service|https://effects.zibra.ai/vdb-terms-of-services-trial].
-# A pop-up window will appear confirming successful download.
+=== Download ZibraVDB Core Library ===
+
+The plugin also requires the ZibraVDB core library on the back end. (This library and its source code are proprietary to Zibra AI and, therefore, are not included directly in the SideFX Labs package.) The plugin has a built-in method to download this core library, which only needs to be done once.
+# Press the __Download Library__ button on any ZibraVDB node.
+# In the pop-up window, confirm that you accept the [ZibraVDB Terms of Service|https://effects.zibra.ai/vdb-terms-of-services-trial] to proceed.
+# The download occurs in the background and typically completes within a few seconds.
+# A second pop-up window will appear once the download is finished. The core library, `ZibraVDBHoudiniBridge.dll`, will be saved to `$HOUDINI_USER_PREF_DIR/zibra/X_Y/`. Alternatively, if the [site-specific directory|https://www.sidefx.com/docs/houdini/basics/config.html#path] `$HSITE` is set, it will be saved to `$HSITE/zibra/X_Y/`.
+
+
+== About ZibraVDB == (aboutzibravdb)
+
+[ZibraVDB|https://effects.zibra.ai/zibravdb-virtual-production] is a cutting-edge [VDB compression and real-time rendering technology|https://youtu.be/c8FQ_jidNH0?si=jKj1Rxj30FXA0err] developed by [Zibra AI|https://effects.zibra.ai/]. The compression can currently achieve up to 97–99% reduction in VDB file size with minimal quality loss. The proprietary `.zibravdb` file format captures an entire VDB sequence in a single file, which can be loaded into applications such as Houdini or Unreal Engine, decompressed on the GPU in real time, and played back in the viewport at speeds significantly faster than native solutions.
+
+For artists, this provides a memory-efficient, high-performance volumetric data pipeline that seamlessly integrates into existing workflows.
+
+It significantly reduces storage costs, improves volumetric data I/O speeds, and ultimately makes it easier and more practical to share working projects and distribute final products containing high-fidelity volumetric effects.
+
+[ZibraVDB for Houdini|https://github.com/ZibraAI/ZibraVDBForHoudini], contributed by Zibra AI, is a SideFX Labs plugin that brings ZibraVDB’s compression, decompression, and accelerated playback capabilities into Houdini’s ecosystem.
+
+Additionally, the compressed `.zibravdb` files can be used with [ZibraVDB for UE|https://www.fab.com/listings/23aef313-3c6a-40ea-810d-35de2ea5bca2]. This empowers artists to bring stunning volumetric effects created in Houdini to Unreal Engine and render them efficiently as full 3D ray-marched volumes in real time.
+
+
+== Feedback and Support == (feedback)
+
+If you have any questions, issues, or feedback, please reach out to [ZibraVDB Support|https://zibra.notion.site/Report-a-Bug-104bc784cfb38013aa9eebcefd86c00a]. 
+
+You can also contact [SideFX Support|https://www.sidefx.com/support-programs/] and mention that the issue should be directed to the SideFX Labs team.
 
 
 @parameters
@@ -117,4 +143,18 @@ When first using any ZibraVDB node you need to download core library. This needs
     Download Library:
         #id: downloadlibrary
         Downloads the core library for ZibraVDB. You need to press this button when using ZibraVDB for the first time.
-    
+
+   
+@examples
+
+    TIP:
+        When viewing in Houdini's Help Browser, please copy the example file's URL to a regular browser to proceed with the download.
+
+    - [Example File|https://github.com/sideeffects/SideFXLabsExamples/blob/main/examples/zibravdb/zibravdb.0.2.hip]
+
+
+@related
+
+    - [Node:sop/labs--rop_zibravdb_compress-0.2]
+    - [Node:sop/labs--zibravdb_decompress-0.2]
+    - [Node:sop/labs--zibravdb_filecache-0.2]
