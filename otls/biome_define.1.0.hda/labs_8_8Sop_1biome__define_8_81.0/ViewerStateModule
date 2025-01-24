@@ -1,0 +1,81 @@
+"""
+State:          Labs::biome define::1.0
+State type:     labs::biome_define::1.0
+Description:    Labs::biome define::1.0
+Author:         Bailey
+Date Created:   January 21, 2025 - 15:22:39
+"""
+
+# Usage: Make sure to add 6 float parameters to the node:
+# newparameter, newparameter2, newparameter3, newparameter4, newparameter5, newparameter6.
+# Select node and hit enter in the viewer.
+
+import hou
+import viewerstate.utils as su
+
+class State(object):
+    def __init__(self, state_name, scene_viewer):
+        self.state_name = state_name
+        self.scene_viewer = scene_viewer
+
+        self.xform_handle = hou.Handle(self.scene_viewer, "Xform")
+        
+
+    def onEnter(self, kwargs):
+        self.xform_handle.show(True)
+        self.xform_handle.update()
+        self.xform_handle.disableParms(["sx", "sy", "sz", "rx", "ry", "rz", "tz"])
+        
+    def onHandleToState(self, kwargs):
+        """ Used with bound dynamic handles to implement the state 
+        action when a handle is modified.
+        """
+        node = kwargs["node"]
+        handle = kwargs["handle"]
+        parms = kwargs["parms"]
+        mod_parms = kwargs["mod_parms"]
+        prev_parms = kwargs["prev_parms"]
+        ui_event = kwargs["ui_event"]
+        node.parm("tempaverage").set(parms["tx"])
+        node.parm("precaverage").set(parms["ty"]*100.0)
+        
+        
+    def onStateToHandle(self, kwargs):
+        """ Used with bound dynamic handles to implement the handle 
+        action when a state node parm is modified.
+        """
+
+        handle = kwargs["handle"]
+        parms = kwargs["parms"]
+        node = kwargs["node"]
+
+        if handle == self.xform_handle.name():
+            # this will control the distance handle with the vector handle 
+            parms["tx"] = node.evalParm("tempaverage")
+            parms["ty"] = node.evalParm("precaverage")*.01
+                                  
+        
+
+
+def createViewerStateTemplate():
+    """ Mandatory entry point to create and return the viewer state 
+        template to register. """
+
+    state_typename = kwargs["type"].definition().sections()["DefaultState"].contents()
+    state_label = "Labs::biome define::1.0"
+    state_cat = hou.sopNodeTypeCategory()
+
+    template = hou.ViewerStateTemplate(state_typename, state_label, state_cat)
+    template.bindFactory(State)
+    template.bindIcon(kwargs["type"].icon())
+
+
+    # bind a static handle to node parameters. 
+    template.bindHandle( "xform", "Xform")
+
+    
+
+
+
+
+    return template

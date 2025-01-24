@@ -16,4 +16,4 @@ colorr.set(hou.hmath.rand(seed*51))
 colorg.set(hou.hmath.rand(seed*152))
 colorb.set(hou.hmath.rand(seed*60))
 
-    
+node.setOutputForViewFlag(-1)    

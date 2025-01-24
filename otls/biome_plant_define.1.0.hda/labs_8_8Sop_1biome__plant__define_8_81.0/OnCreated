@@ -12,3 +12,5 @@ colorr.set(hou.hmath.rand(seed*51))
 colorg.set(hou.hmath.rand(seed*152))
 colorb.set(hou.hmath.rand(seed*60))
 
+#set -1 output to show tree visualization
+node.setOutputForViewFlag(-1)

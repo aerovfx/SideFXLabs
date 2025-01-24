@@ -1,0 +1,5 @@
+
+node = kwargs['node']
+
+#set -1 output to show tree visualization
+node.setOutputForViewFlag(-1)

@@ -1,0 +1,169 @@
+"""
+State:          Labs::biome plant define::1.0
+State type:     labs::biome_plant_define::1.0
+Description:    Labs::biome plant define::1.0
+Author:         Bailey
+Date Created:   January 16, 2025 - 14:34:29
+"""
+
+# Usage: Make sure to add 6 float parameters to the node:
+# newparameter, newparameter2, newparameter3, newparameter4, newparameter5, newparameter6.
+# Select node and hit enter in the viewer.
+
+import hou
+import viewerstate.utils as su
+
+class State(object):
+
+    MSG = "Click and drag XZ scale handle to edit Bounds Radius and Trunk Radius. Red axis controls Bounds Radius while the blue axis controls Trunk Radius."
+    
+    def __init__(self, state_name, scene_viewer):
+        self.state_name = state_name
+        self.scene_viewer = scene_viewer
+            
+        self.handle = None
+        #self.dist_handle = hou.ui.curState().handle()
+        self.dist_handle = hou.Handle(self.scene_viewer, "Grid_Transformer")
+        self.radius_handle = hou.Handle(self.scene_viewer, "Radius_Scale")
+        self.cross_handle = hou.Handle(self.scene_viewer, "Cross_Transformer")
+        self.dist_handle.makePersistent(True)
+        self.radius_handle.makePersistent(True)
+        self.cross_handle.makePersistent(True)
+        self.max_temp = -100000
+        self.min_temp = 100000
+        self.max_prec = -100000
+        self.min_prec = 100000
+        
+    def onEnter(self, kwargs):
+    
+        self.scene_viewer.setPromptMessage(State.MSG)
+        self.dist_handle.show(True)
+        self.radius_handle.show(True)
+        
+        #self.radius_handle.show(True)
+        self.dist_handle.disableParms(["sizez", "centerz", "rx", "ry", "rz"])
+        self.radius_handle.disableParms(["tx", "ty", "tz", "rx", "ry", "rz", "sy"])
+        self.cross_handle.disableParms(["sx", "sy", "sz", "rx", "ry", "rz" , "tz"])
+        node = kwargs["node"]
+        self.min_prec = node.parm("preclower").eval()
+        self.max_prec = node.parm("precupper").eval()
+        self.min_temp = node.parm("templower").eval()
+        self.max_temp = node.parm("tempupper").eval()
+        #self.radius_handle.setParmTuple("t", self.offset)
+        #self.radius_handle.disableParms(["tx"])
+        
+        self.dist_handle.update()
+        self.radius_handle.update()
+        self.cross_handle.update()
+        
+    def onHandleToState(self, kwargs):
+        """ Used with bound dynamic handles to implement the state 
+        action when a handle is modified.
+        """
+        handle = kwargs["handle"]
+        
+        node = kwargs["node"]
+        parms = kwargs["parms"]
+        prev_parms = kwargs["prev_parms"]
+
+        
+        #handle = kwargs["handle"]
+        parms = kwargs["parms"]
+        
+        if handle == self.dist_handle.name():
+            self.min_temp = parms["centerx"]-.5*parms["sizex"]
+            self.max_temp = parms["centerx"]+.5*parms["sizex"]
+            self.min_prec = (parms["centery"]-.5*parms["sizey"])*100.0
+            self.max_prec = (parms["centery"]+.5*parms["sizey"])*100.0
+            node.parm("templower").set(self.min_temp)
+            #node.parm("templower").set(parms["centerx"]-.5*parms["sizex"])
+            node.parm("tempupper").set(self.max_temp)
+            node.parm("preclower").set(self.min_prec)
+            node.parm("precupper").set(self.max_prec)
+            #self.max_temp = parm("tempupper")
+            node.parm("temppref").set(max(node.parm("templower").eval(),min(node.parm("temppref").eval(), node.parm("tempupper").eval())))
+            node.parm("precpref").set(max(node.parm("preclower").eval(),min(node.parm("precpref").eval(), node.parm("precupper").eval())))
+            #node.parm("precpref").set(parms["centery"]*100.0)
+            #self.cross_handle.update()
+            
+        if handle == self.radius_handle.name():
+            node.parm("radius").set(parms["sx"])
+            node.parm("trunkradius").set(parms["sz"])
+            
+            
+        if handle == self.cross_handle.name():
+            self.log(self.min_temp)
+            node.parm("temppref").set(max(self.min_temp, min(parms["tx"], self.max_temp)))
+            node.parm("precpref").set(max(self.min_prec, min(parms["ty"]*100, self.max_prec)))
+            self.cross_handle.update()
+            
+        mod_parms = kwargs["mod_parms"]
+        prev_parms = kwargs["prev_parms"]
+        ui_event = kwargs["ui_event"]
+
+        
+
+    def onStateToHandle(self, kwargs):
+        """ Used with bound dynamic handles to implement the handle 
+        action when a state node parm is modified.
+        """
+        
+        handle = kwargs["handle"]
+        parms = kwargs["parms"]
+        node = kwargs["node"]
+
+        if handle == self.dist_handle.name():
+            parms["centerx"] = (node.evalParm("tempupper")-node.evalParm("templower"))*.5+node.evalParm("templower")
+            parms["centery"] = ((node.evalParm("precupper")-node.evalParm("preclower"))*.5+node.evalParm("preclower"))*.01
+            parms["centerz"] = 0            
+            parms["sizex"] = node.evalParm("tempupper")-node.evalParm("templower")
+            parms["sizey"] = (node.evalParm("precupper")-node.evalParm("preclower"))*.01
+            parms["sizez"] = 0 
+            #self.log(parms)
+        if handle == self.radius_handle.name():
+            parms["px"] = 35
+            parms["sx"] = node.evalParm("radius")
+            parms["sz"] = node.evalParm("trunkradius")
+            #parms["soffsetx"] = 10
+            #parms["pivot_comp_sx"] = 10
+            #self.log(parms)
+        if handle == self.cross_handle.name():
+            parms["tx"] = node.evalParm("temppref")
+            parms["ty"] = node.evalParm("precpref")*.01
+            parms["tz"] = 0
+             
+            
+            
+        
+        
+
+def createViewerStateTemplate():
+    """ Mandatory entry point to create and return the viewer state 
+        template to register. """
+
+    state_typename = kwargs["type"].definition().sections()["DefaultState"].contents()
+    state_label = "Labs::biome plant define::1.0"
+    state_cat = hou.sopNodeTypeCategory()
+
+    template = hou.ViewerStateTemplate(state_typename, state_label, state_cat)
+    template.bindFactory(State)
+    template.bindIcon(kwargs["type"].icon())
+
+
+    # add a dynamic distance handle
+    template.bindHandle( "boundingrect", "Grid_Transformer", cache_previous_parms=True)
+    template.bindHandle( "xform", "Radius_Scale", cache_previous_parms=True)
+    template.bindHandle( "xform", "Cross_Transformer", cache_previous_parms=True)
+#    template.bindHandleStatic( 
+#        "xform", "radius_handle", 
+#        [("radius", "sx"), ("posx", "tx")]
+#    )
+#    template.bindHandleStatic( 
+#        "xform", "trunkradius_handle", 
+#        [("trunkradius", "sy")]
+#    )
+    
+
+
+
+    return template

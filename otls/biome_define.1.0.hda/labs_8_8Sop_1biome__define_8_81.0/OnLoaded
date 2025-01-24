@@ -1,0 +1,4 @@
+
+node = kwargs['node']
+#set -1 output to show biome visualization
+node.setOutputForViewFlag(-1)
