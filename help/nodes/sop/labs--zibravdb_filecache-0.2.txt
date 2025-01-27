@@ -6,21 +6,27 @@
 
 = Labs ZibraVDB File Cache (Alpha) =
 
-"""Handles the compression, caching, loading, and decompression of a VDB sequence to or from a single `.zibravdb` file."""
+"""Performs compression and caching, or loading and decompression, of a VDB sequence to or from a single `.zibravdb` file."""
 
 
-As a part of the [ZibraVDB for Houdini|https://effects.zibra.ai/zibravdbhoudini] plugin, this node combines the functionalities of the [Labs ZibraVDB Compress (Alpha) SOP|Node:sop/labs--rop_zibravdb_compress-0.2] and the [Labs ZibraVDB Decompress (Alpha) SOP|Node:sop/labs--zibravdb_decompress-0.2]. Similar to the [File Cache SOP|Node:sop/filecache], this node operates in two modes. In the caching mode, it caches a VDB sequence to disk as a single, highly compressed `.zibravdb` file. In the loading mode, it loads a single, highly compressed `.zibravdb` file from disk and decompresses it to a VDB sequence. It supports both animated VDB sequences and static VDB geometries.
+As a part of the [ZibraVDB for Houdini (Alpha)|https://effects.zibra.ai/zibravdbhoudini] plugin, this node combines the functionalities of the [Labs ZibraVDB Compress (Alpha) SOP|Node:sop/labs--rop_zibravdb_compress-0.2] and the [Labs ZibraVDB Decompress (Alpha) SOP|Node:sop/labs--zibravdb_decompress-0.2]. It can compress/decompress both animated VDB sequences and static VDB geometries.
 
-The compression often achieves up to 97–99% reduction in VDB file size with minimal quality loss. The compression rate is adjustable for each VDB field, providing independent control over the quality and memory footprint of density, temperature, flame, and other standard or custom fields. Up to 8 float fields can be compressed simultaneously.
+Similar to the [File Cache SOP|Node:sop/filecache], this node operates in two modes: 
+* Caching mode: Compresses a VDB sequence and caches it to disk as a single  `.zibravdb` file.
+* Loading mode: Loads a single `.zibravdb` file from disk and decompresses it as a VDB sequence.
+
+The compression often achieves up to 97–99% reduction in VDB file size with minimal quality loss. The compression rate is adjustable for each VDB field, providing independent control over the quality and memory footprint of `density`, `temperature`, `flame`, and other standard or custom fields. Up to 8 float fields can be compressed simultaneously.
+
+When reading back from disk, the entire sequence is loaded at once, with frames decompressed on demand using a frame index parameter. This significantly speeds up playback for high-resolution VDBs by eliminating the need to load one frame from disk at a time. Additionally, the total size of the data to be loaded is much smaller. The decompression occurs on the GPU and is extremely fast.
 
 TIP:
     You may also compress SDF VDBs indirectly. Convert SDF VDBs to Fog VDBs before compression and back to SDF VDBs after decompression using the [Convert VDB SOP|Node:/sop/convertvdb].
 
 NOTE:
-    Vector VDBs currently cannot be compressed. This feature will be supported in the future. In the meantime, you can split vector VDBs to float VDBs using the [VDB Vector Split SOP|Node:/sop/vdbvectorsplit] before compression. After decompression, merge the float VDBs back to vector VDBs using [VDB Vector from Scalar|Node:/sop/vdbvectormerge]. Please note that compressing vectors is not exactly the same as compressing vector components independently, so this current workaround may yield unexpected results.
+    Vector VDBs currently cannot be compressed. This feature will be supported in the future. In the meantime, you can split vector VDBs to float VDBs using the [VDB Vector Split SOP|Node:/sop/vdbvectorsplit] before compression. After decompression, merge the float VDBs back to vector VDBs using the [VDB Vector from Scalar SOP|Node:/sop/vdbvectormerge]. Please note that compressing vectors is not exactly the same as compressing vector components independently, so this current workaround may yield unexpected results.
 
 :platform:Windows
-    ZibraVDB for Houdini is currently only supported on Windows.
+    ZibraVDB for Houdini (Alpha) is currently only supported on Windows.
 
 
 :include /nodes/out/labs--zibravdb_compress-0.2#gettingready:
@@ -36,55 +42,55 @@ NOTE:
 
     Load from Disk:
         #id: loadfromdisk
-        When this is on, the node reads its output from the compressed `.zibravdb` file, rather than output its input. When you click __Save to Disk__ or __Save to Disk in Background__ (on the Caching tab) to compress VDB sequence to `.zibravdb` file, the node automatically turns this checkbox on.
+        If on, loads and decompresses the `.zibravdb` file specified in __File__ instead of cooking the input geometry.
 
     :include /nodes/sop/labs--zibravdb_decompress-0.2#refresh:
     
     File:
         #id: file
-        Path to the `.zibravdb` file VDB sequence will be compessed to. The node automatically creates missing directories in the path.
+        The file path which the compressed VDB geometry will be saved to or loaded from. The file extension must be `.zibravdb`. During caching, any missing directories in the path will be automatically created.
 
-    == Caching ==
+    == Caching == (caching)
 
     ~~~ Cache ~~~
 
-    :include /nodes/sop/labs--rop_zibravdb_compress-0.2#execute:
+    :include /nodes/out/labs--zibravdb_compress-0.2#execute:
     
-    :include /nodes/sop/labs--rop_zibravdb_compress-0.2#executebackground:
+    :include /nodes/out/labs--zibravdb_compress-0.2#executebackground:
     
     ~~~ Sequence ~~~
 
-    :include /nodes/sop/labs--rop_zibravdb_compress-0.2#trange:
-
-    :include /nodes/sop/labs--rop_zibravdb_compress-0.2#f:
+    :include /nodes/out/labs--zibravdb_compress-0.2#trange:
+    
+    :include /nodes/out/labs--zibravdb_compress-0.2#f:
  
-    == Save Filters ==
+    == Save Filters == (savefilters)
 
     Delete Attributes:
         #id: deleteattributes
-        A space separated list of attributes to delete from the VDB before compressing it. The names will match at primitive and detail level.
+        The list of attributes to delete before compression and caching. Separate multiple attributes with spaces. This list applies to all attribute classes.
     
     Delete Groups:
         #id: deletegroups
-        A space separated list of groups to delete from the VDB before compressing it.
+        The list of groups to delete before compression and caching. Separate multiple groups with spaces. This list applies to all group types.
     
     Number of Casts:
         #id: numcasts
-        If you know you don’t need full precision for certain attributes in the input, this multi-parm lets you convert the attributes to lower-precision types before saving the geometry. Set the number or click the plus or minus buttons to set the number of conversions to do.
+        The number of attribute casts to perform before compression and caching. Each combination of attribute class and precision requires a separate multiparm entry.
     
     Class:
         #id: class#
-        In a “cast” multiparm instance, the level (vertex, point, primitive, or detail) of the attribute(s) you want to convert to lower precision to save space.
+        The class of attributes to cast to the specified precision.
     
     Attributes:
         #id: attribs#
-        In a “cast” multiparm instance, a space-separated list of attributes at the given level (set by the Class parameter above) you want to convert to lower precision to save space.
+        The list of attributes to cast to the specified precision. Separate multiple attributes with spaces.
     
     Precision:
         #id: precision#
-        In a “cast” multiparm instance, the precision to convert the matching attributes down to, to save space.
+        The target precision for the attributes.
     
-    == Compression Settings ==
+    == Compression Settings == (compressionsettings)
 
     :include /nodes/sop/labs--rop_zibravdb_compress-0.2#quality:
 
@@ -96,33 +102,23 @@ NOTE:
 
     :include /nodes/sop/labs--rop_zibravdb_compress-0.2#perchquality#:
 
-    == Advanced ==
+    == Advanced == (advanced)
 
     ~~~ Save ~~~
 
-    Render with Take:
-        #id: take
-        Uses the settings in a particular take while rendering. Choose Current to use the current take when rendering.
+    :include /nodes/out/labs--zibravdb_compress-0.2#take:
 
     ~~~ Scripts ~~~
 
-    Pre-Render Script:
-        #id: prerender
-        Run this script before any rendering.
+    :include /nodes/out/labs--zibravdb_compress-0.2#prerender:
 
-    Pre-Frame Script:
-        #id: preframe
-        Run this script before each frame.
+    :include /nodes/out/labs--zibravdb_compress-0.2#preframe:
 
-    Post-Frame Script:
-        #id: postframe
-        Run this script after each frame.
+    :include /nodes/out/labs--zibravdb_compress-0.2#postframe:
 
-    Post-Render Script:
-        #id: postrender
-        Run this script after all rendering.
+    :include /nodes/out/labs--zibravdb_compress-0.2#postrender:
 
-    :include /nodes/sop/labs--rop_zibravdb_compress-0.2#downloadlibrary:
+    :include /nodes/out/labs--zibravdb_compress-0.2#downloadlibrary:
 
 
 @examples

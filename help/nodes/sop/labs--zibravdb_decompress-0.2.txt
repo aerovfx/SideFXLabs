@@ -6,13 +6,15 @@
 
 = Labs ZibraVDB Decompress (Alpha) =
 
-"""Loads a single `.zibravdb` file from disk and decompresses it to a VDB sequence."""
+"""Loads a single `.zibravdb` file from disk and decompresses it as a VDB sequence."""
 
 
-As a part of the [ZibraVDB for Houdini|https://effects.zibra.ai/zibravdbhoudini] plugin, this node loads a single, highly compressed `.zibravdb` file from disk and decompresses it to a VDB sequence. It supports both animated VDB sequences and static VDB geometries.
+As a part of the [ZibraVDB for Houdini (Alpha)|https://effects.zibra.ai/zibravdbhoudini] plugin, this node loads a single, highly compressed `.zibravdb` file from disk. The file may contain either a single frame or a frame sequence of VDB geometry. In both cases, the entire sequence is loaded at once, with frames decompressed on demand using a frame index parameter.
+
+This significantly speeds up playback for high-resolution VDBs by eliminating the need to load one frame from disk at a time. Additionally, the total size of the data to be loaded is much smaller. The decompression occurs on the GPU and is extremely fast.
 
 :platform:Windows
-    ZibraVDB for Houdini is currently only supported on Windows.
+    ZibraVDB for Houdini (Alpha) is currently only supported on Windows.
 
 
 :include /nodes/out/labs--zibravdb_compress-0.2#gettingready:
@@ -28,17 +30,17 @@ As a part of the [ZibraVDB for Houdini|https://effects.zibra.ai/zibravdbhoudini]
 
     Input File:
         #id: filename
-        Path to the `.zibravdb` file that will be decompresed.
+        The file path from which to load the compressed VDB geometry. The file extension must be `.zibravdb`.
 
-    Sequence frame:
+    Sequence Frame:
         #id: frame
-        Compresses VDB sequence to `.zibravdb` file and saves it to disk in background. 
+        The index of the frame to decompress and display. This differs from the original frame number, as the index starts at `0` and represents the frame's position in the sequence. For example, if your VDB sequence was originally cached from frame `1001` to `1240`, set this to `0` to decompress and display frame `1001`.
 
     Reload Cache:
         #id: refresh
-        Force a reload of the `.zibravdb` file from disk and decompress needed frame again.
+        Forces a reload of the `.zibravdb` file from disk and refreshes the decompressed frame.
 
-    :include /nodes/sop/labs--rop_zibravdb_compress-0.2#downloadlibrary:
+    :include /nodes/out/labs--zibravdb_compress-0.2#downloadlibrary:
 
 
 @examples

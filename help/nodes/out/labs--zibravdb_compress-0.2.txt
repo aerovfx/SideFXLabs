@@ -9,18 +9,18 @@
 """Compresses a VDB sequence and caches it to disk as a single  `.zibravdb` file."""
 
 
-As a part of the [ZibraVDB for Houdini|https://effects.zibra.ai/zibravdbhoudini] plugin, this node caches a VDB sequence to disk as a single, highly compressed `.zibravdb` file. It supports both animated VDB sequences and static VDB geometries.
+As a part of the [ZibraVDB for Houdini (Alpha)|https://effects.zibra.ai/zibravdbhoudini] plugin, this node caches a VDB sequence to disk as a single, highly compressed `.zibravdb` file. It can compress both animated VDB sequences and static VDB geometries.
 
-The compression often achieves up to 97–99% reduction in VDB file size with minimal quality loss. The compression rate is adjustable for each VDB field, providing independent control over the quality and memory footprint of density, temperature, flame, and other standard or custom fields. Up to 8 float fields can be compressed simultaneously.
+The compression often achieves up to 97–99% reduction in VDB file size with minimal quality loss. The compression rate is adjustable for each VDB field, providing independent control over the quality and memory footprint of `density`, `temperature`, `flame`, and other standard or custom fields. Up to 8 float fields can be compressed simultaneously.
 
 TIP:
     You may also compress SDF VDBs indirectly. Convert SDF VDBs to Fog VDBs before compression and back to SDF VDBs after decompression using the [Convert VDB SOP|Node:/sop/convertvdb].
 
 NOTE:
-    Vector VDBs currently cannot be compressed. This feature will be supported in the future. In the meantime, you can split vector VDBs to float VDBs using the [VDB Vector Split SOP|Node:/sop/vdbvectorsplit] before compression. After decompression, merge the float VDBs back to vector VDBs using [VDB Vector from Scalar|Node:/sop/vdbvectormerge]. Please note that compressing vectors is not exactly the same as compressing vector components independently, so this current workaround may yield unexpected results.
+    Vector VDBs currently cannot be compressed. This feature will be supported in the future. In the meantime, you can split vector VDBs to float VDBs using the [VDB Vector Split SOP|Node:/sop/vdbvectorsplit] before compression. After decompression, merge the float VDBs back to vector VDBs using the [VDB Vector from Scalar SOP|Node:/sop/vdbvectormerge]. Please note that compressing vectors is not exactly the same as compressing vector components independently, so this current workaround may yield unexpected results.
 
 :platform:Windows
-    ZibraVDB for Houdini is currently only supported on Windows.
+    ZibraVDB for Houdini (Alpha) is currently only supported on Windows.
 
 
 == Getting Ready == (gettingready)
@@ -29,7 +29,7 @@ NOTE:
 
 For the plugin to function, Houdini must be able to locate a valid ZibraVDB license on your machine.
 # Please read the [ZibraVDB Terms of Service|https://effects.zibra.ai/vdb-terms-of-services-trial].
-# Visit [ZibraVDB for Houdini Alpha|https://effects.zibra.ai/zibravdbhoudini] to request a trial license.
+# Visit [ZibraVDB for Houdini (Alpha)|https://effects.zibra.ai/zibravdbhoudini] to request a trial license.
 # After receiving your license key, create a text file in a directory of your choosing and name it `zibravdb_license_key.txt`. Paste your license key into this text file and save it.
 # Set up a Houdini [environment variable|https://www.sidefx.com/docs/houdini/basics/config_env.html#setting-environment-variables] named `ZIBRAVDB_LICENSE_KEY` and assign it the path to your license key file.
 
@@ -38,15 +38,14 @@ TIP:
 
     `ZIBRAVDB_LICENSE_KEY = C:/Users/.../Documents/houdini20.5/zibra/zibravdb_license_key.txt`
 
-    You may also use the [package mechanism|https://www.sidefx.com/docs/houdini/ref/plugins.html] for setting environment variables. 
-
+    You may also use the [package mechanism|https://www.sidefx.com/docs/houdini/ref/plugins.html] to set environment variables.
 
 === Download ZibraVDB Core Library ===
 
-The plugin also requires the ZibraVDB core library on the back end. (This library and its source code are proprietary to Zibra AI and, therefore, are not included directly in the SideFX Labs package.) The plugin has a built-in method to download this core library, which only needs to be done once.
+The plugin also requires the ZibraVDB core library on the back end. (This library and its source code are proprietary to Zibra AI and, therefore, are not included directly in the open-source SideFX Labs package.) The plugin has a built-in method to download this core library, which only needs to be done once (per working environment).
 # Press the __Download Library__ button on any ZibraVDB node.
 # In the pop-up window, confirm that you accept the [ZibraVDB Terms of Service|https://effects.zibra.ai/vdb-terms-of-services-trial] to proceed.
-# The download occurs in the background and typically completes within a few seconds.
+# The download will occur in the background and will typically complete within a few seconds.
 # A second pop-up window will appear once the download is finished. The core library, `ZibraVDBHoudiniBridge.dll`, will be saved to `$HOUDINI_USER_PREF_DIR/zibra/X_Y/`. Alternatively, if the [site-specific directory|https://www.sidefx.com/docs/houdini/basics/config.html#path] `$HSITE` is set, it will be saved to `$HSITE/zibra/X_Y/`.
 
 
@@ -74,75 +73,75 @@ You can also contact [SideFX Support|https://www.sidefx.com/support-programs/] a
 
     Render to Disk:
         #id: execute
-        Compresses VDB sequence to `.zibravdb` file and saves it to disk. 
+        Compresses the VDB geometry and saves it to disk.
 
     Background Render:
         #id: executebackground
-        Compresses VDB sequence to `.zibravdb` file and saves it to disk in background. 
+        In a separate background process, compresses the VDB geometry and saves it to disk. This allows you to continue working in the current Houdini session.
 
     Controls...:
         #id: renderdialog
-        Opens the control dialog to allow adjustments of the render parameters before rendering.
+        Opens a dialog that allows you to launch a one-time render with different frame range and dependency settings.
 
     Valid Frame Range:
         #id: trange
-        Specifies whether to compress VDB in the frame range or a single frame.
+        Specifies whether to compress and render a single frame or a frame sequence of VDB geometry.
     
     Start/End/Inc:
         #id: f
-        Specifies the range of frames to render (start frame, end frame, and increment). All values may be floating point values. The range is inclusive.
+        The start frame (inclusive), end frame (inclusive) and frame increment, when __Valid Frame Range__ is "Render Frame Range" or "Render Frame Range Only (Strict)".
     
     Render with Take:
         #id: take
-        Uses the settings in a particular take while rendering. Choose Current to use the current take when rendering.
+        Specifies which [take|/basics/takes] to render with.
 
     SOP Path:
         #id: soppath
-        The path to the SOP node with the VDB data to compress.
+        The path to the SOP node that outputs the VDB geometry to compress and save to disk.
     
     Out File:
         #id: filename
-        Path to the `.zibravdb` file VDB sequence will be compessed to. The node automatically creates missing directories in the path.
+        The file path where the compressed VDB geometry will be saved. The file extension must be `.zibravdb`. Any missing directories in the path will be automatically created.
 
     Quality:
         #id: quality
-        Specifies quality of the compressed effect. The lower quality is the higher compression rate will be.
+        The output quality of the compressed VDB geometry. Higher values result in fewer artifacts but larger file sizes. The file size increases exponentially as this value increases.
 
     Use Per Channel Settings:
         #id: useperchsettings
-        Allows to specify different compression quality for each channel.
+        If on, you can override the output quality of individual channels (i.e. fields), such as `density`, `temperature`, `flame`, etc. Any channel not specified below will still use the value of __Quality__.
 
     Number of Channels:
         #id: perch_settings
-        Allows to specify number of overrides for compression quality per channel. Not specified channels will use value from __Quality__ parameter.
+        The number of channels (i.e. fields) to override.
 
     Channel Name:
         #id: perchname#
-        Name of the channel that will have custom compression settings.
+        The name of the channel (i.e. field) to override.
 
     Channel Quality:
         #id: perchquality#
-        Specifies compression Quality for the specific channel. 
+        The output quality of the compressed VDB geometry for the specified channel (i.e. field). This overrides the value of __Quality__ for this particular channel.
 
     Pre-Render Script:
         #id: prerender
-        Run this script before any rendering.
+        The script to run before any rendering.
 
     Pre-Frame Script:
         #id: preframe
-        Run this script before each frame.
+        The script to run before each frame.
 
     Post-Frame Script:
         #id: postframe
-        Run this script after each frame.
+        The script to run after each frame.
 
     Post-Render Script:
         #id: postrender
-        Run this script after all rendering.
+        The script to run after all rendering.
 
     Download Library:
         #id: downloadlibrary
-        Downloads the core library for ZibraVDB. You need to press this button when using ZibraVDB for the first time.
+        Downloads the core library for all ZibraVDB nodes. You only need to press this once (per working environment).
 
    
 @examples

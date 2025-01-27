@@ -9,18 +9,18 @@
 """Compresses a VDB sequence and caches it to disk as a single  `.zibravdb` file."""
 
 
-As a part of the [ZibraVDB for Houdini|https://effects.zibra.ai/zibravdbhoudini] plugin, this node caches a VDB sequence to disk as a single, highly compressed `.zibravdb` file. It supports both animated VDB sequences and static VDB geometries.
+As a part of the [ZibraVDB for Houdini (Alpha)|https://effects.zibra.ai/zibravdbhoudini] plugin, this node caches a VDB sequence to disk as a single, highly compressed `.zibravdb` file. It can compress both animated VDB sequences and static VDB geometries.
 
-The compression often achieves up to 97–99% reduction in VDB file size with minimal quality loss. The compression rate is adjustable for each VDB field, providing independent control over the quality and memory footprint of density, temperature, flame, and other standard or custom fields. Up to 8 float fields can be compressed simultaneously.
+The compression often achieves up to 97–99% reduction in VDB file size with minimal quality loss. The compression rate is adjustable for each VDB field, providing independent control over the quality and memory footprint of `density`, `temperature`, `flame`, and other standard or custom fields. Up to 8 float fields can be compressed simultaneously.
 
 TIP:
     You may also compress SDF VDBs indirectly. Convert SDF VDBs to Fog VDBs before compression and back to SDF VDBs after decompression using the [Convert VDB SOP|Node:/sop/convertvdb].
 
 NOTE:
-    Vector VDBs currently cannot be compressed. This feature will be supported in the future. In the meantime, you can split vector VDBs to float VDBs using the [VDB Vector Split SOP|Node:/sop/vdbvectorsplit] before compression. After decompression, merge the float VDBs back to vector VDBs using [VDB Vector from Scalar|Node:/sop/vdbvectormerge]. Please note that compressing vectors is not exactly the same as compressing vector components independently, so this current workaround may yield unexpected results.
+    Vector VDBs currently cannot be compressed. This feature will be supported in the future. In the meantime, you can split vector VDBs to float VDBs using the [VDB Vector Split SOP|Node:/sop/vdbvectorsplit] before compression. After decompression, merge the float VDBs back to vector VDBs using the [VDB Vector from Scalar SOP|Node:/sop/vdbvectormerge]. Please note that compressing vectors is not exactly the same as compressing vector components independently, so this current workaround may yield unexpected results.
 
 :platform:Windows
-    ZibraVDB for Houdini is currently only supported on Windows.
+    ZibraVDB for Houdini (Alpha) is currently only supported on Windows.
 
 
 :include /nodes/out/labs--zibravdb_compress-0.2#gettingready:
@@ -34,73 +34,39 @@ NOTE:
 
 @parameters
 
-    Render to Disk:
-        #id: execute
-        Compresses VDB sequence to `.zibravdb` file and saves it to disk. 
+    :include /nodes/out/labs--zibravdb_compress-0.2#execute:
 
-    Background Render:
-        #id: executebackground
-        Compresses VDB sequence to `.zibravdb` file and saves it to disk in background. 
+    :include /nodes/out/labs--zibravdb_compress-0.2#executebackground:
 
-    Controls...:
-        #id: renderdialog
-        Opens the control dialog to allow adjustments of the render parameters before rendering.
-
-    Valid Frame Range:
-        #id: trange
-        Specifies whether to compress VDB in the frame range or a single frame.
+    :include /nodes/out/labs--zibravdb_compress-0.2#renderdialog:
     
-    Start/End/Inc:
-        #id: f
-        Specifies the range of frames to render (start frame, end frame, and increment). All values may be floating point values. The range is inclusive.
+    :include /nodes/out/labs--zibravdb_compress-0.2#trange:
     
-    Render with Take:
-        #id: take
-        Uses the settings in a particular take while rendering. Choose Current to use the current take when rendering.
+    :include /nodes/out/labs--zibravdb_compress-0.2#f:
     
-    Out File:
-        #id: filename
-        Path to the `.zibravdb` file VDB sequence will be compessed to. The node automatically creates missing directories in the path.
+    :include /nodes/out/labs--zibravdb_compress-0.2#take:
 
-    Quality:
-        #id: quality
-        Specifies quality of the compressed effect. The lower quality is the higher compression rate will be.
+    :include /nodes/out/labs--zibravdb_compress-0.2#filename:
 
-    Use Per Channel Settings:
-        #id: useperchsettings
-        Allows to specify different compression quality for each channel.
+    :include /nodes/out/labs--zibravdb_compress-0.2#quality:
 
-    Number of Channels:
-        #id: perch_settings
-        Allows to specify number of overrides for compression quality per channel. Not specified channels will use value from __Quality__ parameter.
+    :include /nodes/out/labs--zibravdb_compress-0.2#useperchsettings:
 
-    Channel Name:
-        #id: perchname#
-        Name of the channel that will have custom compression settings.
+    :include /nodes/out/labs--zibravdb_compress-0.2#perch_settings:
 
-    Channel Quality:
-        #id: perchquality#
-        Specifies compression Quality for the specific channel. 
+    :include /nodes/out/labs--zibravdb_compress-0.2#perchname#:
 
-    Pre-Render Script:
-        #id: prerender
-        Run this script before any rendering.
+    :include /nodes/out/labs--zibravdb_compress-0.2#perchquality#:
 
-    Pre-Frame Script:
-        #id: preframe
-        Run this script before each frame.
+    :include /nodes/out/labs--zibravdb_compress-0.2#prerender:
 
-    Post-Frame Script:
-        #id: postframe
-        Run this script after each frame.
+    :include /nodes/out/labs--zibravdb_compress-0.2#preframe:
 
-    Post-Render Script:
-        #id: postrender
-        Run this script after all rendering.
+    :include /nodes/out/labs--zibravdb_compress-0.2#postframe:
 
-    Download Library:
-        #id: downloadlibrary
-        Downloads the core library for ZibraVDB. You need to press this button when using ZibraVDB for the first time.
+    :include /nodes/out/labs--zibravdb_compress-0.2#postrender:
+
+    :include /nodes/out/labs--zibravdb_compress-0.2#downloadlibrary:
 
    
 @examples
