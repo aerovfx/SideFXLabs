@@ -26,6 +26,7 @@
             type    button
             joinnext
             default { "0" }
+            help    "Writes Spline data into a Json File"
             disablewhen "{ import_spline == 1 }"
             parmtag { "script_callback" "hou.phm().export(kwargs)" }
             parmtag { "script_callback_language" "python" }
@@ -35,6 +36,7 @@
             label   "Import"
             type    toggle
             default { "0" }
+            help    "Import Splines from Json File"
             parmtag { "script_callback_language" "python" }
         }
         parm {
@@ -42,6 +44,7 @@
             label   "File Path"
             type    file
             default { "$HIP/export/$OS.json" }
+            help    "Splines Json File Path"
             disablewhen "{ enablemesh == 0 }"
             range   { 0 1 }
         }
@@ -50,82 +53,22 @@
             label   "Tag Primitive Numbers"
             type    toggle
             default { "1" }
-            disablewhen "{ import_spline == 1 } { mode == 1 }"
+            help    "Writes the Prim Numbers in the tags for each spline"
+            disablewhen "{ import_spline == 1 }"
             range   { 0 10 }
             parmtag { "autoscope" "0000000000000000" }
             parmtag { "script_callback_language" "python" }
         }
         parm {
-            name    "sepparm8"
-            label   "Separator"
-            type    separator
-            default { "" }
-        }
-        parm {
-            name    "visualize_geo"
-            label   "Visualize Spline"
+            name    "convert"
+            label   "Convert to Polygon"
             type    toggle
             default { "0" }
+            help    "Converting to Polygons does not export the polyon data, this is only for visualization"
             range   { 0! 10 }
             parmtag { "autoscope" "0000000000000000" }
             parmtag { "script_callback_language" "python" }
         }
-        groupsimple {
-            name    "visualize"
-            label   "Visualize"
-            disablewhentab "{ visualize_geo == 0 }"
-            hidewhentab "{ visualize_geo == 0 }"
-            grouptag { "sidefx::look" "blank" }
-
-            parm {
-                name    "mode"
-                label   "Mode"
-                type    ordinal
-                joinnext
-                default { "0" }
-                disablewhen "{ visualize_geo == 0 }"
-                menu {
-                    "a" "Arrow"
-                    "b" "Box"
-                    "c" "Sweep"
-                    "d" "Spline"
-                }
-                range   { 0! 10 }
-                parmtag { "autoscope" "0000000000000000" }
-                parmtag { "script_callback_language" "python" }
-            }
-            parm {
-                name    "handles"
-                label   "Handles"
-                type    toggle
-                default { "1" }
-                disablewhen "{ visualize_geo == 0 }"
-                range   { 0! 10 }
-                parmtag { "autoscope" "0000000000000000" }
-                parmtag { "script_callback_language" "python" }
-            }
-            parm {
-                name    "s"
-                label   "Scale"
-                type    vector
-                size    3
-                default { "1" "1" "1" }
-                disablewhen "{ visualize_geo == 0 }"
-                range   { 0.0001 20 }
-                parmtag { "autoscope" "1110000000000000" }
-            }
-            parm {
-                name    "resample"
-                label   "Resample"
-                type    float
-                default { "0.1" }
-                disablewhen "{ visualize_geo == 0 }"
-                range   { 0.0001! 2 }
-                parmtag { "autoscope" "0000000000000000" }
-                parmtag { "units" "m1" }
-            }
-        }
-
         parm {
             name    "sepparm7"
             label   "Separator"
@@ -137,76 +80,8 @@
             label   "Unreal Engine Content Plugin and Guides"
             type    button
             default { "0" }
+            help    "Unreal Engine Labs Blueprints"
             parmtag { "script_callback" "node = kwargs[\"node\"]; from labsopui import labs_explore; labs_explore.path(kwargs[\"node\"], \"%s/unreal/4.26\" % hou.getenv(\"SIDEFXLABS\"))" }
-            parmtag { "script_callback_language" "python" }
-        }
-    }
-
-    groupcollapsible {
-        name    "file_1"
-        label   "Scale And Rotation"
-        disablewhentab "{ import_spline == 1 }"
-
-        parm {
-            name    "global_scale"
-            label   "Global Scale"
-            type    float
-            default { "1" }
-            range   { 1e-06! 10 }
-            parmtag { "autoscope" "0000000000000000" }
-            parmtag { "script_callback_language" "python" }
-        }
-        parm {
-            name    "ramp_scale"
-            label   "Ramp Scale"
-            type    ramp_flt
-            default { "2" }
-            range   { 1! 10 }
-            parmtag { "autoscope" "0000000000000000" }
-            parmtag { "rampfloatdefault" "1pos ( 0 ) 1value ( 1 ) 1interp ( linear ) 2pos ( 1 ) 2value ( 1 ) 2interp ( linear )" }
-            parmtag { "script_callback_language" "python" }
-        }
-        parm {
-            name    "sepparm10"
-            label   "Separator"
-            type    separator
-            default { "" }
-        }
-        parm {
-            name    "roll"
-            label   "Roll"
-            type    float
-            default { "0" }
-            range   { -180 180 }
-            parmtag { "autoscope" "0000000000000000" }
-            parmtag { "script_callback_language" "python" }
-        }
-        parm {
-            name    "incroll"
-            label   "Partial Twist"
-            type    float
-            default { "0" }
-            range   { -180 180 }
-            parmtag { "autoscope" "0000000000000000" }
-            parmtag { "script_callback_language" "python" }
-        }
-        parm {
-            name    "fulltwists"
-            label   "Full Twists"
-            type    integer
-            default { "0" }
-            range   { -2 2 }
-            parmtag { "autoscope" "0000000000000000" }
-            parmtag { "script_callback_language" "python" }
-        }
-        parm {
-            name    "orient_up"
-            label   "Orient Up"
-            type    ramp_flt
-            default { "2" }
-            range   { 1! 10 }
-            parmtag { "autoscope" "0000000000000000" }
-            parmtag { "rampfloatdefault" "1pos ( 0 ) 1value ( 1 ) 1interp ( linear ) 2pos ( 1 ) 2value ( 1 ) 2interp ( linear )" }
             parmtag { "script_callback_language" "python" }
         }
     }
