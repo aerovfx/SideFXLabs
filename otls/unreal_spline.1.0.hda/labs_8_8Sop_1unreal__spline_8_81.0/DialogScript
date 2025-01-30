@@ -60,16 +60,6 @@
             parmtag { "script_callback_language" "python" }
         }
         parm {
-            name    "convert"
-            label   "Convert to Polygon"
-            type    toggle
-            default { "0" }
-            help    "Converting to Polygons does not export the polyon data, this is only for visualization"
-            range   { 0! 10 }
-            parmtag { "autoscope" "0000000000000000" }
-            parmtag { "script_callback_language" "python" }
-        }
-        parm {
             name    "sepparm7"
             label   "Separator"
             type    separator
